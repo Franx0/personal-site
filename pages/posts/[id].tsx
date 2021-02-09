@@ -12,19 +12,21 @@ const PostShow: NextPage<object> = (post) => {
     return <PostDetail {...post} />
   else
     return <div>loading...</div>
-}
+};
 
-PostShow.getInitialProps = async ({ query }: any): Post => {
-  let post = {};
+PostShow.getInitialProps = async ({ query }: any): Promise<Post> => {
+  let post: Post;
+  let data: any;
 
   if(query.data) {
-    post = {...Object.fromEntries(new URLSearchParams(query.data))};
+    const data: any = Object.fromEntries(new URLSearchParams(query.data));
+    post = JSON.parse(Object.keys(data)[0]);
   } else {
     const data: any = await findPostBySlug(query.id);
     post = data.findPostBySlug;
-  }
+  };
 
   return {...post}
-}
+};
 
 export default PostShow

@@ -6,12 +6,16 @@ import { FunctionComponent } from 'react';
 import { LinkProps } from '@/interfaces/index';
 
 const LinkStyled: FunctionComponent<Props> = (props: LinkProps) => {
-  const { className, pathname, as, query, children } = {...props};
+  const { className, pathname, as, query, children, unauthorized } = {...props};
 
   return (
-    <Link passHref href={{ pathname: pathname, query: query }} as={as} >
-      <a>{children}</a>
-    </Link>
+    unauthorized ? (
+      <p>{children}</p>
+    ) : (
+      <Link passHref href={{ pathname: pathname, query: query }} as={as} >
+        <a>{children}</a>
+      </Link>
+    )
   )
 }
 

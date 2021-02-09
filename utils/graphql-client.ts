@@ -1,14 +1,16 @@
+// Graphql
 import { GraphQLClient } from 'graphql-request';
-import { stringify } from 'querystring';
+// Toast
+import { toast } from 'react-nextjs-toast';
 
 const endpoint = 'https://graphql.fauna.com/graphql';
 
-const graphQLClient = new GraphQLClient(endpoint, {
-  headers: {
-    authorization: `Bearer ${process.env.NEXT_PUBLIC_FAUNA_SECRET}`,
-    'X-Schema-Preview': 'partial-update-mutation'
-  },
-});
+const graphQLClient = new GraphQLClient(endpoint);
+
+graphQLClient.setHeaders({
+  authorization: `Bearer ${process.env.NEXT_PUBLIC_FAUNA_SECRET}`,
+  'X-Schema-Preview': 'partial-update-mutation'
+})
 
 export const fetcher = async (query: string, variables: any): Promise<void> => {
   try {
@@ -17,5 +19,6 @@ export const fetcher = async (query: string, variables: any): Promise<void> => {
     return response
   } catch (error) {
     console.error('ERROR: ', error);
+    toast.notify(error.message, { type: 'error' });
   }
 }

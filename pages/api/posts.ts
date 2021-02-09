@@ -1,16 +1,25 @@
 // Graphql
 import { gql } from 'graphql-request';
 import { fetcher } from '@/utils/graphql-client';
-// Hooks
-import useSWR from 'swr';
 
-export const AllPosts = () => {
-  return useSWR<any>(
+export const CREATE_POST = 'createPost';
+export const UPDATE_POST = 'updatePost';
+export const DELETE_POST = 'deletePost';
+
+const commentData: String = `data {
+                              _id
+                              body
+                              user
+                              createdAt
+                            }`;
+
+export const allPostsPublished = (size: number = 5, cursor?: string) => {
+  return fetcher(
     gql`
-      {
-        allPosts {
+      query AllPostsPublished($size: Int!, $cursor: String) {
+        allPostsPublished(_size: $size, _cursor: $cursor) {
           data {
-            id
+            _id
             title
             body
             slug
@@ -18,12 +27,40 @@ export const AllPosts = () => {
             createdAt
             updatedAt
             publishedAt
+            comments {${commentData}}
           }
+          before
+          after
         }
       }
     `,
-    fetcher
-  );
+    { size: size, cursor: cursor }
+  )
+};
+
+export const allPosts = (size: number = 5, cursor?: string) => {
+  return fetcher(
+    gql`
+      query AllPosts($size: Int!, $cursor: String) {
+        allPosts(_size: $size, _cursor: $cursor) {
+          data {
+            _id
+            title
+            body
+            slug
+            label
+            createdAt
+            updatedAt
+            publishedAt
+            comments {${commentData}}
+          }
+          before
+          after
+        }
+      }
+    `,
+    { size: size, cursor: cursor }
+  )
 };
 
 export const findPostBySlug = (slug: String) => {
@@ -31,13 +68,15 @@ export const findPostBySlug = (slug: String) => {
     gql`
       query FindPostBySlug($slug: String!) {
         findPostBySlug(slug: $slug) {
-          id
+          _id
           title
           body
+          slug
           label
           createdAt
           updatedAt
           publishedAt
+          comments {${commentData}}
         }
       }
     `,
@@ -45,16 +84,78 @@ export const findPostBySlug = (slug: String) => {
   );
 };
 
-// mutation CreatePost  {
-//   createPost(
-//     data: {
-//       title: 'Post title'
-//       body: 'Post body'
-//       label: 'ruby'
-//       slug: 'post-title'
-//       createdAt: '2021-01-15T12:05:28.700Z'
-//       updatedAt: '2021-01-15T12:05:28.700Z'
-//       publishedAt: '2021-01-15T12:05:28.700Z'
-//     }
+export const handlePost = (action: string, data: any = {}, id?: number) => {
+  let postData: string = '';
+  let queryData: string = '';
+
+  if(action === CREATE_POST) {
+    queryData = `$title: String!, $body: String!, $slug: String!, $label: String,
+                 $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
+    postData = `data: {
+                  title: $title
+                  body: $body
+                  label: $label
+                  slug: $slug
+                  createdAt: $createdAt
+                  updatedAt: $updatedAt
+                  publishedAt: $publishedAt
+                }`;
+  };
+
+  if(action === UPDATE_POST) {
+    queryData = `$id: ID!, $title: String!, $body: String!, $slug: String!, $label: String,
+                 $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
+    postData = `id: $id,
+                data: {
+                  title: $title
+                  body: $body
+                  label: $label
+                  slug: $slug
+                  createdAt: $createdAt
+                  updatedAt: $updatedAt
+                  publishedAt: $publishedAt
+                }`;
+  };
+
+  if(action === DELETE_POST) {
+    queryData = `$id: ID!`;
+    postData = `id: $id`;
+  };
+
+
+  const response = fetcher(
+    gql`
+      mutation ${action.capitalize()}(${queryData}) {
+        ${action}(${postData}) {
+          _id
+          title
+          body
+          slug
+          label
+          createdAt
+          updatedAt
+          publishedAt
+        }
+      }
+    `,
+    { ...data, id: id }
+  );
+
+  return response
+};
+
+// published_posts
+// Query(
+//   Lambda(
+//     "data",
+//     Map(
+//       Paginate(
+//         Difference(
+//           Match(Index("allPosts")),
+//           Match(Index("allPosts_by_publishedAt"), "undefined")
+//         )
+//       ),
+//       Lambda("post", Get(Var("post")))
+//     )
 //   )
-// }
+// )

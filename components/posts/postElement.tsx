@@ -1,13 +1,17 @@
 // React
 import { FunctionComponent } from 'react';
-// Nextjs
+// Components
 import LinkStyled from '@/components/shared/link';
 // Interfaces
 import { Post } from '@/interfaces/index';
 
+type Props ={
+  postData: Post
+};
+
 const PostElement: FunctionComponent<Props> = (data: any) => {
   const { title, body, createdAt, slug }: Post = {...data.postData};
-  const queryData = new URLSearchParams(data.postData).toString();
+  const queryData = JSON.stringify(data.postData);
 
   return(
     <div>
