@@ -1,11 +1,13 @@
 // Nextjs
 import { NextPage } from 'next';
 // Pages
-import { findPostBySlug } from '@/pages/api/posts';
+import { findPostBySlugPublishedAt } from '@/pages/api/posts';
 // Components
 import PostDetail from '@/components/posts/postDetail';
 // Interfaces
 import { Post } from '@/interfaces/index';
+// Utils
+import { redirectTo } from '@/utils/index';
 
 const PostShow: NextPage<object> = (post) => {
   if(Object.entries(post).length)
@@ -14,16 +16,19 @@ const PostShow: NextPage<object> = (post) => {
     return <div>loading...</div>
 };
 
-PostShow.getInitialProps = async ({ query }: any): Promise<Post> => {
+PostShow.getInitialProps = async (ctx: any): Promise<Post> => {
   let post: Post;
   let data: any;
 
-  if(query.data) {
-    const data: any = Object.fromEntries(new URLSearchParams(query.data));
+  if(ctx.query.data) {
+    const data: any = Object.fromEntries(new URLSearchParams(ctx.query.data));
     post = JSON.parse(Object.keys(data)[0]);
   } else {
-    const data: any = await findPostBySlug(query.id);
-    post = data.findPostBySlug;
+    const data: any = await findPostBySlugPublishedAt(ctx.query.id);
+    if(data?.errors?.length)
+      redirectTo(`${process.env.NEXT_PUBLIC_AUTH_URL}/404`, 302, undefined, ctx);
+    else
+      post = data.findPostBySlugByPublishedAt;
   };
 
   return {...post}

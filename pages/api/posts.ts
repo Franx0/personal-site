@@ -84,6 +84,27 @@ export const findPostBySlug = (slug: String) => {
   );
 };
 
+export const findPostBySlugPublishedAt = (slug: String) => {
+  return fetcher(
+    gql`
+      query FindPostBySlugByPublishedAt($slug: String!) {
+        findPostBySlugByPublishedAt(slug: $slug) {
+          _id
+          title
+          body
+          slug
+          label
+          createdAt
+          updatedAt
+          publishedAt
+          comments {${commentData}}
+        }
+      }
+    `,
+    { slug: slug }
+  );
+};
+
 export const handlePost = (action: string, data: any = {}, id?: number) => {
   let postData: string = '';
   let queryData: string = '';
@@ -152,10 +173,15 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
 //       Paginate(
 //         Difference(
 //           Match(Index("allPosts")),
-//           Match(Index("allPosts_by_publishedAt"), "undefined")
+//           Match(Index("allPostsByPublishedAt"), "undefined")
 //         )
 //       ),
 //       Lambda("post", Get(Var("post")))
 //     )
 //   )
+// )
+
+// published_post
+// Query(
+//   Lambda("slug", Get(Match(Index("findPostBySlugByPublishedAt"), Var("slug"))))
 // )

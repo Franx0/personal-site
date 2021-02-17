@@ -12,8 +12,8 @@ export const AuthWrapper = (Child, adminCheck): (NextPage | Component) => {
     static async getInitialProps(ctx) {
       const session = await getSession(ctx);
       const notAdmin = !isAdmin(session);
-      
-      if(session && adminCheck && notAdmin) redirectUnauthorized();
+
+      if(session && adminCheck && notAdmin) redirectUnauthorized(ctx);
 
       if(session && ctx) {
         if(Child.getInitialProps) return Child.getInitialProps(ctx)
@@ -22,7 +22,7 @@ export const AuthWrapper = (Child, adminCheck): (NextPage | Component) => {
 
         try {
           if(encodedURI) {
-            await redirectTo(encodedURI, 302);
+            await redirectTo(encodedURI, 302, undefined, ctx);
           } else {
             redirectUnauthorized();
           }

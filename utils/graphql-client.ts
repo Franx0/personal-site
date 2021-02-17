@@ -15,10 +15,13 @@ graphQLClient.setHeaders({
 export const fetcher = async (query: string, variables: any): Promise<void> => {
   try {
     const response = await graphQLClient.request(query, variables);
-    console.log('RESPONSE: ', response)
+    console.log('RESPONSE: ', response);
     return response
   } catch (error) {
     console.error('ERROR: ', error);
-    toast.notify(error.message, { type: 'error' });
+    if(typeof window !== 'undefined' && error.response.errors.length)
+      toast.notify(error.response.errors[0].message, { type: 'error' });
+
+    return error.response
   }
 }

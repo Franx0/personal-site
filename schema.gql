@@ -23,6 +23,7 @@ type Query {
   allPosts: [Post]
   allPostsPublished: [Post] @resolver(name: "published_posts", paginated: true)
   findPostBySlug(slug: String!): Post
+  findPostBySlugByPublishedAt(slug: String!): Post @resolver(name: "published_post")
 }
 
 type Mutation {

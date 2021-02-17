@@ -20,13 +20,13 @@ export const redirectTo = async ( path: string = '/',
                                   ctx: NextPageContext = null): Promise<any> => {
   // Server side checks
   try {
-    if(typeof window === 'undefined' && ctx) {
+    if(typeof window === 'undefined') {
       console.log('server redirect')
       ctx.res.writeHead(code, { Location: path });
-      ctx.res.end(query);
+      ctx.res.end();
     } else {
       console.log('client redirect')
-      Router.push(path, path, query);
+      Router.push(path, path);
       return
     }
     return {}
