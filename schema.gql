@@ -24,6 +24,7 @@ type Query {
   allPostsPublished: [Post] @resolver(name: "published_posts", paginated: true)
   findPostBySlug(slug: String!): Post
   findPostBySlugByPublishedAt(slug: String!): Post @resolver(name: "published_post")
+  allCommentsByUser: [Post]
 }
 
 type Mutation {

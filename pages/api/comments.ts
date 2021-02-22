@@ -21,7 +21,7 @@ export const deleteComments = (ids: Array<number>) => {
 export const handleComment = (action: string, data: any = {}, id?: number) => {
   let commentData: string = '';
   let queryData: string = '';
-  
+
   if(action === CREATE_COMMENT) {
     queryData = `$body: String!, $user: String!, $post: ID!,
                  $createdAt: String!`;
@@ -61,6 +61,26 @@ export const handleComment = (action: string, data: any = {}, id?: number) => {
   );
 
   return response
+};
+
+export const allCommentsByUser = (user: String) => {
+  return fetcher(
+    gql`
+      query AllCommentsByUser($user: String!) {
+        allCommentsByUser(user: $user) {
+          _id
+          body
+          createdAt
+          deletedAt
+          user
+          post {
+            slug
+          }
+        }
+      }
+    `,
+    { user: user }
+  );
 };
 
 // delete_comments
