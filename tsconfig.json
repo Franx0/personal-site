@@ -6,7 +6,9 @@
       "@/interfaces/*": ["interfaces/*"],
       "@/components/*": ["components/*"],
       "@/pages/*": ["pages/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/contexts/*": ["contexts/*"],
+      "@/icons/*": ["icons/*"]
     },
     "target": "es5",
     "lib": [

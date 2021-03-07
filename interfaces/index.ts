@@ -7,7 +7,18 @@ export type LinkProps = {
   as?: string,
   query?: any,
   unauthorized?: boolean,
-  children: FunctionComponent
+  children: FunctionComponent,
+  handleClick?: () => void
+}
+
+export type ButtonProps = {
+  className?: string,
+  color?: string,
+  textColor?: string,
+  text?: string,
+  type?: string,
+  children?: FunctionComponent,
+  handleClick?: () => void
 }
 
 export type Post = {
@@ -37,4 +48,22 @@ export type EditorProps = {
   editorOpts?: object,
   contentHtmlAtts?: object,
   handleChange?: (content: string) => void
+};
+
+export type IconProps = {
+  color?: string,
+  width?: string,
+  height?: string,
+  className?: string
+};
+
+export type ToogleProps = {
+  active: boolean,
+  width?: string | number,
+  height?: string | number,
+  easeRange?: string | number,
+  className?: string,
+  icon?: FunctionComponent,
+  iconClassName?: string,
+  handleClick?: () => void
 };

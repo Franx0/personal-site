@@ -15,6 +15,11 @@ Object.assign(String.prototype, {
   },
   hyphenate() {
     return this.uncamelize().replace(/ +/g, '-').toLowerCase();
+  },
+  titlelize() {
+    return this.toLowerCase().replace(/(?:^|[\s-/])\w/g, function (match) {
+        return match.toUpperCase();
+    }).replace('-', '');
   }
 });
 

@@ -10,11 +10,14 @@ import { allPosts, allPostsPublished } from '@/pages/api/posts';
 import PostList from '@/components/posts/postList';
 // Utils
 import { isAdmin } from '@/utils/index';
+// Context
+import { setPageTitle, setPageSearch } from '@/contexts/HeaderContext';
 
 const PostIndex: NextPage<NextPageContext> = () => {
   const [postResponse, setPostResponse] = useState(null);
   const [cursor, setCursor] = useState(null);
-  const [ session ] = useSession();
+  const [session] = useSession();
+  setPageTitle("Blog");
 
   useEffect(() => {
     isAdmin(session) ?
@@ -22,6 +25,8 @@ const PostIndex: NextPage<NextPageContext> = () => {
     :
       allPostsPublished(undefined, cursor).then((res: any) => setPostResponse(res.allPostsPublished))
   }, [cursor])
+
+  setPageSearch(postResponse?.data);
 
   if(postResponse)
     return (

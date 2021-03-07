@@ -1,17 +1,19 @@
 // Nextjs
 import { NextPageContext} from 'next';
 import Router from 'next/router';
+// Context
+import HeaderContext from "@/contexts/HeaderContext";
 
 export const isOwner = (session: any, owner: string): boolean => {
-  return session && ((process.env.NEXT_PUBLIC_ADMINS
-                    .split(",")
-                    .includes(session.user.email)) || (session.user.email === owner))
+  return session && session.user && ((process.env.NEXT_PUBLIC_ADMINS
+          .split(",")
+          .includes(session.user.email)) || (session.user.email === owner))
 };
 
 export const isAdmin = (session: any): boolean => {
-  return session && process.env.NEXT_PUBLIC_ADMINS
-                    .split(",")
-                    .includes(session.user.email)
+  return session && session.user && process.env.NEXT_PUBLIC_ADMINS
+          .split(",")
+          .includes(session.user.email)
 };
 
 export const redirectTo = async ( path: string = '/',

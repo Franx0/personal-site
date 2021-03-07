@@ -1,16 +1,61 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind colors;
+@import "./index.css";
+
+:root {
+  @apply light;
+}
+
+.dark {
+  --color-bg-primary: theme('colors.dark.grey.primary');
+  --color-bg-secondary: theme('colors.dark.grey.secondary');
+  --color-text-primary: theme('colors.dark.white.primary');
+  --color-text-secondary: theme('colors.dark.white.secondary');
+  --color-text-accent: theme('colors.dark.blue.accent');
+}
+
+.light {
+  --color-bg-primary: theme('colors.light.white.primary');
+  --color-bg-secondary: theme('colors.light.white.secondary');
+  --color-text-primary: theme('colors.light.grey.primary');
+  --color-text-secondary: theme('colors.light.grey.secondary');
+  --color-text-accent: theme('colors.light.blue.accent');
+}
+
+html {
+  @apply bg-white w-screen;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply bg-secondary w-screen h-screen;
+}
+
+header {
+  @apply bg-primary w-screen h-screen;
+}
+
+h1 {
+  @apply font-bold text-primary text-xl;
+}
+
+p {
+  @apply text-secondary;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply text-secondary font-semibold;
 }
 
-* {
-  box-sizing: border-box;
+a:hover {
+  @apply text-accent;
+}
+
+button {
+  @apply text-secondary font-semibold;
+}
+
+button:hover {
+  @apply text-accent;
 }
