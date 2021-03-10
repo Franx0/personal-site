@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   future: {},
   purge: [],
@@ -15,7 +17,7 @@ module.exports = {
           },
           blue: {
             accent: '#81e6d9'
-          }
+          },
         },
         light: {
           grey: {
@@ -27,7 +29,7 @@ module.exports = {
             secondary: '#edf2f7',
           },
           blue: {
-            accent: '#1e40af'
+            accent: '#1e40af',
           }
         }
       },

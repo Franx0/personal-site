@@ -7,13 +7,11 @@ import LinkStyled from '@/components/shared/link';
 import ButtonStyled from '@/components/shared/button';
 import Toogle from '@/components/shared/toogle';
 // Context
-import HeaderContext from "@/contexts/HeaderContext";
 import ThemeContext from "@/contexts/ThemeContext";
 // Icons
 import { ArrowBack, Hamburguer, Sun, Moon } from "@/icons/index";
 
 const Header: FunctionComponent<any> = () => {
-  const { title: { title }, search: { search } } = useContext(HeaderContext);
   const { theme, setTheme } = useContext(ThemeContext);
   const router = useRouter();
   const [menuState, setMenuState] = useState(false);
@@ -28,11 +26,11 @@ const Header: FunctionComponent<any> = () => {
       <div className="flex flex-grow flex-row">
         <nav className="md:flex flex-start justify-between mt-1 md:mt-0 mb-0 md:w-auto w-full">
           <div className="sm:flex md:hidden ml-2 md:mb-auto">
-            <button type="button" onClick={() => setMenuState(!menuState)}>
+            <button className="align-middle" type="button" onClick={() => setMenuState(!menuState)}>
               <Hamburguer />
             </button>
           </div>
-          <ul className={`relative overflow-hidden transition-all duration-700 md:flex md:h-auto ${menuState ? 'h-40 mt-6' : 'h-0'}`}>
+          <ul className={`relative overflow-hidden items-center transition-all duration-700 md:flex md:h-auto md:mt-0 ${menuState ? 'h-40 mt-6' : 'h-0'}`}>
             <li className="md:ml-1">
               <LinkStyled className="border-t-0 block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" pathname={"/posts"}>
                 <ButtonStyled text="Blog" />
@@ -49,17 +47,12 @@ const Header: FunctionComponent<any> = () => {
               </LinkStyled>
             </li>
           </ul>
-        </nav>
-        {search.length !== 0 &&
-          <form className="flex-center mb-4 w-full md:mb-0 md:w-1/4">
+          {/* <form className="absolute right-0 top-0 w-24 md:w-52 -mr-24 md:-mr-72">
             <label className="hidden" htmlFor="search-form">Search</label>
             <input className="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Search" type="text" />
             <button className="hidden">Submit</button>
-          </form>
-        }
-        {/* <div className="ml-auto flex-end mb-auto">
-
-        </div> */}
+          </form> */}
+        </nav>
         <div className="flex md:items-center flex-end mb-0 md:ml-auto ml-4 ">
           {(router.pathname !== '/') &&
             <LinkStyled handleClick={() => router.back()}>

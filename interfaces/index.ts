@@ -67,3 +67,11 @@ export type ToogleProps = {
   iconClassName?: string,
   handleClick?: () => void
 };
+
+export type LoaderProps = {
+  width?: string,
+  height?: string,
+  spinnerColor?: string,
+  spinnerBgColor?: string,
+  className?: string
+};

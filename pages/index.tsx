@@ -1,21 +1,13 @@
-// React
-import { useContext } from 'react';
 // Nextjs
-import Head from 'next/head';
 import type { NextPage } from 'next'
-// Context
-import HeaderContext from "@/contexts/HeaderContext";
+// Components
+import Layout from '@/components/Layout';
 
 const Home = ({}: NextPage) => {
-  const { title: { title } } = useContext(HeaderContext);
-  
   return (
-    <div>
-      <Head>
-        <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-    </div>
+    <Layout title="Me">
+      <p>Hello it's me!</p>
+    </Layout>
   )
 }
 

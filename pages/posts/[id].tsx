@@ -5,22 +5,21 @@ import { getSession } from 'next-auth/client';
 // Pages
 import { findPostBySlug, findPostBySlugPublishedAt } from '@/pages/api/posts';
 // Components
+import Layout from '@/components/Layout';
 import PostDetail from '@/components/posts/postDetail';
 // Interfaces
 import { Post } from '@/interfaces/index';
 // Utils
 import { redirectTo, isAdmin } from '@/utils/index';
-// Context
-import { setPageTitle, setPageSearch } from '@/contexts/HeaderContext';
 
 const PostShow: NextPage<object> = (post) => {
-  setPageTitle("Blog");
-  setPageSearch();
-
-  if(Object.entries(post).length)
-    return <PostDetail {...post} />
-  else
-    return <div>loading...</div>
+  return (
+    <Layout title={"Blog"} className="grid grid-cols-1">
+      {Object.entries(post).length ? (
+        <PostDetail {...post} />
+      ) : null }
+    </Layout>
+  )
 };
 
 PostShow.getInitialProps = async (ctx: any): Promise<Post> => {

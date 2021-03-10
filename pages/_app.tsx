@@ -1,7 +1,8 @@
 // React
-import React from 'react';
+import React, { useContext} from 'react';
 // Nextjs
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 // NextjsAuth
 import { Provider } from 'next-auth/client';
 // Frame Motion
@@ -13,7 +14,6 @@ import "@/styles/globals.css";
 // Components
 import Header from "@/components/shared/header";
 // Contexts
-import { HeaderProvider } from "@/contexts/HeaderContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
 import '../utils';
@@ -22,13 +22,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider session={pageProps.session}>
       <ThemeProvider>
-        <HeaderProvider>
-          <Header />
-          <AnimateSharedLayout>
-            <Component {...pageProps} />
-            <ToastContainer align={"right"} position={"bottom"} />
-          </AnimateSharedLayout>
-        </HeaderProvider>
+        <Header />
+        <AnimateSharedLayout>
+          <Component {...pageProps} />
+          <ToastContainer align={"right"} position={"bottom"} />
+        </AnimateSharedLayout>
       </ThemeProvider>
     </Provider>
   )

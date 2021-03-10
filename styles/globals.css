@@ -3,6 +3,11 @@
 @tailwind utilities;
 @tailwind colors;
 @import "./index.css";
+@import "./loader.css";
+
+#__next {
+  @apply flex flex-col h-screen
+}
 
 :root {
   @apply light;
@@ -29,11 +34,19 @@ html {
 }
 
 body {
-  @apply bg-secondary w-screen h-screen;
+  @apply bg-secondary w-screen min-h-screen;
 }
 
 header {
-  @apply bg-primary w-screen h-screen;
+  @apply bg-primary;
+}
+
+main {
+  @apply flex-grow
+}
+
+footer {
+  @apply bg-primary;
 }
 
 h1 {
