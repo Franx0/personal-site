@@ -6,6 +6,7 @@ import { IconProps } from '@/interfaces/index';
 export const ArrowBack: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <title>ArrowBack icon</title>
       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clipRule="evenodd" />
     </svg>
   )
@@ -14,6 +15,7 @@ export const ArrowBack: FunctionComponent<any> = function(props: IconProps) {
 export const Hamburguer: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <title>Hamburguer icon</title>
       <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
     </svg>
   )
@@ -22,6 +24,7 @@ export const Hamburguer: FunctionComponent<any> = function(props: IconProps) {
 export const Sun: FunctionComponent<any> = function(props: IconProps) {
   return (
   <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <title>Sun icon</title>
     <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
   </svg>
   )
@@ -30,6 +33,7 @@ export const Sun: FunctionComponent<any> = function(props: IconProps) {
 export const Moon: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <title>Moon icon</title>
       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
     </svg>
   )
@@ -38,6 +42,7 @@ export const Moon: FunctionComponent<any> = function(props: IconProps) {
 export const Twitter: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} viewBox="0 0 310 310" xmlns="http://www.w3.org/2000/svg">
+      <title>Twitter icon</title>
       <path d="M302.973,57.388c-4.87,2.16-9.877,3.983-14.993,5.463c6.057-6.85,10.675-14.91,13.494-23.73
         c0.632-1.977-0.023-4.141-1.648-5.434c-1.623-1.294-3.878-1.449-5.665-0.39c-10.865,6.444-22.587,11.075-34.878,13.783
         c-12.381-12.098-29.197-18.983-46.581-18.983c-36.695,0-66.549,29.853-66.549,66.547c0,2.89,0.183,5.764,0.545,8.598
@@ -57,6 +62,7 @@ export const Twitter: FunctionComponent<any> = function(props: IconProps) {
 export const Linkedin: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310">
+      <title>Linkedin icon</title>
       <path id="XMLID_802_" d="M72.16,99.73H9.927c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5H72.16c2.762,0,5-2.238,5-5V104.73
         C77.16,101.969,74.922,99.73,72.16,99.73z"/>
       <path id="XMLID_803_" d="M41.066,0.341C18.422,0.341,0,18.743,0,41.362C0,63.991,18.422,82.4,41.066,82.4
@@ -72,15 +78,67 @@ export const Linkedin: FunctionComponent<any> = function(props: IconProps) {
 export const Gmail: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <title>Gmail icon</title>
       <path d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.387l-9 6.463-9-6.463V21H1.5C.649 21 0 20.35 0 19.5v-15c0-.425.162-.8.431-1.068C.7 3.16 1.076 3 1.5 3H2l10 7.25L22 3h.5c.425 0 .8.162 1.069.432.27.268.431.643.431 1.068z"/>
     </svg>
   )
 }
 
-export const Github: FunctionComponent<any> = function(props: IconProps) {
+export const GitHub: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <title>Github icon</title>
       <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+  )
+}
+
+export const GoogleLogo: FunctionComponent<any> = function(props: IconProps) {
+  return (
+    <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 262">
+      <title>Google logo</title>
+      <path d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" fill="#4285F4"/>
+      <path d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" fill="#34A853"/>
+      <path d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782" fill="#FBBC05"/>
+      <path d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" fill="#EB4335"/>
+    </svg>
+  )
+}
+
+export const TwitterLogo: FunctionComponent<any> = function(props: IconProps) {
+  return (
+    <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.002 512.002">
+      <title>Twitter logo</title>
+      <path fill="#76A9EA" d="M500.398,94.784c-8.043,3.567-16.313,6.578-24.763,9.023c10.004-11.314,17.631-24.626,22.287-39.193
+        c1.044-3.265-0.038-6.839-2.722-8.975c-2.681-2.137-6.405-2.393-9.356-0.644c-17.945,10.643-37.305,18.292-57.605,22.764
+        c-20.449-19.981-48.222-31.353-76.934-31.353c-60.606,0-109.913,49.306-109.913,109.91c0,4.773,0.302,9.52,0.9,14.201
+        c-75.206-6.603-145.124-43.568-193.136-102.463c-1.711-2.099-4.347-3.231-7.046-3.014c-2.7,0.211-5.127,1.734-6.491,4.075
+        c-9.738,16.709-14.886,35.82-14.886,55.265c0,26.484,9.455,51.611,26.158,71.246c-5.079-1.759-10.007-3.957-14.711-6.568
+        c-2.525-1.406-5.607-1.384-8.116,0.054c-2.51,1.439-4.084,4.084-4.151,6.976c-0.012,0.487-0.012,0.974-0.012,1.468
+        c0,39.531,21.276,75.122,53.805,94.52c-2.795-0.279-5.587-0.684-8.362-1.214c-2.861-0.547-5.802,0.456-7.731,2.638
+        c-1.932,2.18-2.572,5.219-1.681,7.994c12.04,37.591,43.039,65.24,80.514,73.67c-31.082,19.468-66.626,29.665-103.939,29.665
+        c-7.786,0-15.616-0.457-23.279-1.364c-3.807-0.453-7.447,1.795-8.744,5.416c-1.297,3.622,0.078,7.66,3.316,9.736
+        c47.935,30.735,103.361,46.98,160.284,46.98c111.903,0,181.907-52.769,220.926-97.037c48.657-55.199,76.562-128.261,76.562-200.451
+        c0-3.016-0.046-6.061-0.139-9.097c19.197-14.463,35.724-31.967,49.173-52.085c2.043-3.055,1.822-7.094-0.545-9.906
+        C507.7,94.204,503.76,93.294,500.398,94.784z"/>
+    </svg>
+  )
+}
+
+export const GitHubLogo: FunctionComponent<any> = function(props: IconProps) {
+  return (
+    <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <title>Github logo</title>
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+  )
+}
+
+export const GitLabLogo: FunctionComponent<any> = function(props: IconProps) {
+  return (
+    <svg className={`${props.className || ''} w-${props.width || 6} h-${props.height || 6}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <title>GitLab logo</title>
+      <path d="M4.844.904a1.007 1.007 0 00-.955.692l-2.53 7.783c0 .007-.005.012-.007.02L.07 13.335a1.437 1.437 0 00.522 1.607l11.072 8.045a.566.566 0 00.67-.004l11.074-8.04a1.436 1.436 0 00.522-1.61l-1.26-3.867a.547.547 0 00-.031-.104l-2.526-7.775a1.004 1.004 0 00-.957-.684.987.987 0 00-.949.69l-2.406 7.408H8.203l-2.41-7.408a.987.987 0 00-.943-.69h-.006zm-.006 1.42l2.174 6.678H2.674l2.164-6.678zm14.328 0l2.168 6.678h-4.342l2.174-6.678zm-10.594 7.81h6.862l-2.15 6.618L12 20.693 8.572 10.135zm-5.515.005h4.322l3.086 9.5-7.408-9.5zm13.568 0h4.326l-6.703 8.588-.709.914 2.959-9.108.127-.394zM2.1 10.762l6.978 8.947-7.818-5.682a.305.305 0 01-.112-.341l.952-2.924zm19.8 0l.952 2.922a.305.305 0 01-.11.341v.002l-7.82 5.68.025-.035 6.953-8.91Z"/>
     </svg>
   )
 }

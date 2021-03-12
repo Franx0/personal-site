@@ -8,6 +8,7 @@ export type LinkProps = {
   query?: any,
   unauthorized?: boolean,
   children: FunctionComponent,
+  href?: string,
   handleClick?: () => void
 }
 
@@ -75,3 +76,7 @@ export type LoaderProps = {
   spinnerBgColor?: string,
   className?: string
 };
+
+export type AvatarProps = {
+  avatar?: string
+}

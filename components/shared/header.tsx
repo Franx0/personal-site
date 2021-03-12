@@ -42,7 +42,7 @@ const Header: FunctionComponent<any> = () => {
               </LinkStyled>
             </li>
             <li className="md:ml-1">
-              <LinkStyled className="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" pathname={"/contact"}>
+              <LinkStyled className="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href={`mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}`}>
                 <ButtonStyled text="Contact" />
               </LinkStyled>
             </li>
@@ -66,6 +66,7 @@ const Header: FunctionComponent<any> = () => {
             easeRange={7}
             active={toogleState}
             icon={toogleState ? <Moon width={5} height={5} /> : <Sun width={5} height={5} />}
+            iconClassName={toogleState ? "bg-primary text-yellow-200" : "bg-primary text-yellow-600"}
             handleClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
         </div>

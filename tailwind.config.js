@@ -1,6 +1,7 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
+  important: true,
   future: {},
   purge: [],
   theme: {
