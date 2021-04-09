@@ -14,13 +14,13 @@ export default {
     }
   },
   cv: {
-    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web que siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de 6 a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>&Eacute;chale un ojo m&aacute;s abajo a algunos de los lenguages y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
+    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web y siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de 6 a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>&Eacute;chale un ojo m&aacute;s abajo a algunos de los lenguajes y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
     favorites: `Mis favoritos`,
     myJobs: `Mis trabajos`,
     mySkills: `Mi stack`,
     jobs: {
       "People Who": {
-        description: `Comencé como desarrollador en People Who in 2015. Desarrollamos una aplicación web sobre salud con Ruby on Rails, Jquery y MySQL, posteriormente evolucionamos el producto con React y Redis lo que nos permitió mejorar la UI y el rendimiento de nuestros procesos. Aprendí muchísimo gracias al equipo que conformábamos.`,
+        description: `Comencé como desarrollador en People Who en 2015. Desarrollamos una aplicación web sobre salud con Ruby on Rails, Jquery y MySQL, posteriormente evolucionamos el producto con React y Redis lo que nos permitió mejorar la UI y el rendimiento de nuestros procesos. Aprendí muchísimo gracias al equipo que conformábamos.`,
         bgColor: theme.extend.colors.peoplewho,
         textColor: theme.extend.colors.light.gray.secondary,
         imageUrl: `https://media-exp1.licdn.com/dms/image/C4D0BAQEoyccqrZx0VQ/company-logo_100_100/0/1519919804321?e=1624492800&v=beta&t=OrDbH-dMb1MB6tUqnYTwH7OcgJBn62PRPItHSwoU15s`
@@ -44,7 +44,7 @@ export default {
         imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQHX6Esf0YxpbQ/company-logo_100_100/0/1544181711423?e=1624492800&v=beta&t=_efdQaHCD79ELzINHh34WKCpfKvXYqdAqwDIsfA7tpI`
       },
       "String Projects": {
-        description: `After my last adventure I started working on String Projects, a tiny tech consultory but with heavy clients. We worked with many different technologies and languages, depending of what client needed. React Native was the ideal to develop mobile apps and Ruby on Rails the ideal to develop strong and powefull backends. But as I said, it changed depending on the needs.`,
+        description: `Tras mi aventura en Glownet comenc&aacute;e a trabajar en String Projects, una pequeña consultora de software pero con clientes bastante potentes. Desarroll&aacute;e con diferentes tecnolog&aacute;ias y lenguajes, según las necesidades del cliente. React Native era la elegida para desarollar apps movile y Ruby on Rails el framework perfecto para construir robustos y r&aacute;apidos 'backends'`,
         bgColor: theme.extend.colors.string_,
         textColor: theme.extend.colors.light.white.secondary,
         imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQFCzBwzOtOEIQ/company-logo_100_100/0/1542713726550?e=1624492800&v=beta&t=vty3gTBvqL0NDMblanPb3-pF_RGSq_3UAl4WwrwUq4w`
