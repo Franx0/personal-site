@@ -43,7 +43,7 @@ export const AuthWrapper = (Child, adminCheck): (NextPage | Component) => {
 export const encodeAuthUri: Function = (url?: string): (string | null) => {
   // Auth URI encode
   const currentUrl = url || Router.asPath;
-  const authUrl = '/api/auth/signin';
+  const authUrl = '/auth/signin';
   const callbackUrl = `${process.env.NEXT_PUBLIC_AUTH_URL}${currentUrl}`;
   const URI = `${process.env.NEXT_PUBLIC_AUTH_URL}${authUrl}?callbackUrl=${encodeURIComponent(callbackUrl)}`
 
