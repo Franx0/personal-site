@@ -1,7 +1,7 @@
 // Nextjs
 import { NextPage , NextPageContext} from 'next';
 // Auth
-import { AuthWrapper } from '@/pages/auth/index';
+import AuthWrapper from '@/pages/auth/index';
 // Components
 import PostBox from '@/components/posts/postBox';
 

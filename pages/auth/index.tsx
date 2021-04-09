@@ -65,3 +65,5 @@ export const redirectAuthPath: Function = (URI: string, ctx?: any) => {
 const redirectUnauthorized: Function = () => {
   redirectTo('/', 401, { msg: 'Unauthorized' });
 }
+
+export default AuthWrapper
