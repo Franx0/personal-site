@@ -71,13 +71,13 @@ const Header: FunctionComponent<any> = (props: any) => {
             </LinkStyled>
           }
           <Toogle
-            width={11}
-            height={7}
+            width={"w-12"}
+            height={"h-8"}
             className={"p-0.5"}
             easeRange={7}
             active={toogleState}
             icon={toogleState ? <Moon width={5} height={5} /> : <Sun width={5} height={5} />}
-            iconClassName={toogleState ? "bg-primary text-yellow-200" : "bg-primary text-yellow-600"}
+            iconClassName={`bg-primary w-6 h-6 ${toogleState ? 'text-yellow-200 translate-x-4' : 'text-yellow-600'}`}
             handleClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
           <LanguageSelector />

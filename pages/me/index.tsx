@@ -14,16 +14,16 @@ import Card from '@/components/shared/card';
 import { Positive, Negative, HTML, Ruby, RubyOnRails, NodeJS, Javascript, Shield, ExpressJS, ReactAndNative, NextJS, NGINX, Docker } from '@/icons/index';
 
 const icons = [
-  <HTML name={'HTML & CSS'} key={`Icon-HTML`} width={12} height={12} className={"flex-1 m-auto mb-2"} />,
-  <Javascript name={'Javascript'} key={`Icon-Javascript`} width={12} height={12} className={"flex-1 m-auto mb-2"} />,
-  <Ruby name={'Ruby'} key={`Icon-Ruby`} width={10} height={10} className={"flex-1 m-auto mb-2"} />,
-  <NodeJS name={'NodeJS'} key={`Icon-NodeJS`} width={20} height={10} className={"flex-1 m-auto mb-2"} />,
-  <RubyOnRails name={'RubyOnRails'} key={`Icon-RubyOnRails`} width={20} height={10} className={"flex-1 m-auto mb-2"} />,
-  <Docker name={'Docker'} key={`Icon-Docker`} width={16} height={10} className={"flex-1 m-auto mb-2"} />,
-  <ExpressJS name={'ExpressJS'} key={`Icon-ExpressJS`} width={20} height={10} className={"flex-1 m-auto mb-2"} />,
-  <ReactAndNative name={'React & React Native'} key={`Icon-React`} width={20} height={10} className={"flex-1 m-auto mb-2"} />,
-  <NGINX name={'NGINX'} key={`Icon-NGINX`} width={20} height={10} className={"flex-1 m-auto mb-2"} />,
-  <NextJS name={'NextJS'} key={`Icon-NextJS`} width={20} height={10} className={"flex-1 m-auto mb-2"} />
+  <HTML name={'HTML & CSS'} key={`Icon-HTML`} width={"w-12"} height={"h-12"} className={"flex-1 m-auto mb-2"} />,
+  <Javascript name={'Javascript'} key={`Icon-Javascript`} width={"w-12"} height={"h-12"} className={"flex-1 m-auto mb-2"} />,
+  <Ruby name={'Ruby'} key={`Icon-Ruby`} width={"w-10"} height={"h-10"} className={"flex-1 m-auto mb-2"} />,
+  <NodeJS name={'NodeJS'} key={`Icon-NodeJS`} width={"w-20"} height={"h-10"} className={"flex-1 m-auto mb-2"} />,
+  <RubyOnRails name={'RubyOnRails'} key={`Icon-RubyOnRails`} width={"w-20"} height={"h-10"} className={"flex-1 m-auto mb-2"} />,
+  <Docker name={'Docker'} key={`Icon-Docker`} width={"w-16"} height={"h-10"} className={"flex-1 m-auto mb-2"} />,
+  <ExpressJS name={'ExpressJS'} key={`Icon-ExpressJS`} width={"w-20"} height={"h-10"} className={"flex-1 m-auto mb-2"} />,
+  <ReactAndNative name={'React & React Native'} key={`Icon-React`} width={"w-20"} height={"h-10"} className={"flex-1 m-auto mb-2"} />,
+  <NGINX name={'NGINX'} key={`Icon-NGINX`} width={"w-20"} height={"h-10"} className={"flex-1 m-auto mb-2"} />,
+  <NextJS name={'NextJS'} key={`Icon-NextJS`} width={"w-20"} height={"h-10"} className={"flex-1 m-auto mb-2"} />
 ]
 
 const MeIndex: NextPage<NextPageContext> = () => {

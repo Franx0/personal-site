@@ -13,8 +13,8 @@ const Toogle: FunctionComponent<any> = (props: ToogleProps) => {
 
   return (
     <div className={`flex justify-between ${className}`}>
-      <div className={`w-${width.toString()} h-${height.toString()} flex items-center rounded-full p-1 ${isActive ? 'bg-blue' : 'bg-gray-300'}`} onClick={() => handleClick()}>
-        <div className={`${iconClassName} w-${(+width/2).toString()} h-${(+width/2).toString()} rounded-full shadow-md transform duration-300 ease-in-out ${isActive === true && 'translate-x-'+(Math.abs(+width - +easeRange)).toString()}`}>
+      <div className={`${width} ${height} flex items-center rounded-full p-1 ${isActive ? 'bg-blue' : 'bg-gray-300'}`} onClick={() => handleClick()}>
+        <div className={`${iconClassName} rounded-full shadow-md transform duration-300 ease-in-out`}>
           {icon}
         </div>
       </div>
