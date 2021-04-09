@@ -67,7 +67,7 @@ const Header: FunctionComponent<any> = (props: any) => {
         <div className="flex md:items-center flex-end mb-0 md:ml-auto ml-4 ">
           {(router.asPath !== (previousPath || "/404" || "/500")) &&
             <LinkStyled handleClick={() => router.back()}>
-              <ButtonStyled className="py-0 md:py-1 px-4" type="circle"><ArrowBack width={8} height={8} className="text-primary"/></ButtonStyled>
+              <ButtonStyled className="py-0 md:py-1 px-4" type="circle"><ArrowBack width={"w-8"} height={"h-8"} className="text-primary"/></ButtonStyled>
             </LinkStyled>
           }
           <Toogle
@@ -76,7 +76,7 @@ const Header: FunctionComponent<any> = (props: any) => {
             className={"p-0.5"}
             easeRange={7}
             active={toogleState}
-            icon={toogleState ? <Moon width={5} height={5} /> : <Sun width={5} height={5} />}
+            icon={toogleState ? <Moon width={5} height={5} /> : <Sun width={"w-5"} height={"h-5"} />}
             iconClassName={`bg-primary w-6 h-6 ${toogleState ? 'text-yellow-200 translate-x-4' : 'text-yellow-600'}`}
             handleClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
