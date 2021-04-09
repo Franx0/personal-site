@@ -7,8 +7,7 @@ export const ThemeContext = React.createContext({
 });
 
 export const ThemeProvider = ({ initialTheme, children }: any) => {
-  const [theme, setTheme] = useState(getInitialTheme)
-
+  const [theme, setTheme] = useState(getInitialTheme);
   const rawSetTheme = (theme: string) => {
     const root = window.document.documentElement
     const isDark = theme === "dark"
@@ -17,7 +16,7 @@ export const ThemeProvider = ({ initialTheme, children }: any) => {
     root.classList.add(theme)
 
     localStorage.setItem("color-theme", theme)
-  }
+  };
 
   if (initialTheme) rawSetTheme(initialTheme);
 

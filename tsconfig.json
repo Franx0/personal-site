@@ -8,7 +8,8 @@
       "@/pages/*": ["pages/*"],
       "@/styles/*": ["styles/*"],
       "@/contexts/*": ["contexts/*"],
-      "@/icons/*": ["icons/*"]
+      "@/icons/*": ["icons/*"],
+      "@/languages/*": ["languages/*"]
     },
     "target": "es5",
     "lib": [
@@ -33,8 +34,10 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/api/auth/[...nextauth].ts",
-    "next.config.js"
-, "utils.ts"  ],
+    "next.config.js",
+    "tailwind.config.js",
+    "utils.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

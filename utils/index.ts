@@ -2,6 +2,10 @@
 import { NextPageContext} from 'next';
 import Router from 'next/router';
 
+export const isEnv = (env: string): boolean => {
+  return process.env.NODE_ENV === env
+};
+
 export const isOwner = (session: any, owner: string): boolean => {
   return session && session.user && ((process.env.NEXT_PUBLIC_ADMINS
           .split(",")

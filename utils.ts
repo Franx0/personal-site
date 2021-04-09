@@ -3,6 +3,7 @@ declare global {
     capitalize(): string;
     uncamelize(): string;
     hyphenate(): string;
+    titlelize(): string;
   }
 }
 

@@ -26,17 +26,19 @@ const PostIndex: NextPage<NextPageContext> = () => {
 
   return (
     <Layout title={"Blog"} className="grid grid-cols-1">
-      {postResponse ? (
-        <>
-          <PostList data={postResponse.data} />
-          { postResponse.before !== null &&
-            <a onClick={() => setCursor(postResponse.before)}>Prev</a>
-          }
-          { postResponse.after !== null &&
-            <a onClick={() => setCursor(postResponse.after)}>Next</a>
-          }
-        </>
-      ) : null }
+      {(locale) =>
+        {postResponse ? (
+          <>
+            <PostList data={postResponse.data} />
+            { postResponse.before !== null &&
+              <a onClick={() => setCursor(postResponse.before)}>Prev</a>
+            }
+            { postResponse.after !== null &&
+              <a onClick={() => setCursor(postResponse.after)}>Next</a>
+            }
+          </>
+        ) : null }
+      }
     </Layout>
   )
 };

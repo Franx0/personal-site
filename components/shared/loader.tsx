@@ -1,5 +1,7 @@
 // React
 import { FunctionComponent, useEffect, useContext, useState } from 'react';
+// Framer Motion
+import { motion } from "framer-motion";
 // Interfaces
 import { LoaderProps } from '@/interfaces/index';
 // Context
@@ -23,13 +25,18 @@ export const Spinner: FunctionComponent<any> = (props: LoaderProps) => {
 }
 
 const Loader: FunctionComponent<any> = (props: LoaderProps) => {
-  const { width = 12, height = 12, spinnerColor, spinnerBgColor} = props;
+  const { width = 12, height = 12, spinnerColor, spinnerBgColor, title, text} = props;
 
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-75 flex flex-col items-center justify-center">
       <Spinner width={width} height={height} spinnerColor={spinnerColor} spinnerBgColor={spinnerBgColor} />
-      <h2 className="text-center text-white text-xl font-semibold">Loading...</h2>
-      <p className="w-1/3 text-center text-white">This may take a few seconds, please don't close this page.</p>
+      <div className="min-w-max">
+        <h2 className="inline-block text-center text-white text-xl font-semibold mr-1">{title}</h2>
+        {[0,1,2].map((i: number) => {
+          return <motion.div key={i} animate={{ scale: [0,1,1.1,1] }} transition={{ delay: i*100, duration: 0.6 }} className={`inline-block animate-ping mr-1 h-0.5 w-0.5 rounded-full bg-white opacity-80`}></motion.div>
+        })}
+      </div>
+      <p className="w-1/3 text-center text-white">{text}</p>
     </div>
   )
 }

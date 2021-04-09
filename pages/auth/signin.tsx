@@ -19,11 +19,12 @@ const SignIn: NextPage<any> = ({ providers }) => {
   };
 
   return (
-    <Layout title="Login" className="flex justify-center mt-2 mb-6">
-      <div className="w-min flex flex-col items-center align-middle mt-20">
-        <p className="text-primary text-xl">Sign in with:</p>
-        <hr className="w-full mt-2 mb-2 border-gray-400"/>
-        {Object.values(providers).map((provider: any) => (
+    <Layout title="Login" className="flex w-full justify-center mt-2 mb-6">
+      {(locale) =>
+        <div className="w-min flex flex-col items-center align-middle mt-20">
+          <p className="text-primary text-xl">Sign in with:</p>
+          <hr className="w-full mt-2 mb-2 border-gray-400"/>
+          {Object.values(providers).map((provider: any) => (
             <button
               key={provider.name}
               className="m-2 bg-secondary hover:bg-primary text-primary py-2 px-4 border border-gray-400 rounded shadow"
@@ -33,8 +34,9 @@ const SignIn: NextPage<any> = ({ providers }) => {
                 <span>{provider.name}</span>
               </div>
             </button>
-        ))}
-      </div>
+          ))}
+        </div>
+      }
     </Layout>
   )
 }

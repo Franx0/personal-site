@@ -22,6 +22,18 @@ export type ButtonProps = {
   handleClick?: () => void
 }
 
+export type CardProps = {
+  cardOpened: boolean,
+  handleCardOpened: (value?: string) => void,
+  className?: string,
+  style?: any,
+  expandedStyle?: any,
+  title?: string,
+  content: string,
+  image?: any
+  expandedImage?: any,
+}
+
 export type Post = {
   _id?: number,
   title?: string,
@@ -70,6 +82,8 @@ export type ToogleProps = {
 };
 
 export type LoaderProps = {
+  title: string,
+  text: string,
   width?: string,
   height?: string,
   spinnerColor?: string,

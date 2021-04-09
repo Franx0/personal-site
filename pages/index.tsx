@@ -1,14 +1,10 @@
 // Nextjs
-import type { NextPage } from 'next'
+import type { NextPage, NextPageContext } from 'next'
 // Components
 import Layout from '@/components/Layout';
 
-const Home = ({}: NextPage) => {
-  return (
-    <Layout title="Me">
-      <p>Hello it's me!</p>
-    </Layout>
-  )
+const Home: NextPage<NextPageContext> = (props: any) => {
+  return (<p>Hello!</p>)
 }
 
 export default Home
