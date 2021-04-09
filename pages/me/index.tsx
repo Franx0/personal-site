@@ -43,7 +43,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
                 <div className="md:block flex justify-center md:mx-8">
                   <img className="md:float-right content-center object-contain rounded-full" loading="lazy" alt="My photo" src={locale.dictionary.profile_image_url} />
                 </div>
-                <div className="overflow-hidden relative lazy-text bg-primary col-span-2 text-justify mt-2 md:mt-0 p-5 rounded" dangerouslySetInnerHTML={{__html: locale.dictionary.cv.description}}></div>
+                <div className="overflow-hidden relative lazy-text bg-primary col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg" dangerouslySetInnerHTML={{__html: locale.dictionary.cv.description}}></div>
               </div>
             </div>
             <div></div>
