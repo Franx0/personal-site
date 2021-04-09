@@ -1,7 +1,7 @@
 // React
 import { FunctionComponent, useState } from 'react';
 // FrameMotion
-import { AnimateSharedLayout, motion } from "framer-motion";
+import { AnimateSharedLayout, motion } from 'framer-motion';
 // Types
 import { CardProps } from '@/interfaces/index';
 

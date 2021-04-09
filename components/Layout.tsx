@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Loader from '@/components/shared/loader';
 import Footer from '@/components/Footer';
 // Contexts
-import { LanguageContext } from "@/contexts/LanguageContext";
+import { LanguageContext } from '@/contexts/LanguageContext';
 
 export const Layout = ({
   children,

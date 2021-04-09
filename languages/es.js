@@ -53,7 +53,7 @@ export default {
   },
   footer: {
     follow: `Sigueme en: `,
-    handmade: `Diseñado y desarrollado por <a class="ml-1" title="Personal Site" href=${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>Fran Moya</a>`
+    handmade: `Diseñado y desarrollado por <a class="ml-1" title="Personal Site" href=${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>&nbsp;Fran Moya</a>`
   },
   404: {
     text: `No se encontró la página`

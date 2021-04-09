@@ -6,16 +6,16 @@ import { useRouter } from 'next/router';
 // NextjsAuth
 import { Provider } from 'next-auth/client';
 // Frame Motion
-import { AnimateSharedLayout } from "framer-motion";
+import { AnimateSharedLayout } from 'framer-motion';
 // Toast
 import { ToastContainer } from 'react-nextjs-toast';
 // Styles
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 // Components
-import Header from "@/components/shared/header";
+import Header from '@/components/shared/header';
 // Contexts
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 import '../utils';
 

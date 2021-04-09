@@ -1,7 +1,7 @@
 // React
 import { FunctionComponent, useEffect, useContext, useState } from 'react';
 // Framer Motion
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 // Interfaces
 import { LoaderProps } from '@/interfaces/index';
 // Context

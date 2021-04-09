@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { NextPage , NextPageContext} from 'next';
 import dynamic from 'next/dynamic';
 // Framer Motion
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 // Components
 const Layout = dynamic(() => import('@/components/Layout'), {
   ssr: false

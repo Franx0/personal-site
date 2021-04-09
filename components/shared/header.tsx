@@ -8,12 +8,12 @@ import ButtonStyled from '@/components/shared/button';
 import Toogle from '@/components/shared/toogle';
 import LanguageSelector from '@/components/languages/selector';
 // Context
-import ThemeContext from "@/contexts/ThemeContext";
-import { LanguageContext } from "@/contexts/LanguageContext";
+import ThemeContext from '@/contexts/ThemeContext';
+import { LanguageContext } from '@/contexts/LanguageContext';
 // Icons
-import { ArrowBack, Hamburguer, Sun, Moon } from "@/icons/index";
+import { ArrowBack, Hamburguer, Sun, Moon } from '@/icons/index';
 // Utils
-import { isEnv } from "@/utils/index";
+import { isEnv } from '@/utils/index';
 
 const Header: FunctionComponent<any> = (props: any) => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -76,7 +76,7 @@ const Header: FunctionComponent<any> = (props: any) => {
             className={"p-0.5"}
             easeRange={7}
             active={toogleState}
-            icon={toogleState ? <Moon width={5} height={5} /> : <Sun width={"w-5"} height={"h-5"} />}
+            icon={toogleState ? <Moon width={"w-6"} height={"h-6"} /> : <Sun width={"w-6"} height={"h-6"} />}
             iconClassName={`bg-primary w-6 h-6 ${toogleState ? 'text-yellow-200 translate-x-4' : 'text-yellow-600'}`}
             handleClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
