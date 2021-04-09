@@ -12,7 +12,7 @@ import { Post } from '@/interfaces/index';
 const PostBox: FunctionComponent = () => {
   const [submitting, setSubmitting] = useState(false);
 
-  const submitPost = (data) => {
+  const submitPost = (data): any => {
     const date = new Date().toISOString();
     const json = {...data,
       createdAt: date,

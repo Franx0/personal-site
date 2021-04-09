@@ -2,16 +2,20 @@
 import { NextPageContext} from 'next';
 import Router from 'next/router';
 
+export const isEnv = (env: string): boolean => {
+  return process.env.NODE_ENV === env
+};
+
 export const isOwner = (session: any, owner: string): boolean => {
-  return session && ((process.env.NEXT_PUBLIC_ADMINS
-                    .split(",")
-                    .includes(session.user.email)) || (session.user.email === owner))
+  return session && session.user && ((process.env.NEXT_PUBLIC_ADMINS
+          .split(",")
+          .includes(session.user.email)) || (session.user.email === owner))
 };
 
 export const isAdmin = (session: any): boolean => {
-  return session && process.env.NEXT_PUBLIC_ADMINS
-                    .split(",")
-                    .includes(session.user.email)
+  return session && session.user && process.env.NEXT_PUBLIC_ADMINS
+          .split(",")
+          .includes(session.user.email)
 };
 
 export const redirectTo = async ( path: string = '/',
