@@ -44,7 +44,7 @@ export default {
         imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQHX6Esf0YxpbQ/company-logo_100_100/0/1544181711423?e=1624492800&v=beta&t=_efdQaHCD79ELzINHh34WKCpfKvXYqdAqwDIsfA7tpI`
       },
       "String Projects": {
-        description: `Tras mi aventura en Glownet comencé a trabajar en String Projects, una pequeña consultora de software pero con clientes bastante potentes. Desarrollé en diferentes tecnologías y lenguajes, según las necesidades del cliente. React Native era la elegida para desarollar apps movile y Ruby on Rails el framework perfecto para construir robustos y rápidos 'backends'`,
+        description: `Tras mi aventura en Glownet comencé a trabajar en String Projects, una pequeña consultora de software pero con clientes bastante potentes. Desarrollé en diferentes tecnologías y lenguajes, según las necesidades del cliente. React Native era la elegida para desarollar apps movile y Ruby on Rails el framework perfecto para construir robustos y rápidos 'backends'.`,
         bgColor: theme.extend.colors.string_,
         textColor: theme.extend.colors.light.white.secondary,
         imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQFCzBwzOtOEIQ/company-logo_100_100/0/1542713726550?e=1624492800&v=beta&t=vty3gTBvqL0NDMblanPb3-pF_RGSq_3UAl4WwrwUq4w`
