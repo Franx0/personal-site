@@ -1,15 +1,14 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import React, { useState } from 'react';
 // Nextjs
 import { NextPage , NextPageContext} from 'next';
-import dynamic from 'next/dynamic';
 // Framer Motion
 import { motion } from 'framer-motion';
 // Components
-const Layout = dynamic(() => import('@/components/Layout'), {
-  ssr: false
-})
-import Card from '@/components/shared/card';
+const Layout = loadable(() => import('@/components/Layout'))
+const Card = loadable(() => import('@/components/shared/card'));
 // Icons
 import { Positive, Negative, HTML, Ruby, RubyOnRails, NodeJS, Javascript, Shield, ExpressJS, ReactAndNative, NextJS, NGINX, Docker } from '@/icons/index';
 

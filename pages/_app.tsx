@@ -1,3 +1,5 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import { useState, useEffect } from 'react'
 // Nextjs
@@ -12,11 +14,11 @@ import { ToastContainer } from 'react-nextjs-toast';
 // Styles
 import '@/styles/globals.css';
 // Components
-import Header from '@/components/shared/header';
+const Header = loadable(() => import('@/components/shared/header'));
 // Contexts
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
-
+// Override functionality
 import '../utils';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

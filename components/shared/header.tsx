@@ -1,12 +1,14 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import { FunctionComponent, useState, useContext, useEffect } from 'react';
 // Nextjs
 import { useRouter } from 'next/router'
 // Components
-import LinkStyled from '@/components/shared/link';
-import ButtonStyled from '@/components/shared/button';
-import Toogle from '@/components/shared/toogle';
-import LanguageSelector from '@/components/languages/selector';
+const LinkStyled = loadable(() => import('@/components/shared/link'));
+const ButtonStyled = loadable(() => import('@/components/shared/button'));
+const Toogle = loadable(() => import('@/components/shared/toogle'));
+const LanguageSelector = loadable(() => import('@/components/languages/selector'));
 // Context
 import ThemeContext from '@/contexts/ThemeContext';
 import { LanguageContext } from '@/contexts/LanguageContext';
@@ -22,6 +24,7 @@ const Header: FunctionComponent<any> = (props: any) => {
   const [toogleState, setToogleState] = useState(false);
   const [previousPath, setPreviousPath] = useState(undefined);
   const locale = useContext(LanguageContext);
+  const ignoredPaths = [previousPath, `${previousPath}#`, router.asPath.replace(/\#$/, ''), "/404", "/500"]
 
   useEffect(() => {
     setToogleState(theme === "dark");
@@ -65,7 +68,7 @@ const Header: FunctionComponent<any> = (props: any) => {
           </ul>
         </nav>
         <div className="flex md:items-center flex-end mb-0 md:ml-auto ml-4 ">
-          {(router.asPath !== (previousPath || "/404" || "/500")) &&
+          {!ignoredPaths.includes(router.asPath) &&
             <LinkStyled handleClick={() => router.back()}>
               <ButtonStyled className="py-0 md:py-1 px-4" type="circle"><ArrowBack width={"w-8"} height={"h-8"} className="text-primary"/></ButtonStyled>
             </LinkStyled>

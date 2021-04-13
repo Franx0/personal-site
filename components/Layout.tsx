@@ -1,10 +1,12 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import React, { useContext } from 'react';
 // Nextjs
-import Head from 'next/head'
+const Head = loadable(() => import('next/head'));
 // Components
-import Loader from '@/components/shared/loader';
-import Footer from '@/components/Footer';
+const Loader = loadable(() => import('@/components/shared/loader'));
+const Footer = loadable(() => import('@/components/Footer'));
 // Contexts
 import { LanguageContext } from '@/contexts/LanguageContext';
 
