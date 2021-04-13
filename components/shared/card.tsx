@@ -12,7 +12,8 @@ const Card: FunctionComponent<any> = (props: CardProps) => {
     <AnimateSharedLayout>
       {
         cardOpened ? (
-          <motion.div onClick={() => handleCardOpened("#")} className={`w-full md:p-12 content-center expanded-card ${className}`} layoutId="expandable-card" style={expandedStyle}>
+          <motion.div className={`md:p-12 content-center expanded-card ${className}`} layoutId="expandable-card" style={expandedStyle}>
+            <h2 className="absolute top-0 right-0 text-right p-3 text-current mr-1 cursor-pointer" onClick={() => handleCardOpened("#")}>X</h2>
             <div className="lazy-text">
               <motion.h2 className="expanded-card-h text-current mb-2" layoutId="expandable-card-h">{title}</motion.h2>
               <hr className="min-w-full mb-8 border-current lazy-grow origin-left" />

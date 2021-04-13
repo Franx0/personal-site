@@ -137,13 +137,14 @@ img[loading=lazy] {
   flex-wrap: wrap;
   place-items: center ;
   margin: 10px;
+  z-index: 2;
 }
 
 .expanded-card{
   position: absolute;
-  min-height: 25rem;
-  top:0px;
-  left:0px;
+  max-height: max-content;
+  top: 0px;
+  left: 0px;
   z-index: 1;
   display: flex;
   flex-wrap: wrap;
