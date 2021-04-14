@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const Layout = loadable(() => import('@/components/Layout'))
 const Card = loadable(() => import('@/components/shared/card'));
 // Icons
-import { Positive, Negative, HTML, Ruby, RubyOnRails, NodeJS, Javascript, Shield, ExpressJS, ReactAndNative, NextJS, NGINX, Docker } from '@/icons/index';
+import { CV, Positive, Negative, HTML, Ruby, RubyOnRails, NodeJS, Javascript, Shield, ExpressJS, ReactAndNative, NextJS, NGINX, Docker } from '@/icons/index';
 
 const icons = [
   <HTML name={'HTML & CSS'} key={`Icon-HTML`} width={"w-12"} height={"h-12"} className={"flex-1 m-auto mb-2"} />,
@@ -38,11 +38,12 @@ const MeIndex: NextPage<NextPageContext> = () => {
           <div className="grid grid-flow-col lg:grid-cols-5 md:grid-cols-9 grid-cols-1 md:mt-24 mt-2">
             <div></div>
             <div className="lg:col-span-3 md:col-span-7 flex flex-col">
-              <div className="grid md:grid-cols-3 grid-cols-1">
+              <div className="grid md:grid-cols-3 grid-cols-1 relative">
                 <div className="md:block flex justify-center md:mx-8">
                   <img width="200" height="200" className="md:float-right content-center object-contain rounded-full" loading="lazy" alt="My photo" src={locale.dictionary.profile_image_url} />
                 </div>
-                <div className="overflow-hidden relative lazy-text bg-primary col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg" dangerouslySetInnerHTML={{__html: locale.dictionary.cv.description}}></div>
+                <div className="z-20 lazy-text text-default absolute top-5 right-5"><a target="_blank" href={locale.dictionary.cv.download_url}><CV title={locale.dictionary.cv.download}/></a></div>
+                <div className="z-10 overflow-hidden relative lazy-text bg-primary col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg" dangerouslySetInnerHTML={{__html: locale.dictionary.cv.description}}></div>
               </div>
             </div>
             <div></div>

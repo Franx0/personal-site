@@ -64,6 +64,7 @@ export type EditorProps = {
 };
 
 export type IconProps = {
+  title?: string,
   color?: string,
   width?: string,
   height?: string,
