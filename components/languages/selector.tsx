@@ -1,10 +1,10 @@
 // React
 import { FunctionComponent, useContext, useState } from 'react';
 // Languages
-import { languageOptions, LanguageContext } from '@/contexts/LanguageContext';
+import { languageOptions, useLanguage } from '@/contexts/LanguageContext';
 
 const LanguageSelector: FunctionComponent<any> = () => {
-  const { userLanguage, userLanguageChange } = useContext(LanguageContext);
+  const { userLanguage, userLanguageChange } = useLanguage();
   const [toggleSelector, setToggleSelector] = useState(false);
 
   return (

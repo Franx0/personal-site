@@ -9,8 +9,8 @@ const Head = loadable(() => import('next/head'));
 const Loader = loadable(() => import('@/components/shared/loader'));
 const Footer = loadable(() => import('@/components/Footer'));
 // Contexts
-import ThemeContext from '@/contexts/ThemeContext';
-import { LanguageContext } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 // Version
 import { version } from "../package.json";
 
@@ -19,8 +19,8 @@ export const Layout = ({
   className = '',
   title = 'Franx0',
 }) => {
-  const { theme } = useContext(ThemeContext);
-  const locale = useContext(LanguageContext);
+  const { theme } = useTheme();
+  const locale = useLanguage();
   const router = useRouter();
 
   return (

@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 // Interfaces
 import { LoaderProps } from '@/interfaces/index';
 // Context
-import ThemeContext from '@/contexts/ThemeContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export const Spinner: FunctionComponent<any> = (props: LoaderProps) => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const { width = 12, height = 12, className = "", spinnerColor, spinnerBgColor } = props;
   const SpinnerColor = spinnerColor || (theme === "dark" ? "#81e6d9" : "#1e40af");
   const SpinnerBgColor = spinnerBgColor || (theme === "dark" ? "#7a7f86" : "#e5e7eb");
