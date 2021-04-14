@@ -40,7 +40,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
             <div className="lg:col-span-3 md:col-span-7 flex flex-col">
               <div className="grid md:grid-cols-3 grid-cols-1">
                 <div className="md:block flex justify-center md:mx-8">
-                  <img className="md:float-right content-center object-contain rounded-full" loading="lazy" alt="My photo" src={locale.dictionary.profile_image_url} />
+                  <img width="200" height="200" className="md:float-right content-center object-contain rounded-full" loading="lazy" alt="My photo" src={locale.dictionary.profile_image_url} />
                 </div>
                 <div className="overflow-hidden relative lazy-text bg-primary col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg" dangerouslySetInnerHTML={{__html: locale.dictionary.cv.description}}></div>
               </div>
@@ -96,7 +96,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
                           expandedStyle={{backgroundColor: hash.bgColor, color: hash.textColor}}
                           title={name}
                           content={hash.description}
-                          image={{alt: name, url: hash.imageUrl}}
+                          image={{width: 100, height: 100, alt: name, url: hash.imageUrl}}
                           expandedImage={{alt: name, url: hash.imageUrl}} />
                       </motion.div>
                     )

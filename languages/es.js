@@ -1,6 +1,12 @@
 import { theme } from 'tailwind.config.js';
 
 export default {
+  meta: {
+    me: `Pagina personal con datos relevantes sobre mi perfil profesional.`
+  },
+  thanks: {
+    favicon: `<div>Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a></div>`
+  },
   loader: {
     title: `Cargando`,
     text: `Esto puede llevar unos segundos, por favor espere.`
