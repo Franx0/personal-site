@@ -31,7 +31,7 @@
 }
 
 html {
-  @apply bg-white;
+  @apply bg-white text-xl;
 }
 
 body {
