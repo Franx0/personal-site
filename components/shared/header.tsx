@@ -40,7 +40,7 @@ const Header: FunctionComponent<any> = (props: any) => {
         <nav className="md:flex flex-start justify-between mt-1 md:mt-0 mb-0 md:w-auto w-full">
           <div className="sm:flex md:hidden ml-2 md:mb-auto">
             <button className="align-middle" type="button" onClick={() => setMenuState(!menuState)}>
-              <Hamburguer className="text-accent" />
+              <Hamburguer title={"Menu"} className="text-accent" />
             </button>
           </div>
           <ul className={`relative overflow-hidden items-center transition-all duration-700 md:flex md:h-auto md:mt-0 ${menuState ? `h-28 mt-6` : 'h-0'}`}>
