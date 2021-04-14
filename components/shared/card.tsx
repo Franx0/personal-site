@@ -22,7 +22,7 @@ const Card: FunctionComponent<any> = (props: CardProps) => {
           </motion.div>
         ) : (
           <motion.div onClick={() => handleCardOpened()} className={`cursor-pointer normal-card ${className}`} layoutId="expandable-card" style={style}>
-            <img width={image.width} height={image.heigh} src={image.url} alt={image.alt} loading="lazy" className="mx-auto align-center rounded-full" />
+            <img width={image.width} height={image.height} src={image.url} alt={image.alt} loading="lazy" className="mx-auto align-center rounded-full" />
           </motion.div>
         )
       }

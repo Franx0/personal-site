@@ -5,7 +5,7 @@ export default {
     me: `Personal page with relevant data about my professional career.`
   },
   thanks: {
-    favicon: `<div>Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a></div>`
+    favicon: `<div>Favicon by <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a></div>`
   },
   loader: {
     title: `Loading`,
