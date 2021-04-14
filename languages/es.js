@@ -5,7 +5,7 @@ export default {
     me: `Pagina personal con datos relevantes sobre mi perfil profesional.`
   },
   thanks: {
-    favicon: `<div>Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a></div>`
+    favicon: `Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> de <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a>`
   },
   loader: {
     title: `Cargando`,
@@ -46,7 +46,7 @@ export default {
         imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQH3gp0iUJvNsg/company-logo_100_100/0/1604592579477?e=1624492800&v=beta&t=oJfGjJHu9ZRu8NsZ95tJCizDEPISeqj9iLL9GBAFU84`
       },
       "Glownet": {
-        description: `En Glownet desarrollamos un sistema RFID para ejecutar múltiples eventos sin necesidad de conexión a Internet. Sònar, Coachella, MadCool y muchos otros confiaron en Glownet para ello. El equipo de Android desarrolló la aplicación móvil para controlar 'in situ' todo lo que sucedía dentro del evento y el equipo de 'Cloud' desarrolló las API necesarias, la herramienta de administración y el sistema de analíticas asociadas al evento. Ruby on Rails fue la tecnología elegida para hacer esto, con un potente sistema de base de datos en PostgreSQL y servidores corriendo en Amazon AWS.`,
+        description: `En Glownet desarrollamos un sistema RFID para ejecutar múltiples eventos con o sin Internet. Sònar, Coachella, MadCool y muchos otros confiaron en Glownet. El equipo de Android desarrolló la aplicación móvil para controlar 'in situ' todo lo relativo al evento y el equipo de 'Cloud' desarrolló las API necesarias, la herramienta de administración y el sistema de analíticas asociadas al evento. Ruby on Rails fue la tecnología elegida para hacer esto, con un potente sistema de base de datos en PostgreSQL y servidores corriendo en Amazon AWS.`,
         bgColor: theme.extend.colors.glownet,
         textColor: theme.extend.colors.light.white.secondary,
         imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQHX6Esf0YxpbQ/company-logo_100_100/0/1544181711423?e=1624492800&v=beta&t=_efdQaHCD79ELzINHh34WKCpfKvXYqdAqwDIsfA7tpI`
@@ -61,7 +61,7 @@ export default {
   },
   footer: {
     follow: `Sigueme en: `,
-    handmade: `Diseñado y desarrollado por <a class="ml-1" title="Personal Site" href=https://${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>&nbsp;Fran Moya</a>`
+    handmade: `<span class="whitespace-pre">Diseñado y desarrollado por </span><span class="whitespace-pre"><a class="ml-1" title="Personal Site" href=https://${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>&nbsp;Fran Moya</a></span>`
   },
   404: {
     text: `No se encontró la página`

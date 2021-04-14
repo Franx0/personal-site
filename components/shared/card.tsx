@@ -17,7 +17,7 @@ const Card: FunctionComponent<any> = (props: CardProps) => {
             <div className="lazy-text">
               <motion.h2 className="expanded-card-h text-current mb-2" layoutId="expandable-card-h">{title}</motion.h2>
               <hr className="min-w-full mb-8 border-current lazy-grow origin-left" />
-              <p className="object-contain text-current text-justify">{content}</p>
+              <p className="object-contain text-sm md:text-base text-current text-justify">{content}</p>
             </div>
           </motion.div>
         ) : (

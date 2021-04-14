@@ -60,7 +60,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
           <div className="min-h-max grid grid-flow-col md:grid-cols-6 grid-cols-12 md:mt-24">
             <div className="flex justify-center items-center"><p className="hidden md:flex min-width-0 whitespace-nowrap text-6xl text-primary transform -rotate-90">{locale.dictionary.cv.mySkills}</p></div>
             <div className="md:col-span-4 col-span-10 flex-col">
-              <div className={`relative overflow-hidden transition-all duration-700 md:h-full md:mt-6 ${skillsState ? 'h-full' : 'h-0'} grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-x-10 md:gap-x-8 gap-3 px-5`}>
+              <div className={`relative overflow-hidden transition-all duration-700 md:h-full md:mt-6 ${skillsState ? 'h-full' : 'h-0'} grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-x-10 md:gap-x-8 gap-3 px-0 md:px-5`}>
                 {
                   icons.map((icon: JSX.Element, i: number) => {
                     return (
@@ -89,7 +89,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
                 {
                   Object.entries(locale.dictionary.cv.jobs).map(([name, hash]: [string, any], i: number) => {
                     return (
-                      <motion.div key={`card-container-${i}`} animate={{ scale: [0,1,1.1,1] }} transition={{ delay: ((i/10)+0.1), duration: 0.6 }}>
+                      <motion.div key={`card-container-${i}`} animate={{ scale: [0,1,1.1,1] }} transition={{ delay: ((i/10)+0.1), duration: 0.6 }} className="max-h-full">
                         <Card
                           key={`card${i}`}
                           cardOpened={cardOpened === i.toString()}
