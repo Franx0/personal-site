@@ -4,6 +4,8 @@ import React, { useState, useEffect } from  'react';
 import Router from 'next/router';
 // GA
 import ReactGA from 'react-ga';
+// Utils
+import { isEnv } from '@/utils/index';
 
 const TrackingID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 const TrackingContext = React.createContext(null);
@@ -31,10 +33,10 @@ const TrackingProvider = ({ children }: any) => {
 
   useEffect(() => {
     const { isInitialized } = analytics;
-
+    console.log(!isEnv("development"))
     if (!isInitialized) {
       ReactGA.initialize(TrackingID, {
-        debug: !process.env.production,
+        debug: !isEnv("development"),
         titleCase: false,
         gaOptions: {
           cookieFlags: 'SameSite=None; Secure'
