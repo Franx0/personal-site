@@ -18,6 +18,7 @@ const Header = loadable(() => import('@/components/shared/header'));
 // Contexts
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { TrackingProvider } from '@/contexts/TrackingContext';
 // Override functionality
 import '../utils';
 
@@ -35,7 +36,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <ThemeProvider>
           <Header history={prevState.history} />
           <AnimateSharedLayout>
-            <Component {...pageProps} />
+            <TrackingProvider>
+              <Component {...pageProps} />
+            </TrackingProvider>
             <ToastContainer align={"right"} position={"bottom"} />
           </AnimateSharedLayout>
         </ThemeProvider>

@@ -17,7 +17,7 @@ const LanguageContext = React.createContext({
   userLanguageChange: null
 });
 
-const LanguageProvider = ({ children }) => {
+const LanguageProvider = ({ children }: any) => {
   const [userLanguage, setUserLanguage] = useState(getInitialLang);
   const rawSetLanguage = {
     userLanguage,

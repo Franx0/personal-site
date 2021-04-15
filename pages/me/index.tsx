@@ -11,6 +11,8 @@ const Layout = loadable(() => import('@/components/Layout'))
 const Card = loadable(() => import('@/components/shared/card'));
 // Icons
 import { CV, Positive, Negative, HTML, Ruby, RubyOnRails, NodeJS, Javascript, Shield, ExpressJS, ReactAndNative, NextJS, NGINX, Docker } from '@/icons/index';
+// Context
+import { useTracking } from '@/contexts/TrackingContext';
 
 const icons = [
   <HTML name={'HTML & CSS'} key={`Icon-HTML`} width={"w-12"} height={"h-12"} className={"flex-1 m-auto mb-2"} />,
@@ -29,6 +31,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
   const [skillsState, setSkillsState] = useState(true);
   const [jobsState, setJobsState] = useState(true);
   const [cardOpened, setCardOpened] = useState("#");
+  const { logEvent } = useTracking();
 
   return (
     <Layout title="Me" className="mx-6 my-6 md:mx-0">
@@ -43,7 +46,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
                   <img width="200" height="200" className="md:float-right content-center object-contain rounded-full" loading="lazy" alt="My photo" src={locale.dictionary.profile_image_url} />
                 </div>
                 <div className="relative bg-primary lazy-text col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg">
-                  <div className="z-20 text-default absolute top-5 right-5"><a target="_blank" href={locale.dictionary.cv.download_url}><CV title={locale.dictionary.cv.download}/></a></div>
+                  <div className="z-20 text-default absolute top-5 right-5"><a target="_blank" onClick={() => logEvent({category: "CV", action: "Open CV", label: "file"})} href={locale.dictionary.cv.download_url}><CV title={locale.dictionary.cv.download}/></a></div>
                   <div className="z-10 overflow-hidden" dangerouslySetInnerHTML={{__html: locale.dictionary.cv.description}}></div>
                 </div>
               </div>
