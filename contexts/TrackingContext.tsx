@@ -58,6 +58,9 @@ const TrackingProvider = ({ children }: any) => {
       ReactGA.initialize(TrackingID, {
         debug: isEnv("development"),
         titleCase: false,
+        gaOptions: {
+          cookieFlags: "SameSite=None; Secure",
+        }
       });
 
       setAnalytics(prev  => ({...prev, isInitialized: !isEnv("development") }));
