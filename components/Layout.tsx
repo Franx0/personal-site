@@ -8,6 +8,7 @@ const Head = loadable(() => import('next/head'));
 // Components
 const Loader = loadable(() => import('@/components/shared/loader'));
 const Footer = loadable(() => import('@/components/Footer'));
+const Cookies = loadable(() => import('@/components/shared/cookies'));
 // Contexts
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -31,6 +32,7 @@ export const Layout = ({
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
         <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
         <meta charSet="utf-8" />
+        <meta name="author" content="Francisco Moya"></meta>
         <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")]} />
         <meta name="build version" content={version} />
       </Head>
@@ -42,6 +44,7 @@ export const Layout = ({
       <section className="m-auto md:m-0 md:pr-8 py-4 text-right text-primary text-sm italic font-extralight">
         <div dangerouslySetInnerHTML={{__html: locale.dictionary.thanks.favicon}}></div>
       </section>
+      <Cookies />
       <Footer {...{locale}} />
     </>
   )

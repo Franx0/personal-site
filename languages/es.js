@@ -1,8 +1,13 @@
 import { theme } from 'tailwind.config.js';
 
 export default {
+  cookies: {
+    main: `Esta página usa cookies para mejorar tu experiencia como usuario.`,
+    accept: `Aceptar`,
+    reject: `Rechazar`
+  },
   meta: {
-    me: `Pagina personal con datos relevantes sobre mi perfil profesional.`
+    me: `Página personal con datos relevantes sobre mi perfil profesional.`
   },
   thanks: {
     favicon: `Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> de <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a>`

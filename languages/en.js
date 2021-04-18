@@ -1,6 +1,11 @@
 import { theme } from 'tailwind.config.js';
 
 export default {
+  cookies: {
+    main: `This website uses cookies to enhance your user experience.`,
+    accept: `Agree`,
+    reject: `Reject`
+  },
   meta: {
     me: `Personal page with relevant data about my professional career.`
   },
