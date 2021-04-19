@@ -4,20 +4,20 @@ import React, { useState, useEffect } from 'react';
 import en from '@/languages/en.js';
 import es from '@/languages/es.js';
 
-export const translations = { en, es };
+const translations = { en, es };
 
 export const languageOptions = {
   en: 'English',
   es: 'Español'
 };
 
-export const LanguageContext = React.createContext({
+const LanguageContext = React.createContext({
   userLanguage: 'es',
   dictionary: translations.es,
   userLanguageChange: null
 });
 
-export const LanguageProvider = ({ children }) => {
+const LanguageProvider = ({ children }: any) => {
   const [userLanguage, setUserLanguage] = useState(getInitialLang);
   const rawSetLanguage = {
     userLanguage,
@@ -38,7 +38,7 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-export const getInitialLang = (): string => {
+const getInitialLang = (): string => {
   if (typeof window !== "undefined" && window.localStorage) {
     const storedPrefs = window.localStorage.getItem("user-lang")
     if (typeof storedPrefs === "string") return storedPrefs
@@ -47,4 +47,6 @@ export const getInitialLang = (): string => {
   return "es"
 }
 
-export default LanguageContext
+const useLanguage = () => React.useContext(LanguageContext);
+
+export { LanguageProvider, useLanguage };

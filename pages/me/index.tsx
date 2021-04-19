@@ -1,7 +1,7 @@
 // Loadable
 import loadable from '@loadable/component';
 // React
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 // Nextjs
 import { NextPage , NextPageContext} from 'next';
 // Framer Motion
@@ -11,6 +11,10 @@ const Layout = loadable(() => import('@/components/Layout'))
 const Card = loadable(() => import('@/components/shared/card'));
 // Icons
 import { CV, Positive, Negative, HTML, Ruby, RubyOnRails, NodeJS, Javascript, Shield, ExpressJS, ReactAndNative, NextJS, NGINX, Docker } from '@/icons/index';
+// Context
+import { useTracking } from '@/contexts/TrackingContext';
+// Constants
+import { OPEN_CV } from '@/root/constants';
 
 const icons = [
   <HTML name={'HTML & CSS'} key={`Icon-HTML`} width={"w-12"} height={"h-12"} className={"flex-1 m-auto mb-2"} />,
@@ -25,10 +29,16 @@ const icons = [
   <NextJS name={'NextJS'} key={`Icon-NextJS`} width={"w-20"} height={"h-10"} className={"flex-1 m-auto mb-2"} />
 ]
 
+const scrollToRef = (ref: any) => window.scrollTo(0, ref.current.parentElement.offsetTop);
+
 const MeIndex: NextPage<NextPageContext> = () => {
   const [skillsState, setSkillsState] = useState(true);
   const [jobsState, setJobsState] = useState(true);
   const [cardOpened, setCardOpened] = useState("#");
+  const { logEvent } = useTracking();
+  const cardRef = useRef(null);
+
+  const executeScroll = () => scrollToRef(cardRef);
 
   return (
     <Layout title="Me" className="mx-6 my-6 md:mx-0">
@@ -43,7 +53,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
                   <img width="200" height="200" className="md:float-right content-center object-contain rounded-full" loading="lazy" alt="My photo" src={locale.dictionary.profile_image_url} />
                 </div>
                 <div className="relative bg-primary lazy-text col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg">
-                  <div className="z-20 text-default absolute top-5 right-5"><a target="_blank" href={locale.dictionary.cv.download_url}><CV title={locale.dictionary.cv.download}/></a></div>
+                  <div className="z-20 text-default absolute top-5 right-5"><a target="_blank" onClick={() => logEvent({category: "CV", action: OPEN_CV, label: "file"})} href={locale.dictionary.cv.download_url}><CV title={locale.dictionary.cv.download}/></a></div>
                   <div className="z-10 overflow-hidden" dangerouslySetInnerHTML={{__html: locale.dictionary.cv.description}}></div>
                 </div>
               </div>
@@ -60,7 +70,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
           <div className="min-h-max grid grid-flow-col md:grid-cols-6 grid-cols-12 md:mt-24">
             <div className="flex justify-center items-center"><p className="hidden md:flex min-width-0 whitespace-nowrap text-6xl text-primary transform -rotate-90">{locale.dictionary.cv.mySkills}</p></div>
             <div className="md:col-span-4 col-span-10 flex-col">
-              <div className={`relative overflow-hidden transition-all duration-700 md:h-full md:mt-6 ${skillsState ? 'h-full' : 'h-0'} grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-x-10 md:gap-x-8 gap-3 px-5`}>
+              <div className={`relative overflow-hidden transition-all duration-700 md:h-full md:mt-6 ${skillsState ? 'h-full' : 'h-0'} grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-x-10 md:gap-x-8 gap-3 px-0 md:px-5`}>
                 {
                   icons.map((icon: JSX.Element, i: number) => {
                     return (
@@ -89,17 +99,17 @@ const MeIndex: NextPage<NextPageContext> = () => {
                 {
                   Object.entries(locale.dictionary.cv.jobs).map(([name, hash]: [string, any], i: number) => {
                     return (
-                      <motion.div key={`card-container-${i}`} animate={{ scale: [0,1,1.1,1] }} transition={{ delay: ((i/10)+0.1), duration: 0.6 }}>
+                      <motion.div ref={cardRef} key={`card-container-${i}`} animate={{ scale: [0,1,1.1,1] }} transition={{ delay: ((i/10)+0.1), duration: 0.6 }} className="max-h-full">
                         <Card
                           key={`card${i}`}
-                          cardOpened={cardOpened === i.toString()}
-                          handleCardOpened={(val) => setCardOpened(val || i.toString())}
-                          className={"md:p-8 px-5 py-3 rounded"}
-                          style={{backgroundColor: hash.bgColor, borderColor: hash.textColor}}
-                          expandedStyle={{backgroundColor: hash.bgColor, color: hash.textColor}}
                           title={name}
                           content={hash.description}
                           image={{width: 100, height: 100, alt: name, url: hash.imageUrl}}
+                          className={"md:p-8 px-5 py-3 rounded"}
+                          style={{backgroundColor: hash.bgColor, borderColor: hash.textColor}}
+                          cardOpened={cardOpened === i.toString()}
+                          handleCardOpened={(val) => { setCardOpened(val || i.toString()); executeScroll() }}
+                          expandedStyle={{backgroundColor: hash.bgColor, color: hash.textColor}}
                           expandedImage={{alt: name, url: hash.imageUrl}} />
                       </motion.div>
                     )

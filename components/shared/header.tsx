@@ -10,20 +10,20 @@ const ButtonStyled = loadable(() => import('@/components/shared/button'));
 const Toogle = loadable(() => import('@/components/shared/toogle'));
 const LanguageSelector = loadable(() => import('@/components/languages/selector'));
 // Context
-import ThemeContext from '@/contexts/ThemeContext';
-import { LanguageContext } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 // Icons
 import { ArrowBack, Hamburguer, Sun, Moon } from '@/icons/index';
 // Utils
 import { isEnv } from '@/utils/index';
 
 const Header: FunctionComponent<any> = (props: any) => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useTheme();
+  const locale = useLanguage();
   const router = useRouter();
   const [menuState, setMenuState] = useState(false);
   const [toogleState, setToogleState] = useState(false);
   const [previousPath, setPreviousPath] = useState(undefined);
-  const locale = useContext(LanguageContext);
   const ignoredPaths = [previousPath, `${previousPath}#`, router.asPath.replace(/\#$/, ''), "/404", "/500"]
 
   useEffect(() => {

@@ -8,9 +8,10 @@ const Head = loadable(() => import('next/head'));
 // Components
 const Loader = loadable(() => import('@/components/shared/loader'));
 const Footer = loadable(() => import('@/components/Footer'));
+const Cookies = loadable(() => import('@/components/shared/cookies'));
 // Contexts
-import ThemeContext from '@/contexts/ThemeContext';
-import { LanguageContext } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 // Version
 import { version } from "../package.json";
 
@@ -19,8 +20,8 @@ export const Layout = ({
   className = '',
   title = 'Franx0',
 }) => {
-  const { theme } = useContext(ThemeContext);
-  const locale = useContext(LanguageContext);
+  const { theme } = useTheme();
+  const locale = useLanguage();
   const router = useRouter();
 
   return (
@@ -31,6 +32,7 @@ export const Layout = ({
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
         <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
         <meta charSet="utf-8" />
+        <meta name="author" content="Francisco Moya"></meta>
         <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")]} />
         <meta name="build version" content={version} />
       </Head>
@@ -39,9 +41,10 @@ export const Layout = ({
           {children(locale) || <Loader title={locale.dictionary.loader.title} text={locale.dictionary.loader.text} />}
         </div>
       </main>
-      <section className="m-auto md:m-0 pr-8 py-4 text-right text-primary italic font-extralight">
+      <section className="m-auto md:m-0 md:pr-8 py-4 text-right text-primary text-sm italic font-extralight">
         <div dangerouslySetInnerHTML={{__html: locale.dictionary.thanks.favicon}}></div>
       </section>
+      <Cookies />
       <Footer {...{locale}} />
     </>
   )

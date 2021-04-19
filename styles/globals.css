@@ -31,7 +31,7 @@
 }
 
 html {
-  @apply bg-white text-xl;
+  @apply bg-white text-lg;
 }
 
 body {
@@ -152,7 +152,8 @@ img[loading=lazy] {
   padding: 3rem;
 }
 
-.expanded-card-h{
+.expanded-card-h {
+  max-width: max-content;
   font-size: 27px;
   place-self: end center;
 }

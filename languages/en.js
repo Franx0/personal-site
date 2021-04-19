@@ -1,11 +1,19 @@
 import { theme } from 'tailwind.config.js';
 
 export default {
+  actions: {
+    close: `Close`,
+  },
+  cookies: {
+    main: `This website uses cookies to enhance your user experience.`,
+    accept: `Agree`,
+    reject: `Reject`
+  },
   meta: {
     me: `Personal page with relevant data about my professional career.`
   },
   thanks: {
-    favicon: `<div>Favicon by <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a></div>`
+    favicon: `Favicon by <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a>`
   },
   loader: {
     title: `Loading`,
@@ -61,7 +69,7 @@ export default {
   },
   footer: {
     follow: `Follow me on: `,
-    handmade: `Designed & Developed by <a class="ml-1" title="Personal Site" href=${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>&nbsp;Fran Moya</a>`
+    handmade: `<span class="whitespace-pre">Designed & Developed by </span><span class="whitespace-pre"><a class="ml-1" title="Personal Site" href=https://${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>&nbsp;Fran Moya</a></span>`
   },
   404: {
     text: `Page not found`

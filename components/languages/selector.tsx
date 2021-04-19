@@ -1,10 +1,10 @@
 // React
 import { FunctionComponent, useContext, useState } from 'react';
 // Languages
-import { languageOptions, LanguageContext } from '@/contexts/LanguageContext';
+import { languageOptions, useLanguage } from '@/contexts/LanguageContext';
 
 const LanguageSelector: FunctionComponent<any> = () => {
-  const { userLanguage, userLanguageChange } = useContext(LanguageContext);
+  const { userLanguage, userLanguageChange } = useLanguage();
   const [toggleSelector, setToggleSelector] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ const LanguageSelector: FunctionComponent<any> = () => {
           {
             Object.keys(languageOptions).map((lang: string) => {
               return (
-                <a key={lang} href="#" onClick={() => userLanguageChange(lang)} className="block px-4 py-2 text-sm capitalize text-secondary hover:bg-blue-500 hover:text-white">
+                <a key={lang} href="#" onClick={() => userLanguageChange(lang)} className={`block px-4 py-2 text-sm capitalize hover:text-accent  ${userLanguage == lang ? 'text-accent' : 'text-secondary'}`}>
                   {lang.toUpperCase()}
                 </a>
               )
