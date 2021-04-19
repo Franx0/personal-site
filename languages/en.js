@@ -1,6 +1,9 @@
 import { theme } from 'tailwind.config.js';
 
 export default {
+  actions: {
+    close: `Close`,
+  },
   cookies: {
     main: `This website uses cookies to enhance your user experience.`,
     accept: `Agree`,

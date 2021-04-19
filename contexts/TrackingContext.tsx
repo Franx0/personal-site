@@ -7,6 +7,7 @@ import ReactGA from 'react-ga';
 // Utils
 import { isEnv } from '@/utils/index';
 
+
 const TrackingID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 const TrackingContext = React.createContext(null);
 

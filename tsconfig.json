@@ -9,7 +9,8 @@
       "@/styles/*": ["styles/*"],
       "@/contexts/*": ["contexts/*"],
       "@/icons/*": ["icons/*"],
-      "@/languages/*": ["languages/*"]
+      "@/languages/*": ["languages/*"],
+      "@/root/*": ["*"]
     },
     "target": "es5",
     "lib": [
