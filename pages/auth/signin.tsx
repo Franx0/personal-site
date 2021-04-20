@@ -12,7 +12,7 @@ import { redirectTo } from '@/utils/index';
 import * as Icons from '@/icons/index';
 
 const SignIn: NextPage<any> = ({ providers }) => {
-  const renderLogo: Function = (iconName) => {
+  const renderLogo: Function = (iconName: string) => {
     const Icon = (Icons[`${iconName}Logo`] && Icons[`${iconName}Logo`]({}) || []);
 
     return Icon
@@ -20,7 +20,7 @@ const SignIn: NextPage<any> = ({ providers }) => {
 
   return (
     <Layout title="Login" className="flex w-full justify-center mt-2 mb-6">
-      {(locale) =>
+      {(locale: any) =>
         <div className="w-min flex flex-col items-center align-middle mt-20">
           <p className="text-primary text-xl">Sign in with:</p>
           <hr className="w-full mt-2 mb-2 border-gray-400"/>
