@@ -24,7 +24,7 @@ const Cookies: FunctionComponent<any> = () => {
     <CookieConsent
       enableDeclineButton
       location="bottom"
-      containerClasses="md:h-24 font-sans bg-primary text-primary items-center"
+      containerClasses="md:h-20 font-sans bg-primary text-primary items-center"
       buttonText={locale.dictionary.cookies.accept}
       declineButtonText={locale.dictionary.cookies.reject}
       cookieName="franx0-cookie"
