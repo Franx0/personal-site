@@ -14,6 +14,7 @@ const TrackingContext = React.createContext(null);
 const TrackingProvider = ({ children }: any) => {
   const [analytics, setAnalytics] = useState({
     isInitialized: false,
+    isDeclined: false,
     trackers: []
   });
 
@@ -52,28 +53,37 @@ const TrackingProvider = ({ children }: any) => {
     }
   };
 
-  useEffect(() => {
-    const { isInitialized } = analytics;
+  const updateAnalytics = (type, value) => {
+    setAnalytics((prev) => ({
+      ...prev, [type]: value
+    }));
+  };
 
-    if (!isInitialized && !isEnv("development")) {
+  const initializeGA = (analyticState) => {
+    const { isInitialized, isDeclined } = analyticState;
+
+    if (!isInitialized && !isDeclined) {
       ReactGA.initialize(TrackingID, {
         debug: isEnv("development"),
+        testMode: isEnv("development"),
         titleCase: false,
         gaOptions: {
           cookieFlags: "SameSite=None; Secure",
         }
       });
 
-      setAnalytics(prev  => ({...prev, isInitialized: !isEnv("development") }));
-
-      analytics.trackers.forEach(trackerName => addTracker(trackerName));
-    };
-
-    Router.events.on('routeChangeComplete', handleRouteChange);
-  });
+      setAnalytics(prev => ({...prev, isInitialized: !isEnv("development") }));
+    } else {
+      if(isDeclined) window[`ga-disable-${TrackingID}`] = true;
+      else Router.events.on('routeChangeComplete', handleRouteChange);
+    }
+  }
+  useEffect(() => {
+    initializeGA(analytics);
+  }, [analytics.isInitialized, analytics.isDeclined]);
 
   return (
-    <TrackingContext.Provider value={{ addTracker, removeTracker, logEvent }}>
+    <TrackingContext.Provider value={{ addTracker, removeTracker, logEvent, updateAnalytics }}>
       {children}
     </TrackingContext.Provider>
   )

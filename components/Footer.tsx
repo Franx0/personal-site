@@ -24,7 +24,7 @@ export const Footer = (props: any) => {
                 <Twitter width={"w-5"} height={"h-5"} />
               </a>
             </div>
-            <div className="flex md:align-middle md:m-auto md:mr-0 text-center text-default justify-center md:justify-end" dangerouslySetInnerHTML={{__html: props.locale.dictionary.footer.handmade}}></div>
+            <div className="flex md:align-middle md:m-auto md:mr-0 text-center text-sm md:text-base text-default justify-center md:justify-end" dangerouslySetInnerHTML={{__html: props.locale.dictionary.footer.handmade}}></div>
           </div>
         </div>
       </div>

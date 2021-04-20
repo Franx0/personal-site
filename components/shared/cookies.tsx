@@ -6,9 +6,19 @@ import { FunctionComponent } from 'react';
 const CookieConsent = loadable(() => import('react-cookie-consent'));
 // Contexts
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTracking } from '@/contexts/TrackingContext';
 
 const Cookies: FunctionComponent<any> = () => {
   const locale = useLanguage();
+  const { updateAnalytics } = useTracking();
+
+  const accept = () => {
+    updateAnalytics("isDeclined", false);
+  };
+
+  const reject = () => {
+    updateAnalytics("isDeclined", true);
+  };
 
   return (
     <CookieConsent
@@ -18,6 +28,8 @@ const Cookies: FunctionComponent<any> = () => {
       buttonText={locale.dictionary.cookies.accept}
       declineButtonText={locale.dictionary.cookies.reject}
       cookieName="franx0-cookie"
+      onAccept={() => accept()}
+      onDecline={() => reject()}
       buttonWrapperClasses="m-auto"
       buttonClasses="bg-secondary hover:bg-outstanding text-primary rounded shadow-lg"
       declineButtonClasses="bg-red-600 hover:bg-red-500 rounded shadow-lg"

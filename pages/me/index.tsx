@@ -76,7 +76,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
                     return (
                       <motion.div key={`Skill-${i}`} animate={{ scale: [0,1,1.1,1] }} transition={{ delay: ((i/10)+0.1), duration: 0.6 }} className="flex flex-col h-40 align-center items-center text-center bg-cards md:m-2 m-1 md:p-4 py-2 justify-center rounded shadow-lg">
                         {icon}
-                        <p key={icon.props.name} className="flex-2 text-gray-500">{icon.props.name}</p>
+                        <p key={icon.props.name} className="flex-2 text-sm md:text-base text-gray-500">{icon.props.name}</p>
                       </motion.div>
                     )
                   })

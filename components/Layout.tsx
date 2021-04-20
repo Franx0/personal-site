@@ -41,7 +41,7 @@ export const Layout = ({
           {children(locale) || <Loader title={locale.dictionary.loader.title} text={locale.dictionary.loader.text} />}
         </div>
       </main>
-      <section className="m-auto md:m-0 md:pr-8 py-4 text-right text-primary text-sm italic font-extralight">
+      <section className="m-auto md:m-0 md:pr-8 py-4 text-right text-primary text-xs md:text-sm italic font-extralight">
         <div dangerouslySetInnerHTML={{__html: locale.dictionary.thanks.favicon}}></div>
       </section>
       <Cookies />
