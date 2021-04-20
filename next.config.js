@@ -12,7 +12,7 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/auth/:path*',
+        source: '/auth/signin',
         destination: '/404',
         permanent: true,
       }
