@@ -13,7 +13,9 @@ const TrackingContext = React.createContext(null);
 
 const TrackingProvider = ({ children }: any) => {
   const [analytics, setAnalytics] = useState({
+    initialize: false,
     isInitialized: false,
+    isDeclined: false,
     trackers: []
   });
 
@@ -52,28 +54,44 @@ const TrackingProvider = ({ children }: any) => {
     }
   };
 
-  useEffect(() => {
-    const { isInitialized } = analytics;
+  const updateAnalytics = (type, value) => {
+    setAnalytics((prev) => ({
+      ...prev, [type]: value
+    }));
+  };
 
-    if (!isInitialized && !isEnv("development")) {
+  const initializeGA = (analyticState) => {
+    const { isInitialized, isDeclined } = analyticState;
+
+    if (!isInitialized && !isDeclined) {
       ReactGA.initialize(TrackingID, {
         debug: isEnv("development"),
+        testMode: isEnv("development"),
         titleCase: false,
         gaOptions: {
           cookieFlags: "SameSite=None; Secure",
         }
       });
 
-      setAnalytics(prev  => ({...prev, isInitialized: !isEnv("development") }));
+      setAnalytics(prev => ({...prev, isInitialized: !isEnv("development") }));
+    }
 
-      analytics.trackers.forEach(trackerName => addTracker(trackerName));
+    if (isDeclined) {
+      window[`ga-disable-${TrackingID}`] = true;
+      ['_ga', '_gid', '_gat'].forEach ((cookieName: string) => {
+        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      });
+    } else {
+      Router.events.on('routeChangeComplete', handleRouteChange);
     };
+  }
 
-    Router.events.on('routeChangeComplete', handleRouteChange);
-  });
+  useEffect(() => {
+    if(analytics.initialize) initializeGA(analytics);
+  }, [analytics.initialize, analytics.isInitialized, analytics.isDeclined]);
 
   return (
-    <TrackingContext.Provider value={{ addTracker, removeTracker, logEvent }}>
+    <TrackingContext.Provider value={{ addTracker, removeTracker, logEvent, updateAnalytics }}>
       {children}
     </TrackingContext.Provider>
   )

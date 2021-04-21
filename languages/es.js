@@ -6,13 +6,24 @@ export default {
   },
   cookies: {
     main: `Esta página usa cookies para mejorar tu experiencia como usuario.`,
+    list: `(*Google Analytics)`,
     accept: `Aceptar`,
     reject: `Rechazar`
   },
   meta: {
-    me: `Página personal con datos relevantes sobre mi perfil profesional.`
+    me: {
+      image_url: `https://images.unsplash.com/photo-1543352449-2109a4fa225b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80`,
+      title: `Fran Moya | Sobre mí.`,
+      description: `Página personal con datos relevantes sobre mi perfil profesional.`
+    },
+    posts: {
+      image_url: ``,
+      title: `Fran Moya | Blog.`,
+      description: `Blog personal.`
+    }
   },
   thanks: {
+    media: `Imagen del sitio por <a href="https://unsplash.com/photos/TIcrAOXXgYM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink" title="Denys Nevozhai">Denys Nevozhai</a> de <a href="https://unsplash.com/" title="Unsplash">Unsplash</a>`,
     favicon: `Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> de <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a>`
   },
   loader: {
