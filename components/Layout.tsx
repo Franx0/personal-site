@@ -33,19 +33,19 @@ export const Layout = ({
         <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
         <meta charSet="utf-8" />
         <meta name="author" content="Francisco Moya"></meta>
-        <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")]["description"]} />
+        <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="build version" content={version} />
         <meta name="robots" content="index,follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${process.env.NEXT_PUBLIC_AUTH_URL}`} />
-        <meta property="og:image" content={locale.dictionary.meta[router.pathname.replace("/", "")]["image_url"]} key="image" />
-        <meta property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")]["title"]} key="title" />
-        <meta property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")]["description"]} key="description" />
+        <meta property="og:image" content={locale.dictionary.meta[router.pathname.replace("/", "")].image_url} key="image" />
+        <meta property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="title" />
+        <meta property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="description" />
         <meta property="twitter:card" content="twitter-summary" />
         <meta property="twitter:creator" content="Francisco Moya" key="twitter-creator" />
         <meta property="twitter:site" content={process.env.NEXT_PUBLIC_AUTH_URL} key="twitter-site" />
-        <meta property="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")]["title"]} key="tiwtter-title" />
-        <meta property="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")]["title"]} key="twitter-description" />
+        <meta property="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="twitter-title" />
+        <meta property="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="twitter-description" />
       </Head>
       <main className="flex font-sans">
         <div className={className}>

@@ -65,6 +65,7 @@ const TrackingProvider = ({ children }: any) => {
     if (!isInitialized && !isDeclined) {
       ReactGA.initialize(TrackingID, {
         debug: isEnv("development"),
+        testMode: isEnv("development"),
         titleCase: false,
         gaOptions: {
           cookieFlags: "SameSite=None; Secure",
@@ -80,7 +81,7 @@ const TrackingProvider = ({ children }: any) => {
       Router.events.on('routeChangeComplete', handleRouteChange);
     };
   }
-  
+
   useEffect(() => {
     initializeGA(analytics);
   }, [analytics.isInitialized, analytics.isDeclined]);
