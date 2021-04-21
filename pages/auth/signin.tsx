@@ -53,7 +53,7 @@ SignIn.getInitialProps = async (ctx) => {
 
   return {
     session: undefined,
-    providers: await providers(ctx)
+    providers: await providers()
   }
 }
 
