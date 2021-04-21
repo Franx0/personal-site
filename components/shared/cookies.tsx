@@ -13,7 +13,7 @@ const Cookies: FunctionComponent<any> = () => {
   const { updateAnalytics } = useTracking();
 
   const accept = () => {
-    updateAnalytics("isDeclined", false);
+    updateAnalytics("initialize", true);
   };
 
   const reject = () => {
@@ -24,10 +24,9 @@ const Cookies: FunctionComponent<any> = () => {
     <CookieConsent
       enableDeclineButton
       location="bottom"
-      containerClasses="md:h-20 font-sans bg-primary text-primary items-center"
+      containerClasses="md:h-20 p-2 font-sans bg-primary text-primary items-center"
       buttonText={locale.dictionary.cookies.accept}
       declineButtonText={locale.dictionary.cookies.reject}
-      cookieName="franx0-cookie"
       onAccept={() => accept()}
       onDecline={() => reject()}
       buttonWrapperClasses="m-auto"
@@ -35,6 +34,7 @@ const Cookies: FunctionComponent<any> = () => {
       declineButtonClasses="bg-red-600 hover:bg-red-500 rounded shadow-lg"
     >
       {locale.dictionary.cookies.main}
+      <p className="text-sm text-gray-400">{locale.dictionary.cookies.list}</p>
     </CookieConsent>
   )
 }

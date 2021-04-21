@@ -6,7 +6,7 @@ export default {
   },
   cookies: {
     main: `This website uses cookies to enhance your user experience.`,
-    list: `(*GA)`,
+    list: `(*Google Analytics)`,
     accept: `Agree`,
     reject: `Reject`
   },

@@ -13,6 +13,7 @@ const TrackingContext = React.createContext(null);
 
 const TrackingProvider = ({ children }: any) => {
   const [analytics, setAnalytics] = useState({
+    initialize: false,
     isInitialized: false,
     isDeclined: false,
     trackers: []
@@ -77,14 +78,17 @@ const TrackingProvider = ({ children }: any) => {
 
     if (isDeclined) {
       window[`ga-disable-${TrackingID}`] = true;
+      ['_ga', '_gid', '_gat'].forEach ((cookieName: string) => {
+        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      });
     } else {
       Router.events.on('routeChangeComplete', handleRouteChange);
     };
   }
 
   useEffect(() => {
-    initializeGA(analytics);
-  }, [analytics.isInitialized, analytics.isDeclined]);
+    if(analytics.initialize) initializeGA(analytics);
+  }, [analytics.initialize, analytics.isInitialized, analytics.isDeclined]);
 
   return (
     <TrackingContext.Provider value={{ addTracker, removeTracker, logEvent, updateAnalytics }}>
