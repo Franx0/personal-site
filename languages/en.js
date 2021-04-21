@@ -12,17 +12,18 @@ export default {
   },
   meta: {
     me: {
-      image_url: `https://media-exp1.licdn.com/dms/image/C4D03AQFuztupZbxN4w/profile-displayphoto-shrink_200_200/0/1589194942040?e=1621468800&v=beta&t=fcl-tExT68fxIOtgLDO-JNZDo_F0lqysRQyyyYCYS94`,
-      title: `About me.`,
+      image_url: `https://images.unsplash.com/photo-1543352449-2109a4fa225b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80`,
+      title: `Fran Moya | About me`,
       description: `Personal page with relevant data about my professional career.`
     },
     posts: {
       image_url: ``,
-      title: `Blog.`,
+      title: `Fran Moya | Blog`,
       description: `Personal blog page.`
     }
   },
   thanks: {
+    media: `Site image by <a href="https://unsplash.com/photos/TIcrAOXXgYM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink" title="Denys Nevozhai">Denys Nevozhai</a> from <a href="https://unsplash.com/" title="Unsplash">Unsplash</a>`,
     favicon: `Favicon by <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a>`
   },
   loader: {
