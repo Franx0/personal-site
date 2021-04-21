@@ -1,14 +1,4 @@
-const pkg = require('./package.json');
-
 module.exports = {
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
-    config.externals = config.externals || []
-      .concat(Object.keys(pkg.peerDependencies))
-      .concat(Object.keys(pkg.dependencies));
-
-    return config
-  },
   async redirects() {
     return [
       {
