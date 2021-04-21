@@ -11,7 +11,11 @@ export default {
     reject: `Rechazar`
   },
   meta: {
-    me: `Página personal con datos relevantes sobre mi perfil profesional.`
+    me: {
+      image_url: `"https://media-exp1.licdn.com/dms/image/C4D03AQFuztupZbxN4w/profile-displayphoto-shrink_200_200/0/1589194942040?e=1621468800&v=beta&t=fcl-tExT68fxIOtgLDO-JNZDo_F0lqysRQyyyYCYS94"`,
+      title: `Sobre mí.`,
+      description: `Página personal con datos relevantes sobre mi perfil profesional.`
+    }
   },
   thanks: {
     favicon: `Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> de <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a>`
