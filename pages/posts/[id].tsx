@@ -42,7 +42,7 @@ PostShow.getInitialProps = async (ctx: any): Promise<Post> => {
       dataPromise.findPostBySlugByPublishedAt
 
     if(data?.errors?.length)
-      redirectTo(`${process.env.NEXT_PUBLIC_AUTH_URL}/404`, 302, undefined, ctx);
+      redirectTo(`${process.env.NEXT_PUBLIC_SITE_URL}/404`, 302, undefined, ctx);
     else
       post = data;
   };
