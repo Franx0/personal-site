@@ -34,12 +34,6 @@ export const Layout = ({
     <>
       <Head>
         <title>{title}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <meta name="author" content="Francisco Moya" />
-        <meta name="description" content={meta.description} />
-        <meta name="build version" content={version} />
-        <meta name="robots" content="index,follow" />
 
         {/* Google */}
         <meta itemProp="name" content={meta.title} key="title" />
@@ -59,6 +53,13 @@ export const Layout = ({
         <meta name="twitter:image" content={meta.imageUrl} key="twimage" />
         <meta name="twitter:title" content={meta.title} key="twtitle" />
         <meta name="twitter:description" content={meta.description} key="twdesc" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta name="author" content="Francisco Moya" />
+        <meta name="description" content={meta.description} />
+        <meta name="build version" content={version} />
+        <meta name="robots" content="index,follow" />
 
         <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
