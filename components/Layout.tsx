@@ -26,7 +26,7 @@ export const Layout = ({
 
   return (
     <>
-      <Head>
+      <Head prefix="og: http://ogp.me/ns#">
         <title>{title}</title>
 
         <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
@@ -37,18 +37,14 @@ export const Layout = ({
         <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="build version" content={version} />
         <meta name="robots" content="index,follow" />
-        <meta name="type" property="og:type" content="website" />
-        <meta name="url" property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-        <meta name="image" property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
-        <meta name="title" property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
-        <meta name="description" property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
+        <meta property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
+        <meta property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Franxo06" />
         <meta name="twitter:creator" content="@Franxo06" />
-        <meta name="twitter:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
-        <meta name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
-        <meta name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
       </Head>
       <main className="flex font-sans">
         <div className={className}>
