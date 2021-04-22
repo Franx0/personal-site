@@ -28,27 +28,30 @@ export const Layout = ({
     <>
       <Head>
         <title>{title}</title>
-
-        <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
-        <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
-        <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
-
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
         <meta name="author" content="Francisco Moya" />
         <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="build version" content={version} />
         <meta name="robots" content="index,follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
-        <meta property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
-        <meta property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@Franxo06" />
-        <meta name="twitter:creator" content="@Franxo06" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:creator" content="@Franxo06" key="twhandle" />
         <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
         <meta name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
         <meta name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" key="ogtype" />
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} key="ogurl" />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} key="ogimage" />
+        <meta property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="ogtitle" />
+        <meta property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="ogdesc" />
+
+        <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
       </Head>
 
       <main className="flex font-sans">
