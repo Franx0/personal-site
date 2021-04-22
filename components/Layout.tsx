@@ -28,10 +28,11 @@ export const Layout = ({
     <>
       <Head>
         <title>{title}</title>
+
         <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
         <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
-        <meta charSet="utf-8" />
+
         <meta name="author" content="Francisco Moya"></meta>
         <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="build version" content={version} />
@@ -41,13 +42,13 @@ export const Layout = ({
         <meta name="og:image" property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
         <meta name="og:title" property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
         <meta name="og:description" property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
-        <meta name="twitter:card" property="twitter:card" content="twitter-summary" />
-        <meta name="twitter:creator" property="twitter:creator" content="Francisco Moya" />
-        <meta name="twitter:domain" property="twitter:domain" content={process.env.NEXT_PUBLIC_DOMAIN} />
-        <meta name="twitter:url" property="twitter:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-        <meta name="twitter:image" property="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
-        <meta name="twitter:title" property="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
-        <meta name="twitter:description" property="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@Franxo06" />
+        <meta name="twitter:creator" content="@Franxo06" />
+        <meta name="twitter:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
+        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
+        <meta name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
+        <meta name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
       </Head>
       <main className="flex font-sans">
         <div className={className}>
