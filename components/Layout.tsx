@@ -41,13 +41,13 @@ export const Layout = ({
         <meta name="og:image" property="og:image" content={`${process.env.NEXT_PUBLIC_AUTH_URL}/media.jpg`} />
         <meta name="og:title" property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
         <meta name="og:description" property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
-        <meta name="twitter:card" content="twitter-summary" />
-        <meta name="twitter:creator" content="Francisco Moya" />
+        <meta name="twitter:card" property="twitter:card" content="twitter-summary" />
+        <meta name="twitter:creator" property="twitter:creator" content="Francisco Moya" />
         <meta name="twitter:domain" property="twitter:domain" content={process.env.NEXT_PUBLIC_DOMAIN} />
         <meta name="twitter:url" property="twitter:url" content={process.env.NEXT_PUBLIC_AUTH_URL} />
-        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_AUTH_URL}/media.jpg`} />
-        <meta name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
-        <meta name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+        <meta name="twitter:image" property="twitter:image" content={`${process.env.NEXT_PUBLIC_AUTH_URL}/media.jpg`} />
+        <meta name="twitter:title" property="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
+        <meta name="twitter:description" property="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
       </Head>
       <main className="flex font-sans">
         <div className={className}>
