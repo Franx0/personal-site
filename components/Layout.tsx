@@ -23,6 +23,12 @@ export const Layout = ({
   const { theme } = useTheme();
   const locale = useLanguage();
   const router = useRouter();
+  const meta = {
+    title: locale.dictionary.meta[router.pathname.replace("/", "")].title || '',
+    description: locale.dictionary.meta[router.pathname.replace("/", "")].description || '',
+    imageUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg` || '',
+    url: process.env.NEXT_PUBLIC_SITE_URL || ''
+  };
 
   return (
     <>
@@ -31,23 +37,27 @@ export const Layout = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta name="author" content="Francisco Moya" />
-        <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+        <meta name="description" content={meta.description} />
         <meta name="build version" content={version} />
         <meta name="robots" content="index,follow" />
+        {/* Google */}
+        <meta itemProp="name" content={meta.title} key="title" />
+        <meta itemProp="description" content={meta.description} key="desc" />
+        <meta itemProp="image" content={meta.imageUrl} key="image" />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:card" content="summary_large_image" key="twcard" />
         <meta name="twitter:creator" content="@Franxo06" key="twhandle" />
-        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
-        <meta name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
-        <meta name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+        <meta name="twitter:image" content={meta.imageUrl} key="twimage" />
+        <meta name="twitter:title" content={meta.title} key="twtitle" />
+        <meta name="twitter:description" content={meta.description} key="twdesc" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" key="ogtype" />
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} key="ogurl" />
-        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} key="ogimage" />
-        <meta property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="ogtitle" />
-        <meta property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="ogdesc" />
+        <meta property="og:url" content={meta.url} key="ogurl" />
+        <meta property="og:image" content={meta.imageUrl} key="ogimage" />
+        <meta property="og:title" content={meta.title} key="ogtitle" />
+        <meta property="og:description" content={meta.description} key="ogdesc" />
 
         <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
