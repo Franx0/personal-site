@@ -11,6 +11,16 @@ export default {
     reject: `Rechazar`
   },
   meta: {
+    "404": {
+      image_url: `https://images.unsplash.com/photo-1543352449-2109a4fa225b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80`,
+      title: `404 | No se encontró la página.`,
+      description: `No se pudo encontrar la página.`
+    },
+    "500": {
+      image_url: `https://images.unsplash.com/photo-1543352449-2109a4fa225b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80`,
+      title: `500 | Algo salió mal.`,
+      description: `Hubo un error irrecuperable.`
+    },
     me: {
       image_url: `https://images.unsplash.com/photo-1543352449-2109a4fa225b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80`,
       title: `Fran Moya | Sobre mí.`,
