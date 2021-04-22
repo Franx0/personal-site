@@ -37,11 +37,11 @@ export const Layout = ({
         <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="build version" content={version} />
         <meta name="robots" content="index,follow" />
-        <meta name="og:type" property="og:type" content="website" />
-        <meta name="og:url" property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-        <meta name="og:image" property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
-        <meta name="og:title" property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
-        <meta name="og:description" property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+        <meta name="type" property="og:type" content="website" />
+        <meta name="url" property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
+        <meta name="image" property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
+        <meta name="title" property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
+        <meta name="description" property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Franxo06" />
         <meta name="twitter:creator" content="@Franxo06" />
