@@ -32,22 +32,22 @@ export const Layout = ({
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
         <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
         <meta charSet="utf-8" />
-        <meta name="author" content="Francisco Moya"></meta>
-        <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
-        <meta name="build version" content={version} />
-        <meta name="robots" content="index,follow" />
-        <meta name="og:type" property="og:type" content="website" />
-        <meta name="og:url" property="og:url" content={process.env.NEXT_PUBLIC_AUTH_URL} />
-        <meta name="og:image" property="og:image" content={`${process.env.NEXT_PUBLIC_AUTH_URL}/media.jpg`} key="image" />
-        <meta name="og:title" property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="title" />
-        <meta name="og:description" property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="description" />
-        <meta name="twitter:card" content="twitter-summary" />
-        <meta name="twitter:creator" content="Francisco Moya" key="twitter-creator" />
-        <meta name="twitter:domain" property="twitter:domain" content={process.env.NEXT_PUBLIC_DOMAIN} key="twitter-site" />
-        <meta name="twitter:url" property="twitter:url" content={process.env.NEXT_PUBLIC_AUTH_URL} key="twitter-site" />
-        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_AUTH_URL}/media.jpg`} key="twitter-image" />
-        <meta name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="twitter-title" />
-        <meta name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="twitter-description" />
+        <meta prefix="og: http://ogp.me/ns#" name="author" content="Francisco Moya"></meta>
+        <meta prefix="og: http://ogp.me/ns#" name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
+        <meta prefix="og: http://ogp.me/ns#" name="build version" content={version} />
+        <meta prefix="og: http://ogp.me/ns#" name="robots" content="index,follow" />
+        <meta prefix="og: http://ogp.me/ns#" name="og:type" property="og:type" content="website" />
+        <meta prefix="og: http://ogp.me/ns#" name="og:url" property="og:url" content={process.env.NEXT_PUBLIC_AUTH_URL} />
+        <meta prefix="og: http://ogp.me/ns#" name="og:image" property="og:image" content={`${process.env.NEXT_PUBLIC_AUTH_URL}/media.jpg`} key="image" />
+        <meta prefix="og: http://ogp.me/ns#" name="og:title" property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="title" />
+        <meta prefix="og: http://ogp.me/ns#" name="og:description" property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="description" />
+        <meta prefix="og: http://ogp.me/ns#" name="twitter:card" content="twitter-summary" />
+        <meta prefix="og: http://ogp.me/ns#" name="twitter:creator" content="Francisco Moya" key="twitter-creator" />
+        <meta prefix="og: http://ogp.me/ns#" name="twitter:domain" property="twitter:domain" content={process.env.NEXT_PUBLIC_DOMAIN} key="twitter-site" />
+        <meta prefix="og: http://ogp.me/ns#" name="twitter:url" property="twitter:url" content={process.env.NEXT_PUBLIC_AUTH_URL} key="twitter-site" />
+        <meta prefix="og: http://ogp.me/ns#" name="twitter:image" content={`${process.env.NEXT_PUBLIC_AUTH_URL}/media.jpg`} key="twitter-image" />
+        <meta prefix="og: http://ogp.me/ns#" name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} key="twitter-title" />
+        <meta prefix="og: http://ogp.me/ns#" name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} key="twitter-description" />
       </Head>
       <main className="flex font-sans">
         <div className={className}>
