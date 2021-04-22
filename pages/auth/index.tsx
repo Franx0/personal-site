@@ -44,8 +44,8 @@ export const encodeAuthUri: Function = (url?: string): (string | null) => {
   // Auth URI encode
   const currentUrl = url || Router.asPath;
   const authUrl = '/auth/signin';
-  const callbackUrl = `${process.env.NEXT_PUBLIC_AUTH_URL}${currentUrl}`;
-  const URI = `${process.env.NEXT_PUBLIC_AUTH_URL}${authUrl}?callbackUrl=${encodeURIComponent(callbackUrl)}`
+  const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${currentUrl}`;
+  const URI = `${process.env.NEXT_PUBLIC_SITE_URL}${authUrl}?callbackUrl=${encodeURIComponent(callbackUrl)}`
 
   return URI;
 };
