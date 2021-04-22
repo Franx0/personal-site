@@ -26,14 +26,14 @@ export const Layout = ({
 
   return (
     <>
-      <Head prefix="og: http://ogp.me/ns#">
+      <Head>
         <title>{title}</title>
 
         <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
         <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
         <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />
 
-        <meta name="author" content="Francisco Moya"></meta>
+        <meta name="author" content="Francisco Moya" />
         <meta name="description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
         <meta name="build version" content={version} />
         <meta name="robots" content="index,follow" />
@@ -42,20 +42,28 @@ export const Layout = ({
         <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
         <meta property="og:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
         <meta property="og:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
-        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@Franxo06" />
         <meta name="twitter:creator" content="@Franxo06" />
+        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg`} />
+        <meta name="twitter:title" content={locale.dictionary.meta[router.pathname.replace("/", "")].title} />
+        <meta name="twitter:description" content={locale.dictionary.meta[router.pathname.replace("/", "")].description} />
       </Head>
+
       <main className="flex font-sans">
         <div className={className}>
           {children(locale) || <Loader title={locale.dictionary.loader.title} text={locale.dictionary.loader.text} />}
         </div>
       </main>
+
       <section className="m-auto md:m-0 md:pr-8 py-4 text-right text-primary text-xs italic font-extralight">
         <div dangerouslySetInnerHTML={{__html: locale.dictionary.thanks.favicon}}></div>
         <div dangerouslySetInnerHTML={{__html: locale.dictionary.thanks.media}}></div>
       </section>
+
       <Cookies />
+
       <Footer {...{locale}} />
     </>
   )
