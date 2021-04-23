@@ -32,7 +32,7 @@ export const Layout = ({
   };
 
   return (
-    <>
+    <div>
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,7 +81,7 @@ export const Layout = ({
       <Cookies />
 
       <Footer {...{locale}} />
-    </>
+    </div>
   )
 }
 
