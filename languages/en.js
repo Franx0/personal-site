@@ -31,6 +31,11 @@ export default {
       image_url: ``,
       title: `Fran Moya | Blog`,
       description: `Personal blog page.`
+    },
+    auth: {
+      image_url: ``,
+      title: `Fran Moya | Authorization.`,
+      description: `Authorization.`
     }
   },
   thanks: {

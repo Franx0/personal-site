@@ -39,6 +39,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     url: process.env.NEXT_PUBLIC_SITE_URL || '',
     keywords: locale.dictionary.meta[router.pathname.replace("/", "")].keywords || ''
   };
+
   useEffect(() => {
     setPrevState(prev => { return { history: [...prev.history, router.asPath] } });
   }, [router.pathname]);
