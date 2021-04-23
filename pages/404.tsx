@@ -8,7 +8,7 @@ const Layout = dynamic(() => import('@/components/Layout'), {
 
 const Custom404Page: NextPage<NextPageContext> = () => {
   return (
-    <Layout title="404" className="w-full mx-6 my-6 md:mx-0">
+    <Layout className="w-full mx-6 my-6 md:mx-0">
       {(locale: any) =>
         <div className="flex md:flex-row flex-col h-full align-middle justify-center items-center m-auto">
           <h1 className="md:text-5xl text-xl">404</h1>

@@ -22,19 +22,19 @@ export default {
       description: `An error occurred.`
     },
     me: {
-      keywords: `personal, about me, cv, website`,
+      keywords: `personal, about, me, cv, website`,
       image_url: `https://images.unsplash.com/photo-1543352449-2109a4fa225b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80`,
-      title: `Fran Moya | About me`,
+      title: `About me | Fran Moya`,
       description: `Personal page with relevant data about my professional career.`
     },
     posts: {
       image_url: ``,
-      title: `Fran Moya | Blog`,
+      title: `Blog | Fran Moya`,
       description: `Personal blog page.`
     },
     auth: {
       image_url: ``,
-      title: `Fran Moya | Authorization.`,
+      title: `Authorization.`,
       description: `Authorization.`
     }
   },

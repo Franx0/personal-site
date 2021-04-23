@@ -19,7 +19,7 @@ const SignIn: NextPage<any> = ({ providers }) => {
   };
 
   return (
-    <Layout title="Login" className="flex w-full justify-center mt-2 mb-6">
+    <Layout className="flex w-full justify-center mt-2 mb-6">
       {(locale: any) =>
         <div className="w-min flex flex-col items-center align-middle mt-20">
           <p className="text-primary text-xl">Sign in with:</p>

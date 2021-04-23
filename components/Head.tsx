@@ -27,7 +27,7 @@ export const CustomHead = ({
 
   return (
     <Head>
-      <title>{title} | {meta.title}</title>
+      <title>{meta.title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
       <meta name="author" content="Francisco Moya" />

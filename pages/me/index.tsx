@@ -41,7 +41,7 @@ const MeIndex: NextPage<NextPageContext> = () => {
   const executeScroll = () => scrollToRef(cardRef);
 
   return (
-    <Layout title="Me" className="mx-6 my-6 md:mx-0">
+    <Layout className="mx-6 my-6 md:mx-0">
       {(locale: any) =>
         <>
           {/* About me */}
