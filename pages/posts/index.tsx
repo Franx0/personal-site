@@ -25,7 +25,7 @@ const PostIndex: NextPage<NextPageContext> = () => {
   }, [cursor])
 
   return (
-    <Layout title={"Blog"} className="grid grid-cols-1">
+    <Layout className="grid grid-cols-1">
       {(locale) =>
         {postResponse ? (
           <>

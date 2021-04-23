@@ -14,7 +14,7 @@ import { redirectTo, isAdmin } from '@/utils/index';
 
 const PostShow: NextPage<object> = (post) => {
   return (
-    <Layout title={"Blog"} className="grid grid-cols-1">
+    <Layout className="grid grid-cols-1">
       {Object.entries(post).length ? (
         <PostDetail {...post} />
       ) : null }
