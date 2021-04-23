@@ -14,7 +14,7 @@ import { ToastContainer } from 'react-nextjs-toast';
 // Styles
 import '@/styles/globals.css';
 // Components
-const Head = loadable(() => import('@/components/Head'));
+import { CustomHead as Head } from '@/components/Head';
 const Header = loadable(() => import('@/components/shared/header'));
 // Contexts
 import { ThemeProvider } from '@/contexts/ThemeContext';
