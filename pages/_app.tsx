@@ -33,11 +33,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const locale = useLanguage();
   const { theme } = useTheme();
   const meta = {
-    title: locale.dictionary.meta[router.pathname.replace("/", "")].title || '',
-    description: locale.dictionary.meta[router.pathname.replace("/", "")].description || '',
+    title: locale.dictionary.meta[router.pathname.replace("/", "")]?.title || '',
+    description: locale.dictionary.meta[router.pathname.replace("/", "")]?.description || '',
     imageUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg` || '',
     url: process.env.NEXT_PUBLIC_SITE_URL || '',
-    keywords: locale.dictionary.meta[router.pathname.replace("/", "")].keywords || ''
+    keywords: locale.dictionary.meta[router.pathname.replace("/", "")]?.keywords || ''
   };
 
   useEffect(() => {
