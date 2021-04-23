@@ -1,19 +1,15 @@
-// Loadable
-import loadable from '@loadable/component';
 // React
 import React from 'react';
 // Nextjs
 import { useRouter } from 'next/router';
-const Head = loadable(() => import('next/head'));
+import Head  from 'next/head';
 // Contexts
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 // Version
 import { version } from '../package.json';
 
-export const CustomHead = ({
-  title = 'Fran Moya',
-}) => {
+export const CustomHead = () => {
   const { theme } = useTheme();
   const locale = useLanguage();
   const router = useRouter();
