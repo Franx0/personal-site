@@ -22,6 +22,7 @@ export default {
       description: `Hubo un error irrecuperable.`
     },
     me: {
+      keywords: `personal, cv, sobre mí, website`,
       image_url: `https://images.unsplash.com/photo-1543352449-2109a4fa225b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80`,
       title: `Fran Moya | Sobre mí.`,
       description: `Página personal con datos relevantes sobre mi perfil profesional.`

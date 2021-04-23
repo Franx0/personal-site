@@ -27,7 +27,8 @@ export const Layout = ({
     title: locale.dictionary.meta[router.pathname.replace("/", "")].title || '',
     description: locale.dictionary.meta[router.pathname.replace("/", "")].description || '',
     imageUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg` || '',
-    url: process.env.NEXT_PUBLIC_SITE_URL || ''
+    url: process.env.NEXT_PUBLIC_SITE_URL || '',
+    keywords: locale.dictionary.meta[router.pathname.replace("/", "")].keywords || ''
   };
 
   return (
@@ -38,6 +39,7 @@ export const Layout = ({
         <meta charSet="utf-8" />
         <meta name="author" content="Francisco Moya" />
         <meta name="description" content={meta.description} />
+        <meta name="keywords" content={meta.keywords} />
         <meta name="build version" content={version} />
         <meta name="robots" content="index,follow" />
 
