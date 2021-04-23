@@ -35,10 +35,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <Provider session={pageProps.session}>
       <LanguageProvider>
         <ThemeProvider>
+          <Head />
           <Header history={prevState.history} />
           <AnimateSharedLayout>
             <TrackingProvider>
-              <Head />
               <Component {...pageProps} />
             </TrackingProvider>
             <ToastContainer align={"right"} position={"bottom"} />
