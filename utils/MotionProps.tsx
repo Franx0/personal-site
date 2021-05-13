@@ -9,9 +9,9 @@ const pageVariants = {
     enter: { opacity: 1, transition: easingTransition() }
   },
   cookiesEasing: {
-    initial: { width: "100%", position: 'fixed', left:0, bottom: 0, x: -5000, transition: easingInOutTransition() },
-    exit: { width: "100%", position: 'fixed', left:0, bottom: 0, x: 5000, transition: easingInOutTransition() },
-    enter: { width: "100%", position: 'fixed', left:0, bottom: 0, x: 0, transition: easingInOutTransition() }
+    initial: { width: "100%", position: "fixed", left:0, bottom: 0, x: -5000, transition: easingInOutTransition() },
+    exit: { width: "100%", position: "fixed", left:0, bottom: 0, x: 5000, transition: easingInOutTransition() },
+    enter: { width: "100%", position: "fixed", left:0, bottom: 0, x: 0, transition: easingInOutTransition() }
   },
   scalingY: {
     initial: { y: -200 },
