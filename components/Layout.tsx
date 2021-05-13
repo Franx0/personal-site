@@ -12,25 +12,28 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export const Layout = ({
   children,
   className = '',
+  layoutId= 'layout',
 }) => {
-  const locale = useLanguage();
+  const { dictionary } = useLanguage();
 
   return (
     <>
       <main className="flex font-sans">
-        <div className={className}>
-          {children(locale) || <Loader title={locale.dictionary.loader.title} text={locale.dictionary.loader.text} />}
+        <div
+          className={className}
+          key={layoutId}>
+          {children || <Loader title={dictionary.loader.title} text={dictionary.loader.text} />}
         </div>
       </main>
 
       <section className="m-auto md:m-0 md:pr-8 py-4 text-right text-primary text-xs italic font-extralight">
-        <div dangerouslySetInnerHTML={{__html: locale.dictionary.thanks.favicon}}></div>
-        <div dangerouslySetInnerHTML={{__html: locale.dictionary.thanks.media}}></div>
+        <div dangerouslySetInnerHTML={{__html: dictionary.thanks.favicon}}></div>
+        <div dangerouslySetInnerHTML={{__html: dictionary.thanks.media}}></div>
       </section>
 
       <Cookies />
 
-      <Footer {...{locale}} />
+      <Footer {...{dictionary}} />
     </>
   )
 }

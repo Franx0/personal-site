@@ -96,6 +96,14 @@ img[loading=lazy] {
   animation: lazy-grow 3s;
 }
 
+.text-shadow-dark {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.80);
+}
+
+.text-shadow-light {
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.80);
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @tailwind base;
 @tailwind components;

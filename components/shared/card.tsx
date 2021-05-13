@@ -11,7 +11,7 @@ import { useTracking } from '@/contexts/TrackingContext';
 import { OPEN_CARD, CLOSE_CARD } from '@/root/constants';
 
 const Card: FunctionComponent<any> = (props: CardProps) => {
-  const { className, style, expandedStyle, title, content, image, cardOpened, handleCardOpened } = props;
+  const { className, style, expandedStyle, title="", subtitle="", content, image, cardOpened, handleCardOpened } = props;
   const { logEvent } = useTracking();
   const locale = useLanguage();
 
@@ -29,11 +29,16 @@ const Card: FunctionComponent<any> = (props: CardProps) => {
               <button className="hidden md:block text-current md:font-base text-xs font-light" title={locale.dictionary.actions.close} type="button" onClick={() => {logEvent({category: image.alt, action: CLOSE_CARD, label: "text"}); handleCardOpened("#")}}>{locale.dictionary.actions.close}</button>
               <button className="md:hidden text-current md:font-base text-xs font-light" title={locale.dictionary.actions.close} type="button" onClick={() => {logEvent({category: image.alt, action: CLOSE_CARD, label: "text"}); handleCardOpened("#")}}>[&#x2715;]</button>
             </div>
-            <div className="lazy-text">
-              <motion.h2 className="expanded-card-h text-current mb-2" layoutId="expandable-card-h">{title}</motion.h2>
-              <hr className="min-w-full mb-8 border-current lazy-grow origin-left" />
+            <motion.div layoutId="expandable-card-h" className="lazy-text">
+              { ((title || subtitle).length > 0) &&
+                <>
+                  <h2 className="expanded-card-h text-current mb-2" >{title}</h2>
+                  <p className="text-xs md:text-base text-current mb-2">{subtitle}</p>
+                  <hr className="min-w-full mb-8 border-current lazy-grow origin-left" />
+                </>
+              }
               <p className="object-contain text-sm md:text-base text-current text-justify">{content}</p>
-            </div>
+            </motion.div>
           </motion.div>
         ) : (
           <motion.a title={image.alt} onClick={() => handleClick()} className={`shadow-lg cursor-pointer normal-card ${className}`} layoutId="expandable-card" style={style}>

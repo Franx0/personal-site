@@ -6,15 +6,19 @@ import { FunctionComponent } from 'react';
 import { LinkProps } from '@/interfaces/index';
 
 const LinkStyled: FunctionComponent<any> = (props: LinkProps) => {
-  const { className, pathname, as, query, children, unauthorized, href="#", handleClick } = {...props};
+  const { className, pathname, as, title="", query, children, unauthorized, href="#", handleClick } = {...props};
   const NoLinked = (unauthorized || typeof(handleClick) === typeof(Function) || href !== "#");
 
   return (
     NoLinked ? (
-      <a href={href} className={className} onClick={() => handleClick ? handleClick() : undefined}>{children}</a>
+      handleClick ? (
+        <a title={title} className={className} onClick={() => { handleClick() }}>{children}</a>
+      ) : (
+        <a title={title} href={href} className={className}>{children}</a>
+      )
     ) : (
       <Link passHref href={{ pathname: pathname, query: query }} as={as}>
-        <a className={className}>{children}</a>
+        <a title={title} className={className}>{children}</a>
       </Link>
     )
   )
