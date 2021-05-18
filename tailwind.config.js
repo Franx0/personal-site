@@ -59,6 +59,9 @@ module.exports = {
         outstanding: "var(--color-bg-outstanding)",
         cards: "var(--color-bg-cards)",
       },
+      backgroundImage: {
+        'landing-img': "url('/media.jpg')",
+      },
       textColor: {
         primary: "var(--color-text-primary)",
         secondary: "var(--color-text-secondary)",

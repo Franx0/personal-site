@@ -12,7 +12,7 @@ import PostList from '@/components/posts/postList';
 // Utils
 import { isAdmin } from '@/utils/index';
 
-const PostIndex: NextPage<NextPageContext> = () => {
+const PostIndex: NextPage<NextPageContext> = (props: any) => {
   const [postResponse, setPostResponse] = useState(null);
   const [cursor, setCursor] = useState(null);
   const [session] = useSession();
@@ -26,19 +26,17 @@ const PostIndex: NextPage<NextPageContext> = () => {
 
   return (
     <Layout className="grid grid-cols-1">
-      {(locale) =>
-        {postResponse ? (
-          <>
-            <PostList data={postResponse.data} />
-            { postResponse.before !== null &&
-              <a onClick={() => setCursor(postResponse.before)}>Prev</a>
-            }
-            { postResponse.after !== null &&
-              <a onClick={() => setCursor(postResponse.after)}>Next</a>
-            }
-          </>
-        ) : null }
-      }
+      {postResponse ? (
+        <>
+          <PostList data={postResponse.data} />
+          { postResponse.before !== null &&
+            <a onClick={() => setCursor(postResponse.before)}>Prev</a>
+          }
+          { postResponse.after !== null &&
+            <a onClick={() => setCursor(postResponse.after)}>Next</a>
+          }
+        </>
+      ) : null }
     </Layout>
   )
 };

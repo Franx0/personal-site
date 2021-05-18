@@ -1,7 +1,7 @@
 // React
 import React, { useState, useEffect } from  'react';
 // Nextjs
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 // GA
 import ReactGA from 'react-ga';
 // Utils
@@ -12,6 +12,7 @@ const TrackingID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 const TrackingContext = React.createContext(null);
 
 const TrackingProvider = ({ children }: any) => {
+  const router = useRouter();
   const [analytics, setAnalytics] = useState({
     initialize: false,
     isInitialized: false,
@@ -89,7 +90,7 @@ const TrackingProvider = ({ children }: any) => {
   useEffect(() => {
     if(analytics.initialize) initializeGA(analytics);
   }, [analytics.initialize, analytics.isInitialized, analytics.isDeclined]);
-
+  
   return (
     <TrackingContext.Provider value={{ addTracker, removeTracker, logEvent, updateAnalytics }}>
       {children}

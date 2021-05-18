@@ -5,6 +5,7 @@ export type LinkProps = {
   className?: string,
   pathname: string,
   as?: string,
+  title?: string,
   query?: any,
   unauthorized?: boolean,
   children: FunctionComponent,
@@ -29,6 +30,7 @@ export type CardProps = {
   style?: any,
   expandedStyle?: any,
   title?: string,
+  subtitle?: string,
   content: string,
   image?: any
   expandedImage?: any,
@@ -92,6 +94,22 @@ export type LoaderProps = {
   className?: string
 };
 
+export type ImageProps = {
+  src: string,
+  defaultSrc?: string,
+  alt: string,
+  width?: string,
+  height?: string,
+  className?: string,
+  style?: any,
+};
+
 export type AvatarProps = {
   avatar?: string
+};
+
+export type HeaderProps = {
+  history: Array<string>,
+  pageVariants: any,
+  textVariants: any
 }

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 // NextjsAuth
 import { Provider } from 'next-auth/client';
 // Frame Motion
-import { AnimateSharedLayout } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 // Toast
 import { ToastContainer } from 'react-nextjs-toast';
 // Styles
@@ -16,14 +16,17 @@ import '@/styles/globals.css';
 // Components
 import { CustomHead as Head } from '@/components/Head';
 const Header = loadable(() => import('@/components/shared/header'));
+import { motionProps } from '@/utils/MotionProps';
+
 // Contexts
 import { ThemeProvider } from '@/contexts/ThemeContext';
-import { LanguageProvider } from '@/contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 import { TrackingProvider } from '@/contexts/TrackingContext';
 // Override functionality
 import '../utils';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const locale = useLanguage();
   const router = useRouter();
   const [prevState, setPrevState] = useState({ history: [router.asPath] });
 
@@ -36,13 +39,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <LanguageProvider>
         <ThemeProvider>
           <Head />
-          <Header history={prevState.history} />
-          <AnimateSharedLayout>
-            <TrackingProvider>
-              <Component {...pageProps} />
-            </TrackingProvider>
-            <ToastContainer align={"right"} position={"bottom"} />
-          </AnimateSharedLayout>
+          <TrackingProvider >
+            <Header {...motionProps} history={prevState.history} />
+            <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} {...motionProps} {...locale} key={`${router.route}-component`} />
+            </AnimatePresence>
+          </TrackingProvider>
+          <ToastContainer align={"right"} position={"bottom"} />
         </ThemeProvider>
       </LanguageProvider>
     </Provider>

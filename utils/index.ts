@@ -30,7 +30,7 @@ export const redirectTo = async ( path: string = '/',
       ctx.res.end();
     } else {
       console.log('client redirect')
-      Router.push(path, path);
+      Router.prefetch(path, path);
       return
     }
     return {}
