@@ -29,7 +29,7 @@ const Cookies: FunctionComponent<any> = (props: any) => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <motion.div key={`${router.route}-cookies`} className={className} variants={motionProps.pageVariants.cookiesEasing} initial="initial" animate="enter" exit="exit">
+      <motion.div key={`${router.route}-cookies`} className={`z-50 ${className}`} variants={motionProps.pageVariants.cookiesEasing} initial="initial" animate="enter" exit="exit">
         <CookieConsent
           enableDeclineButton
           location="bottom"
