@@ -1,13 +1,20 @@
 // React
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState, useEffect } from 'react';
 // Types
 import { ImageProps } from '@/interfaces/index';
 
+
 const Image: FunctionComponent<any> = (props: ImageProps) => {
   const { className, style, src, defaultSrc, alt, width="100", height="100"} = props;
+  const defaultSrcObject = { src: (defaultSrc || '/media.jpg'), blurred: true };
+  const [currentSrc, setCurrentSrc] = useState(defaultSrcObject);
+
+  useEffect(() => {
+    if(src) setCurrentSrc({ src: src, blurred: false });
+  }, [src]);
 
   const handleError = (e) => {
-    console.log(e);
+    setCurrentSrc(defaultSrcObject);
   };
 
   return (
@@ -15,9 +22,9 @@ const Image: FunctionComponent<any> = (props: ImageProps) => {
       onError={(e) => handleError(e)}
       width={width}
       height={height}
-      style={style}
+      style={ currentSrc.blurred ? {...style, filter: 'blur(0.5rem)' } : style }
       className={className}
-      alt={alt} src={src}
+      alt={alt} src={currentSrc.src}
       loading="lazy"/>
   )
 }

@@ -56,7 +56,7 @@ const MeIndex: NextPage<NextPageContext> = (props: any) => {
           <div className="lg:col-span-3 md:col-span-7 flex flex-col">
             <div className="grid md:grid-cols-3 grid-cols-1 relative">
               <div className="md:block flex justify-center md:mx-8">
-                <Image width="200" height="200" className="md:float-right content-center object-contain rounded-full" alt="Fran Moya" src={props.dictionary.profile_image_url} />
+                <Image width="200" height="200" style={{ width: '200px', height: '200px' }} className="object-cover md:float-right content-center rounded-full" alt="Fran Moya" src={props.dictionary.profile_image_url} />
               </div>
               <div className="relative bg-primary lazy-text col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg">
                 <div className="z-20 text-default absolute top-5 right-5"><a target="_blank" onClick={() => logEvent({category: "CV", action: OPEN_CV, label: "file"})} href={props.dictionary.cv.download_url}><CV title={props.dictionary.cv.download}/></a></div>

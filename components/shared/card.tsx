@@ -1,3 +1,5 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import React, { FunctionComponent } from 'react';
 // FrameMotion
@@ -7,6 +9,8 @@ import { CardProps } from '@/interfaces/index';
 // Context
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTracking } from '@/contexts/TrackingContext';
+// Components
+const Image = loadable(() => import('@/components/shared/image'));
 // Constants
 import { OPEN_CARD, CLOSE_CARD } from '@/root/constants';
 
@@ -42,7 +46,7 @@ const Card: FunctionComponent<any> = (props: CardProps) => {
           </motion.div>
         ) : (
           <motion.a title={image.alt} onClick={() => handleClick()} className={`shadow-lg cursor-pointer normal-card ${className}`} layoutId="expandable-card" style={style}>
-            <img width={image.width} height={image.height} src={image.url} alt={image.alt} loading="lazy" className="mx-auto align-center rounded-full" />
+            <Image width={image.width} height={image.height} src={image.url} alt={image.alt} className="mx-auto align-center rounded-full" />
           </motion.a>
         )
       }
