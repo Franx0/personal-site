@@ -1,4 +1,5 @@
 const easing = [0.175, 0.85, 0.42, 0.96];
+
 const easingTransition = (duration: number = 0.3) => { return { duration: duration, ease: easing } };
 const easingInOutTransition = (duration: number = 0.4, delay: number = 0.2) => { return { type: "spring", damping: 20, stiffness: 100 } };
 
@@ -9,9 +10,9 @@ const pageVariants = {
     enter: { opacity: 1, transition: easingTransition() }
   },
   cookiesEasing: {
-    initial: { width: "100%", position: "fixed", left: 0, bottom: 0, x: -5000, transition: easingInOutTransition() },
-    exit: { width: "100%", position: "fixed", left: 0, bottom: 0, x: 5000, transition: easingInOutTransition() },
-    enter: { width: "100%", position: "fixed", left: 0, bottom: 0, x: 0, transition: easingInOutTransition() }
+    initial: { width: "100%", left: 0, bottom: 0, x: -5000, transition: easingInOutTransition() },
+    exit: { width: "100%", left: 0, bottom: 0, x: 5000, transition: easingInOutTransition() },
+    enter: { width: "100%", left: 0, bottom: 0, x: 0, transition: easingInOutTransition() }
   },
   scalingY: {
     initial: { y: -200 },
