@@ -60,7 +60,7 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
               </div>
               <ul className={`relative overflow-hidden items-center transition-all duration-700 md:flex md:h-auto md:mt-0 ${menuState ? `h-28 mt-6 overflow-y-scroll` : 'h-0'}`}>
                 <li className="md:ml-1">
-                  <LinkStyled className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname === '/' ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/me"}>
+                  <LinkStyled className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname === '/' ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/"}>
                     <p suppressHydrationWarning={true} className="border-t-0 no-underline text-current py-2 md:border-none md:p-0">
                       {locale.dictionary.header.links.home}
                     </p>
