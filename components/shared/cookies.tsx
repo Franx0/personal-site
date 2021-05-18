@@ -13,7 +13,8 @@ import { motionProps } from '@/utils/MotionProps';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTracking } from '@/contexts/TrackingContext';
 
-const Cookies: FunctionComponent<any> = () => {
+const Cookies: FunctionComponent<any> = (props: any) => {
+  const {className} = props;
   const locale = useLanguage();
   const router = useRouter();
   const { updateAnalytics } = useTracking();
@@ -28,7 +29,7 @@ const Cookies: FunctionComponent<any> = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <motion.div key={`${router.route}-cookies`} variants={motionProps.pageVariants.cookiesEasing} initial="initial" animate="enter" exit="exit">
+      <motion.div key={`${router.route}-cookies`} className={className} variants={motionProps.pageVariants.cookiesEasing} initial="initial" animate="enter" exit="exit">
         <CookieConsent
           enableDeclineButton
           location="bottom"

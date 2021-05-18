@@ -31,7 +31,7 @@ export const Layout = ({
         <div dangerouslySetInnerHTML={{__html: dictionary.thanks.media}}></div>
       </section>
 
-      <Cookies />
+      <Cookies className="cookies-container" />
 
       <Footer {...{dictionary}} />
     </>
