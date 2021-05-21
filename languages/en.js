@@ -46,7 +46,7 @@ export default {
     title: `Loading`,
     text: `This may take a few seconds, please don't close this page.`
   },
-  profile_image_url: "https://media-exp1.licdn.com/dms/image/C4D03AQFuztupZbxN4w/profile-displayphoto-shrink_200_200/0/1589194942040?e=1621468800&v=beta&t=fcl-tExT68fxIOtgLDO-JNZDo_F0lqysRQyyyYCYS94",
+  profile_image_url: "https://drive.google.com/file/d/1_PEQK-Gk3-tKVN_TYZ9p_l45TA217Fnf/view?usp=sharing",
   header: {
     links: {
       home: 'Home',

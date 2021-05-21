@@ -6,7 +6,7 @@ import { ImageProps } from '@/interfaces/index';
 
 const Image: FunctionComponent<any> = (props: ImageProps) => {
   const { className, style, src, defaultSrc, alt, width="100", height="100"} = props;
-  const defaultSrcObject = { src: (defaultSrc || '/media.jpg'), blurred: true };
+  const defaultSrcObject = { src: (src || '/media.jpg'), blurred: true };
   const [currentSrc, setCurrentSrc] = useState(defaultSrcObject);
 
   useEffect(() => {
