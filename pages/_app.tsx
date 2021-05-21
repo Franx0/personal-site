@@ -20,7 +20,7 @@ import { motionProps } from '@/utils/MotionProps';
 
 // Contexts
 import { ThemeProvider } from '@/contexts/ThemeContext';
-import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
+import { LanguageProvider, LanguageContext, useLanguage } from '@/contexts/LanguageContext';
 import { TrackingProvider } from '@/contexts/TrackingContext';
 // Override functionality
 import '../utils';
@@ -42,7 +42,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <TrackingProvider >
             <Header {...motionProps} history={prevState.history} />
             <AnimatePresence exitBeforeEnter>
-              <Component {...pageProps} {...motionProps} {...locale} key={`${router.route}-component`} />
+              <LanguageContext.Consumer>
+                { locale => <Component {...pageProps} {...motionProps} {...locale} key={`${router.route}-component`} /> }
+              </LanguageContext.Consumer>
             </AnimatePresence>
           </TrackingProvider>
           <ToastContainer align={"right"} position={"bottom"} />

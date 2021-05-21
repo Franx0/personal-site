@@ -11,7 +11,7 @@ export const languageOptions = {
   es: 'Español'
 };
 
-const LanguageContext = React.createContext({
+export const LanguageContext = React.createContext({
   userLanguage: 'es',
   dictionary: translations.es,
   userLanguageChange: null
@@ -26,7 +26,6 @@ const LanguageProvider = ({ children }: any) => {
       const newLanguage = languageOptions[selected] ? selected : 'es'
       setUserLanguage(newLanguage);
       window.localStorage.setItem('user-lang', newLanguage);
-
       return selected !== userLanguage
     }
   };
