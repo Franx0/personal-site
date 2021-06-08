@@ -1,3 +1,5 @@
+// Loadable
+import loadable from '@loadable/component';
 // Nextjs
 import { NextPage } from 'next';
 // NextjsAuth
@@ -6,30 +8,34 @@ import { getSession } from 'next-auth/client';
 import { findPostBySlug, findPostBySlugPublishedAt } from '@/pages/api/posts';
 // Components
 import Layout from '@/components/Layout';
-import PostDetail from '@/components/posts/postDetail';
+const PostDetail = loadable(() => import('@/components/posts/postDetail'));
 // Interfaces
 import { Post } from '@/interfaces/index';
 // Utils
 import { redirectTo, isAdmin } from '@/utils/index';
 
-const PostShow: NextPage<object> = (post) => {
+const PostShow: NextPage<object> = ({data}: {data: Post}) => {
   return (
-    <Layout className="grid grid-cols-1">
-      {Object.entries(post).length ? (
-        <PostDetail {...post} />
-      ) : null }
+    <Layout className="w-full grid grid-flow-col grid-cols-1 md:grid-cols-9">
+      <div></div>
+      <div className="flex flex-col col-span-7 bg-secondary text-primary mt-5">
+        {Object.entries(data).length ? (
+          <PostDetail post={data} className="justify-center tracking-normal p-6" />
+        ) : null }
+      </div>
+      <div></div>
     </Layout>
   )
 };
 
-PostShow.getInitialProps = async (ctx: any): Promise<Post> => {
+PostShow.getInitialProps = async (ctx: any): Promise<{data: Post}> => {
   let post: Post;
   let data: any;
   const session = getSession(ctx);
 
   if(ctx.query.data) {
-    data = Object.fromEntries(new URLSearchParams(ctx.query.data));
-    post = JSON.parse(Object.keys(data)[0]);
+    data = JSON.parse(ctx.query.data);
+    post = data;
   } else {
     const dataPromise: any = isAdmin(session) ?
       await findPostBySlug(ctx.query.id)
@@ -47,7 +53,7 @@ PostShow.getInitialProps = async (ctx: any): Promise<Post> => {
       post = data;
   };
 
-  return {...post}
+  return { data: {...post } }
 };
 
 export default PostShow

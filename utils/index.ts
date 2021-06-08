@@ -38,3 +38,7 @@ export const redirectTo = async ( path: string = '/',
     console.log('REDIRECTION ERROR: ', err)
   };
 };
+
+export const parseDate = (date: string): Date => {
+  return new Date(date)
+};

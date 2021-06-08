@@ -24,6 +24,7 @@ export const allPostsPublished = (size: number = 5, cursor?: string) => {
             body
             slug
             label
+            imageUrl
             createdAt
             updatedAt
             publishedAt
@@ -49,6 +50,7 @@ export const allPosts = (size: number = 5, cursor?: string) => {
             body
             slug
             label
+            imageUrl
             createdAt
             updatedAt
             publishedAt
@@ -73,6 +75,7 @@ export const findPostBySlug = (slug: String) => {
           body
           slug
           label
+          imageUrl
           createdAt
           updatedAt
           publishedAt
@@ -94,6 +97,7 @@ export const findPostBySlugPublishedAt = (slug: String) => {
           body
           slug
           label
+          imageUrl
           createdAt
           updatedAt
           publishedAt
@@ -110,12 +114,12 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
   let queryData: string = '';
 
   if(action === CREATE_POST) {
-    queryData = `$title: String!, $body: String!, $slug: String!, $label: String,
-                 $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
+    queryData = `$title: String!, $body: String!, $slug: String!, $label: String, $imageUrl: String, $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
     postData = `data: {
                   title: $title
                   body: $body
                   label: $label
+                  imageUrl: $imageUrl
                   slug: $slug
                   createdAt: $createdAt
                   updatedAt: $updatedAt
@@ -124,13 +128,13 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
   };
 
   if(action === UPDATE_POST) {
-    queryData = `$id: ID!, $title: String!, $body: String!, $slug: String!, $label: String,
-                 $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
+    queryData = `$id: ID!, $title: String!, $body: String!, $slug: String!, $label: String, $imageUrl: String, $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
     postData = `id: $id,
                 data: {
                   title: $title
                   body: $body
                   label: $label
+                  imageUrl: $imageUrl
                   slug: $slug
                   createdAt: $createdAt
                   updatedAt: $updatedAt
@@ -153,6 +157,7 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
           body
           slug
           label
+          imageUrl
           createdAt
           updatedAt
           publishedAt

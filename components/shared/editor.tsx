@@ -11,11 +11,11 @@ const CONTENT_ATTS = {
   USE_PROFILES: {html: true},
 };
 const EDITOR_OPTS = {
-  showPathLabel: true
+  showPathLabel: true,
 };
 
 const Editor: FunctionComponent<EditorProps> = (props: EditorProps) => {
-  const {defaultStyle, editorContent, contentHtmlAtts, editorOpts, reset=false, hide=false, handleChange} = props;
+  const {defaultStyle, editorContent, contentHtmlAtts, editorOpts, reset=false, hide=false, name="editor", handleChange} = props;
   const [cleanHTML, setCleanHTML] = useState('');
   const contentHtmlAttributes: object = {...CONTENT_ATTS, ...contentHtmlAtts};
   const editorOptions: object = {...EDITOR_OPTS, ...editorOpts};
@@ -30,7 +30,7 @@ const Editor: FunctionComponent<EditorProps> = (props: EditorProps) => {
     <>
       <SunEditor
         setDefaultStyle={defaultStyle}
-        name="comment-editor"
+        name={name}
         height="auto"
         hide={hide}
         setContents={reset ? '' : editorContent}

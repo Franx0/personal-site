@@ -1,0 +1,29 @@
+.post {
+  @apply m-4 p-4;
+}
+
+.post.detail {
+  @apply justify-around text-justify md:p-20;
+}
+
+.post.detail p {
+  @apply my-3 text-current
+}
+
+@layer base {
+  .post.detail h1 {
+    @apply text-3xl text-current;
+  }
+  .post.detail h2 {
+    @apply text-2xl text-current;
+  }
+  .post.detail h3 {
+    @apply text-xl text-current;
+  }
+  .post.detail h4 {
+    @apply text-lg text-current;
+  }
+  .post.detail h5 {
+    @apply text-base text-current;
+  }
+}

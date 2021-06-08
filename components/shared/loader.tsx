@@ -29,9 +29,12 @@ const Loader: FunctionComponent<any> = (props: LoaderProps) => {
   const [render, setRender] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     setTimeout(() => {
-      setRender(true)
+      if (isMounted) setRender(true);
     }, delay);
+
+    return () => { isMounted = false };
   }, [])
 
   return (

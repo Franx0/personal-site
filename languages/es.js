@@ -3,6 +3,8 @@ import { theme } from 'tailwind.config.js';
 export default {
   actions: {
     close: `Cerrar`,
+    next: `Siguiente`,
+    prev: `Anterior`
   },
   cookies: {
     main: `Esta página usa cookies para mejorar tu experiencia de usuario.`,
@@ -61,7 +63,8 @@ export default {
   landing: {
     title: `Rock developer and web guitarist`,
     description: `Fran Moya`,
-    profile: `Mi perfil`
+    profile: `Mi perfil`,
+    blog: `Blog`
   },
   cv: {
     download: `Descargar CV`,

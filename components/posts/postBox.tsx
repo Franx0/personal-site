@@ -21,7 +21,6 @@ const PostBox: FunctionComponent = () => {
       updatedAt: date,
       publishedAt: date
     }
-
     setSubmitting(true);
     handlePost(CREATE_POST, json).then((res: any) => {
       if(res.createPost) {
@@ -32,10 +31,8 @@ const PostBox: FunctionComponent = () => {
   };
 
   return(
-    <div>
-      <div id={'new-post'}>
-        <Form submitting={submitting} handleSubmit={(data: Post) => {submitPost(data)}} />
-      </div>
+    <div id={'new-post'}>
+      <Form submitting={submitting} handleSubmit={(data: Post) => {submitPost(data)}} />
     </div>
   )
 }

@@ -15,15 +15,17 @@ type Props ={
 };
 
 const PostElement: FunctionComponent<Props> = (data: any) => {
-  const { title, body, createdAt, slug, imageUrl }: Post = {...data.postData};
+  const { title, createdAt, slug, imageUrl }: Post = {...data.postData};
   const queryData = JSON.stringify(data.postData);
 
   return(
     <motion.div whileHover="hover" variants={{ hover: { scale: 0.96 } }}>
-      <LinkStyled className="w-full block" pathname={"/posts/[id]"} as={`/posts/${slug}`} query={{ data: queryData }}>
-        <Image width="200" height="300" src={imageUrl} className="w-max object-cover content-center" alt={slug} />
-        <p className="mt-2">{title}</p>
-        <p>{createdAt}</p>
+      <LinkStyled className="w-full block bg-primary rounded" pathname={"/posts/[id]"} as={`/posts/${slug}`} query={{ data: queryData }}>
+        <Image width="200" height="100" src={imageUrl} className="w-max rounded-t-lg object-cover content-center" alt={slug} />
+        <div className="p-3">
+          <p className="mt-2">{title}</p>
+          <p>{createdAt}</p>
+        </div>
       </LinkStyled>
     </motion.div>
   )

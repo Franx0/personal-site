@@ -1,9 +1,12 @@
+import { parseDate } from '@/utils/index';''
+
 declare global {
   interface String {
     capitalize(): string;
     uncamelize(): string;
     hyphenate(): string;
     titlelize(): string;
+    toDate(): string;
   }
 }
 
@@ -21,6 +24,9 @@ Object.assign(String.prototype, {
     return this.toLowerCase().replace(/(?:^|[\s-/])\w/g, function (match) {
         return match.toUpperCase();
     }).replace('-', '');
+  },
+  toDate() {
+    return parseDate(this).toDateString();
   }
 });
 

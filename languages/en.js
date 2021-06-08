@@ -3,6 +3,8 @@ import { theme } from 'tailwind.config.js';
 export default {
   actions: {
     close: `Close`,
+    next: `Next`,
+    prev: `Previous`
   },
   cookies: {
     main: `This website uses cookies to enhance your user experience.`,
@@ -61,7 +63,8 @@ export default {
   landing: {
     title: `Rock developer and web guitarist`,
     description: `Fran Moya`,
-    profile: `My profile`
+    profile: `My profile`,
+    blog: `Blog`
   },
   cv: {
     download: `Download CV`,

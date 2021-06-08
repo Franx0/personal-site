@@ -60,6 +60,7 @@ export type Comment = {
 }
 
 export type EditorProps = {
+  name?: string,
   defaultStyle?: string,
   hide?: boolean,
   reset?: boolean,

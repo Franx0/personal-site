@@ -14,7 +14,6 @@ const Image = loadable(() => import('@/components/shared/image'));
 import { CV, Positive, Negative, HTML, Ruby, RubyOnRails, NodeJS, Javascript, Shield, ExpressJS, ReactAndNative, NextJS, NGINX, Docker } from '@/icons/index';
 // Context
 import { useTracking } from '@/contexts/TrackingContext';
-import { useTheme } from '@/contexts/ThemeContext';
 // Constants
 import { OPEN_CV } from '@/root/constants';
 
@@ -38,14 +37,9 @@ const MeIndex: NextPage<NextPageContext> = (props: any) => {
   const [jobsState, setJobsState] = useState(true);
   const [cardOpened, setCardOpened] = useState("#");
   const { logEvent } = useTracking();
-  const { setHeader } = useTheme();
   const cardRef = useRef(null);
 
   const executeScroll = () => scrollToRef(cardRef);
-
-  useEffect(() => {
-    setHeader(true);
-  }, []);
 
   return (
     <Layout layoutId="me" className="mx-6 my-6 md:mx-0">
@@ -56,7 +50,7 @@ const MeIndex: NextPage<NextPageContext> = (props: any) => {
           <div className="lg:col-span-3 md:col-span-7 flex flex-col">
             <div className="grid md:grid-cols-3 grid-cols-1 relative">
               <div className="md:block flex justify-center md:mx-8">
-                <Image width="200" height="200" style={{ width: '200px', height: '200px' }} className="object-cover md:float-right content-center rounded-full" alt="Fran Moya" src={'/portrait.png'} />
+                <Image width="200" height="200" style={{ width: '200px', height: 'auto' }} className="object-cover md:float-right content-center rounded-full" alt="Fran Moya" src={'/portrait.png'} />
               </div>
               <div className="relative bg-primary lazy-text col-span-2 text-justify mt-2 md:mt-0 p-5 rounded shadow-lg">
                 <div className="z-20 text-default absolute top-5 right-5"><a target="_blank" onClick={() => logEvent({category: "CV", action: OPEN_CV, label: "file"})} href={props.dictionary.cv.download_url}><CV title={props.dictionary.cv.download}/></a></div>

@@ -1,25 +1,28 @@
 // React
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // Nextjs
 import { useRouter } from 'next/router';
 import Head  from 'next/head';
 // Contexts
 import { useTheme } from '@/contexts/ThemeContext';
-import { useLanguage } from '@/contexts/LanguageContext';
 // Version
 import { version } from '../package.json';
 
-export const CustomHead = () => {
+export const CustomHead = ({metadata, locale}) => {
   const { theme } = useTheme();
-  const locale = useLanguage();
   const router = useRouter();
-  const meta = {
-    title: locale.dictionary.meta[router.pathname.replace("/", "")]?.title || '',
-    description: locale.dictionary.meta[router.pathname.replace("/", "")]?.description || '',
-    imageUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg` || '',
-    url: process.env.NEXT_PUBLIC_SITE_URL || '',
-    keywords: locale.dictionary.meta[router.pathname.replace("/", "")]?.keywords || ''
+  const defaultMetadata = {
+    title: metadata?.title || locale.dictionary.meta[router.pathname.replace("/", "")]?.title || '',
+    description: metadata?.description || locale.dictionary.meta[router.pathname.replace("/", "")]?.description || '',
+    imageUrl: metadata?.imageUrl || `${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg` || '',
+    url: router?.pathname || process.env.NEXT_PUBLIC_SITE_URL || '',
+    keywords: metadata?.keywords || locale.dictionary.meta[router.pathname.replace("/", "")]?.keywords || ''
   };
+  const [meta, setMetadata] = useState(defaultMetadata);
+
+  useEffect(() => {
+    if(Object.keys(metadata).length != 0) setMetadata(metadata);
+  }, [metadata]);
 
   return (
     <Head>

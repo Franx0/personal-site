@@ -1,21 +1,28 @@
 // Loadable
 import loadable from '@loadable/component';
 // React
-import React from 'react';
+import React, { useEffect } from 'react';
 // Components
 const Loader = loadable(() => import('@/components/shared/loader'));
 const Footer = loadable(() => import('@/components/Footer'));
 const Cookies = loadable(() => import('@/components/shared/cookies'));
 // Contexts
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export const Layout = ({
   children,
   className = '',
   layoutId = 'layout',
-  loader = true
+  loader = true,
+  header = false
 }) => {
   const { dictionary } = useLanguage();
+  const { setHideHeader } = useTheme();
+
+  useEffect(() => {
+    setHideHeader(header);
+  }, [header]);
 
   return (
     <>

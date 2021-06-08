@@ -25,7 +25,7 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
   const router = useRouter();
   const [menuState, setMenuState] = useState(false);
   const [toogleState, setToogleState] = useState(false);
-  const [hideHeader, setHideHeader] = useState(false);
+  const [hideHeader, setHideHeader] = useState(header);
   const [hideBack, setHideBack] = useState(false);
   const defaultIgnoredPaths = ["/404", "/500"]
 
@@ -42,7 +42,7 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
   }, [theme]);
 
   useEffect(() => {
-    setHideHeader(!header);
+    setHideHeader(header);
   }, [header]);
 
   return(

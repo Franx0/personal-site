@@ -6,7 +6,7 @@ import { FunctionComponent } from 'react';
 import { LinkProps } from '@/interfaces/index';
 
 const LinkStyled: FunctionComponent<any> = (props: LinkProps) => {
-  const { className, pathname, as, title="", query, children, unauthorized, href="#", handleClick } = {...props};
+  const { className, pathname, as, title="", query, children, unauthorized = false, href="#", handleClick } = {...props};
   const NoLinked = (unauthorized || typeof(handleClick) === typeof(Function) || href !== "#");
 
   return (
