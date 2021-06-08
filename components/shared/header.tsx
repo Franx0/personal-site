@@ -16,8 +16,6 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 // Icons
 import { ArrowBack, Hamburguer, Sun, Moon } from '@/icons/index';
-// Utils
-import { isEnv } from '@/utils/index';
 // Types
 import { HeaderProps } from '@/interfaces/index';
 
@@ -33,6 +31,7 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
 
   useEffect(() => {
     const prevPath = props.history.slice(-1)[0];
+    setMenuState(false);
     setHideBack(defaultIgnoredPaths.includes(router.asPath) ||
                 prevPath === undefined ||
                 prevPath === router.asPath);
@@ -58,21 +57,21 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
                   <Hamburguer title={"Menu"} className="text-accent" />
                 </button>
               </div>
-              <ul className={`relative overflow-hidden items-center transition-all duration-700 md:flex md:h-auto md:mt-0 ${menuState ? `h-28 mt-6 overflow-y-scroll` : 'h-0'}`}>
+              <ul className={`relative whitespace-nowrap overflow-hidden items-center transition-all duration-700 md:flex md:h-auto md:mt-0 ${menuState ? `h-28 mt-6 overflow-y-scroll` : 'h-0'}`}>
                 <li className="md:ml-1">
-                  <LinkStyled className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname === '/' ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/"}>
+                  <LinkStyled canonical={true} className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname === '/' ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/"}>
                     <p suppressHydrationWarning={true} className="border-t-0 no-underline text-current py-2 md:border-none md:p-0">
                       {locale.dictionary.header.links.home}
                     </p>
                   </LinkStyled>
                 </li>
-                { isEnv("development") && <li className="md:ml-1">
+                <li className="md:ml-1">
                   <LinkStyled className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname === '/posts' ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/posts"}>
                     <p suppressHydrationWarning={true} className="border-t-0 no-underline text-current py-2 md:border-none md:p-0">
                       {locale.dictionary.header.links.blog}
                     </p>
                   </LinkStyled>
-                </li> }
+                </li>
                 <li className="md:ml-1">
                   <LinkStyled className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname === '/me' ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/me"}>
                     <p suppressHydrationWarning={true} className="border-t-0 no-underline text-current py-2 md:border-none md:p-0">
@@ -92,7 +91,7 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
             <div className="flex md:items-center flex-end mb-0 md:ml-auto ml-4 ">
               {hideBack === false &&
                 <LinkStyled title={locale.dictionary.header.back} handleClick={() => router.back()}>
-                  <ButtonStyled className="py-0 md:py-1 px-4" type="circle"><ArrowBack title={locale.dictionary.header.back} width={"w-8"} height={"h-8"} className="text-primary"/></ButtonStyled>
+                  <ButtonStyled className="py-0 md:py-1 px-4" buttonShape="circle"><ArrowBack title={locale.dictionary.header.back} width={"w-8"} height={"h-8"} className="text-primary"/></ButtonStyled>
                 </LinkStyled>
               }
               <Toogle

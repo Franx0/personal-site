@@ -1,7 +1,9 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import { FunctionComponent, useState } from 'react';
 // Components
-import Form from '@/components/posts/form';
+const Form = loadable(() => import('@/components/posts/form'));
 // Api
 import { handlePost, CREATE_POST } from '@/pages/api/posts';
 // Utils

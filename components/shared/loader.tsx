@@ -1,5 +1,5 @@
 // React
-import { FunctionComponent, useEffect, useContext, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 // Framer Motion
 import { motion } from 'framer-motion';
 // Interfaces
@@ -25,10 +25,17 @@ export const Spinner: FunctionComponent<any> = (props: LoaderProps) => {
 }
 
 const Loader: FunctionComponent<any> = (props: LoaderProps) => {
-  const { width = 12, height = 12, spinnerColor, spinnerBgColor, title, text} = props;
+  const { width = 12, height = 12, spinnerColor, spinnerBgColor, title, text, delay = 1000} = props;
+  const [render, setRender] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRender(true)
+    }, delay);
+  }, [])
 
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-75 flex flex-col items-center justify-center">
+    render === true && <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-75 flex flex-col items-center justify-center">
       <Spinner width={width} height={height} spinnerColor={spinnerColor} spinnerBgColor={spinnerBgColor} />
       <div className="min-w-max">
         <h2 className="inline-block text-center text-white text-xl font-semibold mr-1">{title}</h2>

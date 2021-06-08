@@ -1,7 +1,10 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import { FunctionComponent, useState } from 'react';
 // Components
-import Editor from '@/components/shared/editor';
+const Editor = loadable(() => import('@/components/shared/editor'));
+const ButtonStyled = loadable(() => import('@/components/shared/button'));
 // Interfaces
 import { Post } from '@/interfaces/index';
 
@@ -39,23 +42,57 @@ const Form: FunctionComponent<Props> = (props: Props) => {
   };
 
   return(
-    <div>
-      <div id={'new-post'}>
-        <input defaultValue={data?.title} onChange={(e) => handleChange('title', e.target.value)}></input>
-        <input defaultValue={data?.slug} onChange={(e) => handleChange('slug', e.target.value.hyphenate())}></input>
-        <input defaultValue={data?.label} onChange={(e) => handleChange('label', e.target.value)}></input>
-        <Editor
-          hide={false}
-          editorOpts={editorOpts}
-          editorContent={data?.body}
-          handleChange={(content) => handleChange('body', content)}
-        />
-        { typeof props.handleSubmit === 'function' &&
-          <button disabled={props.submitting} onClick={() => props.handleSubmit(data)}>Submit</button>
-        }
-        { typeof props.handleDelete === 'function' &&
-          <button disabled={props.submitting} onClick={() => props.handleDelete()}>Delete</button>
-        }
+    <div id={'new-post'} className="justify-center m-4">
+      <form>
+        <div className="mb-4">
+          <input id="post-title"
+                 className="rounded mx-2 px-1"
+                 defaultValue={data?.title}
+                 placeholder="Title"
+                 onChange={(e) => handleChange('title', e.target.value)} />
+          <input id="post-slug"
+                 className="rounded mx-2 px-1"
+                 defaultValue={data?.slug}
+                 placeholder="Slug"
+                 onChange={(e) => handleChange('slug', e.target.value.hyphenate())} />
+          <input id="post-label"
+                 className="rounded mx-2 px-1"
+                 defaultValue={data?.label}
+                 placeholder="Labels"
+                 onChange={(e) => handleChange('label', e.target.value)} />
+        </div>
+      </form>
+
+      <div>
+        <div className="overflow-hidden rounded-md border-2 border-gray-300">
+          <Editor
+            hide={false}
+            editorOpts={editorOpts}
+            editorContent={data?.body}
+            handleChange={(content) => handleChange('body', content)}
+          />
+        </div>
+
+        <div className="flex items-center justify-between m-3">
+          { typeof props.handleSubmit === 'function' &&
+            <ButtonStyled buttonType="submit"
+                          buttonShape="default"
+                          className="bg-outstanding text-white hover:text-default rounded py-0 md:py-1 px-4"
+                          disabled={props.submitting}
+                          onClick={() => props.handleSubmit(data)}>
+              Submit
+            </ButtonStyled>
+          }
+          { typeof props.handleDelete === 'function' &&
+            <ButtonStyled buttonType="submit"
+                          buttonShape="default"
+                          className="bg-red-400 text-white hover:text-default rounded py-0 md:py-1 px-4"
+                          disabled={props.submitting}
+                          onClick={() => props.handleDelete()}>
+              Delete
+            </ButtonStyled>
+          }
+        </div>
       </div>
     </div>
   )

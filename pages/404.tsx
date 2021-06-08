@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 // Components
 const Layout = dynamic(() => import('@/components/Layout'), {
   ssr: false
-})
+});
 
 const Custom404Page: NextPage<NextPageContext> = (props: any) => {
   return (

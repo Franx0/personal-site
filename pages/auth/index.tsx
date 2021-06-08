@@ -7,9 +7,9 @@ import { getSession } from 'next-auth/client';
 import React, { Component } from 'react'
 import { redirectTo, isAdmin } from '@/utils/index';
 
-export const AuthWrapper = (Child, adminCheck): (NextPage | Component) => {
+export const AuthWrapper = (Child: any, adminCheck: boolean): (NextPage | Component) => {
   return class Authenticated extends Component {
-    static async getInitialProps(ctx) {
+    static async getInitialProps(ctx: any) {
       const session = await getSession(ctx);
       const notAdmin = !isAdmin(session);
 

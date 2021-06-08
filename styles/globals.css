@@ -111,6 +111,7 @@ img[loading=lazy] {
 @tailwind colors;
 @import "./index.css";
 @import "./loader.css";
+@import "./posts.css";
 
 @layer base {
   h1 {

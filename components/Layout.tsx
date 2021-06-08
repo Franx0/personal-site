@@ -12,7 +12,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export const Layout = ({
   children,
   className = '',
-  layoutId= 'layout',
+  layoutId = 'layout',
+  loader = true
 }) => {
   const { dictionary } = useLanguage();
 
@@ -22,7 +23,7 @@ export const Layout = ({
         <div
           className={className}
           key={layoutId}>
-          {children || <Loader title={dictionary.loader.title} text={dictionary.loader.text} />}
+          {children || (loader === true && <Loader title={dictionary.loader.title} text={dictionary.loader.text} />)}
         </div>
       </main>
 

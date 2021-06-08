@@ -13,12 +13,14 @@ export type LinkProps = {
   handleClick?: () => void
 }
 
-export type ButtonProps = {
+export interface ButtonProps {
+  disabled?: boolean,
   className?: string,
   color?: string,
   textColor?: string,
   text?: string,
-  type?: string,
+  buttonType?: 'submit' | 'reset' | 'button' | undefined,
+  buttonShape?: string,
   children?: FunctionComponent,
   handleClick?: () => void
 }
@@ -45,7 +47,8 @@ export type Post = {
   createdAt?: string,
   updatedAt?: string,
   publishedAt?: string,
-  comments?: {data: [Comment]}
+  comments?: {data: [Comment]},
+  imageUrl?: string
 }
 
 export type Comment = {
@@ -57,6 +60,7 @@ export type Comment = {
 }
 
 export type EditorProps = {
+  defaultStyle?: string,
   hide?: boolean,
   reset?: boolean,
   editorContent?: string,
@@ -91,7 +95,8 @@ export type LoaderProps = {
   height?: string,
   spinnerColor?: string,
   spinnerBgColor?: string,
-  className?: string
+  className?: string,
+  delay?: number
 };
 
 export type ImageProps = {

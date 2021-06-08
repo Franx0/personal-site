@@ -2,10 +2,13 @@
 import React from 'react';
 // Nextjs
 import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
 // NextAuth
 import { providers, signIn, getSession } from 'next-auth/client';
 // Components
-import Layout from '@/components/Layout';
+const Layout = dynamic(() => import('@/components/Layout'), {
+  ssr: false
+});
 // Utils
 import { redirectTo } from '@/utils/index';
 // Icons

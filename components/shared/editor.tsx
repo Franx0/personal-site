@@ -15,27 +15,27 @@ const EDITOR_OPTS = {
 };
 
 const Editor: FunctionComponent<EditorProps> = (props: EditorProps) => {
+  const {defaultStyle, editorContent, contentHtmlAtts, editorOpts, reset=false, hide=false, handleChange} = props;
   const [cleanHTML, setCleanHTML] = useState('');
-  const reset: boolean = (props.reset || false);
-  const hide: boolean = (props.hide || false);
-  const contentHtmlAttributes: object = {...CONTENT_ATTS, ...props.contentHtmlAtts};
-  const editorOptions: object = {...EDITOR_OPTS, ...props.editorOpts};
-  
-  const handleChange: Function = (content) => {
+  const contentHtmlAttributes: object = {...CONTENT_ATTS, ...contentHtmlAtts};
+  const editorOptions: object = {...EDITOR_OPTS, ...editorOpts};
+
+  const onChange: Function = (content) => {
     setCleanHTML(DOMPurify.sanitize(content,  contentHtmlAttributes));
 
-    if(props.handleChange) props.handleChange(content);
+    if(handleChange) handleChange(content);
   };
 
   return (
     <>
       <SunEditor
+        setDefaultStyle={defaultStyle}
         name="comment-editor"
         height="auto"
         hide={hide}
-        setContents={reset ? '' : props.editorContent}
+        setContents={reset ? '' : editorContent}
         setOptions={editorOptions}
-        onChange={(content) => handleChange(content)}
+        onChange={(content) => onChange(content)}
       />
     </>
   )

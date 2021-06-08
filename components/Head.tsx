@@ -51,7 +51,7 @@ export const CustomHead = () => {
       <meta name="twitter:image" content={meta.imageUrl} key="twimage" />
       <meta name="twitter:title" content={meta.title} key="twtitle" />
       <meta name="twitter:description" content={meta.description} key="twdesc" />
-
+      <link rel="canonical" href={meta.url} />
       <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
       <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
       <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />

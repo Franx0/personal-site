@@ -1,14 +1,22 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import { useState, useEffect } from 'react';
 // Nextjs
 import { NextPage , NextPageContext} from 'next';
+import dynamic from 'next/dynamic';
+// Frame Motion
+import { motion } from 'framer-motion';
 // NextjsAuth
 import { useSession } from 'next-auth/client';
 // Api
 import { allPosts, allPostsPublished } from '@/pages/api/posts';
 // Components
-import Layout from '@/components/Layout';
-import PostList from '@/components/posts/postList';
+const Layout = dynamic(() => import('@/components/Layout'), {
+  ssr: false
+});
+const PostList = loadable(() => import('@/components/posts/postList'));
+const LinkStyled = loadable(() => import('@/components/shared/link'));
 // Utils
 import { isAdmin } from '@/utils/index';
 
@@ -25,17 +33,33 @@ const PostIndex: NextPage<NextPageContext> = (props: any) => {
   }, [cursor])
 
   return (
-    <Layout className="grid grid-cols-1">
+    <Layout layoutId="posts" className="w-full mx-6 my-6 md:mx-0">
       {postResponse ? (
-        <>
-          <PostList data={postResponse.data} />
-          { postResponse.before !== null &&
-            <a onClick={() => setCursor(postResponse.before)}>Prev</a>
-          }
-          { postResponse.after !== null &&
-            <a onClick={() => setCursor(postResponse.after)}>Next</a>
-          }
-        </>
+        <motion.div
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          variants={{ exit: { transition: { staggerChildren: 0.1 } } }}
+        >
+
+          <LinkStyled className="min-h-min w-auto" pathname={"/posts/new"} >
+            <p className="max-w-min bg-outstanding text-selected transform hover:scale-110 rounded p-2 ml-4">New</p>
+          </LinkStyled>
+
+          <div className="grid grid-flow-col md:grid-cols-7 grid-cols-1 md:mt-24 mt-2">
+            <div className="col-span-1"></div>
+            <div className="col-span-5">
+              <PostList data={postResponse.data} />
+              { postResponse.before !== null &&
+                <a onClick={() => setCursor(postResponse.before)}>Prev</a>
+              }
+              { postResponse.after !== null &&
+                <a onClick={() => setCursor(postResponse.after)}>Next</a>
+              }
+            </div>
+            <div className="col-span-1"></div>
+          </div>
+        </motion.div>
       ) : null }
     </Layout>
   )

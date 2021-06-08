@@ -29,5 +29,16 @@ const textVariants = {
   }
 };
 
-export const motionProps = { pageVariants, textVariants };
+const postVariants = {
+  initial: { scale: 0.96, y: 30, opacity: 0 },
+  exit: {
+    scale: 0.6,
+    y: 100,
+    opacity: 0,
+    transition: { duration: 0.2, ease: easing }
+  },
+  enter: { scale: 1, y: 0, opacity: 1, transition: { delay: 0.1, duration: 0.8, ease: easing } }
+};
+
+export const motionProps = { pageVariants, textVariants, postVariants };
 export const motionTransitions = { easingTransition, easingInOutTransition };
