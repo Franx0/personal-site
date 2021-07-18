@@ -53,8 +53,8 @@ const MeIndex: NextPage<NextPageContext> = (props: any) => {
   const skillControls = useAnimation();
   const cardControls = useAnimation();
 
-  const [inViewRef, inView] = useInView({triggerOnce: true, threshold: "0.30"});
-  const [inViewRef2, inView2] = useInView({triggerOnce: true, threshold: "0.25"});
+  const [inViewRef, inView] = useInView({triggerOnce: true, threshold: 0.30});
+  const [inViewRef2, inView2] = useInView({triggerOnce: true, threshold: 0.25});
 
   const cardRef = useRef();
   const executeScroll = (ref) => scrollToRef(ref);
