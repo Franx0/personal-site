@@ -31,10 +31,11 @@ const editorOpts = {
 
 const PostDetail = function({post, className = "", forcePreview = false}: {post: Post, className: string, forcePreview: boolean}) {
   const [session] = useSession();
+  const [postData, setPostData] = useState(post);
   const [submitting, setSubmitting] = useState(false);
   const [comments, setComments] = useState(post?.comments?.data)
   const { updateMetadata } = useMetadata();
-  const { _id, title, body, slug, imageUrl, label, createdAt }: Post = {...post};
+  const { _id, title, body, slug, imageUrl = '', label, createdAt }: Post = {...postData};
 
   useEffect(() => {
     updateMetadata({
@@ -42,8 +43,9 @@ const PostDetail = function({post, className = "", forcePreview = false}: {post:
       description: createdAt,
       imageUrl: imageUrl,
       keywords: label
-    })
-  }, []);
+    });
+    setPostData(post);
+  }, [post]);
 
   const submitPost: Function = (data: Post) => {
     const date = new Date().toISOString();
@@ -70,13 +72,13 @@ const PostDetail = function({post, className = "", forcePreview = false}: {post:
     <>
       {(isAdmin(session) && !forcePreview) ? (
         <div>
-          <Form data={post} handleSubmit={(data: any) => submitPost(data)} handleDelete={() => deletePost(_id)}/>
+          <Form data={postData} handleSubmit={(data: any) => submitPost(data)} handleDelete={() => deletePost(_id)}/>
         </div>
       ) : (
         <div className={`post detail ${className}`}>
           <Image width="200" height="100" src={imageUrl} className="w-1/2 m-auto object-cover content-center md:mb-10 mb-4" alt={slug} />
           <h1>{title}</h1>
-          <h5 className="text-default">{createdAt.toDate() || 'dd/mm/YYYY'}</h5>
+          <h5>{createdAt?.toDate() || 'dd/mm/YYYY'}</h5>
           <div dangerouslySetInnerHTML={{__html: body}}></div>
         </div>
       )}

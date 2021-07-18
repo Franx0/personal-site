@@ -26,6 +26,7 @@ export interface ButtonProps {
 }
 
 export type CardProps = {
+  forwardedRef?: any,
   cardOpened: boolean,
   handleCardOpened: (value?: string) => void,
   className?: string,
@@ -38,17 +39,40 @@ export type CardProps = {
   expandedImage?: any,
 }
 
+export const PostObject = (data) => {
+  return {
+    title: data?.title || '',
+    body: data?.body || '',
+    slug: data?.slug || '',
+    language: data?.language || '',
+    translate: data?.translate || '',
+    label: data?.label || '',
+    createdAt: data?.createdAt || '',
+    updatedAt: data?.updatedAt || '',
+    publishedAt: data?.publishedAt || '',
+    imageUrl: data?.imageUrl || ''
+  }
+}
+
 export type Post = {
   _id?: number,
   title?: string,
   body?: string,
   slug?: string,
+  language: string,
+  translate?: string,
   label?: string,
   createdAt?: string,
   updatedAt?: string,
   publishedAt?: string,
   comments?: {data: [Comment]},
   imageUrl?: string
+}
+
+export type FetchPost = {
+  data: Array<Post>,
+  before?: string,
+  after?: string
 }
 
 export type Comment = {

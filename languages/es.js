@@ -69,7 +69,7 @@ export default {
   cv: {
     download: `Descargar CV`,
     download_url: `https://drive.google.com/file/d/1D5LPmLzGhjQzN2ZTTLf8QZTsd58EN1pc/view?usp=sharing`,
-    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web y siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de 6 a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>&Eacute;cha un ojo m&aacute;s abajo a algunos de los lenguajes y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
+    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web y siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de ${new Date().getFullYear() - new Date('02/03/2015').getFullYear()} a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>Echa un ojo m&aacute;s abajo a algunos de los lenguajes y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
     favorites: `Mis favoritos`,
     myJobs: `Mis trabajos`,
     mySkills: `Mi stack`,

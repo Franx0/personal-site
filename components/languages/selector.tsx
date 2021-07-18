@@ -1,5 +1,5 @@
 // React
-import { FunctionComponent, useContext, useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 // Languages
 import { languageOptions, useLanguage } from '@/contexts/LanguageContext';
 

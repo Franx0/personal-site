@@ -21,10 +21,10 @@ export const isAdmin = (session: any): boolean => {
 export const redirectTo = async ( path: string = '/',
                                   code: number = 302,
                                   query: any = {},
-                                  ctx: NextPageContext = null): Promise<any> => {
+                                  ctx: NextPageContext = undefined): Promise<any> => {
   // Server side checks
   try {
-    if(typeof window === 'undefined') {
+    if(typeof window === 'undefined' || ctx !== undefined) {
       console.log('server redirect')
       ctx.res.writeHead(code, { Location: path });
       ctx.res.end();

@@ -3,7 +3,7 @@ import loadable from '@loadable/component';
 // React
 import { FunctionComponent, useState, useEffect } from 'react';
 // Frame Motion
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useViewportScroll, useTransform } from 'framer-motion';
 // Nextjs
 import { useRouter } from 'next/router';
 // Components
@@ -28,6 +28,12 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
   const [hideHeader, setHideHeader] = useState(header);
   const [hideBack, setHideBack] = useState(false);
   const defaultIgnoredPaths = ["/404", "/500"]
+  const { scrollYProgress } = useViewportScroll();
+  const headerYScroll = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.3],
+    ['0%', '0%', '-100%'],
+  );
 
   useEffect(() => {
     const prevPath = props.history.slice(-1)[0];
@@ -49,8 +55,8 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
     hideHeader === false &&
       <AnimatePresence exitBeforeEnter>
         <motion.div key={`${router.route}-header`} initial="initial" animate="enter" exit="exit" variants={props.pageVariants.scalingY}>
-          <header className={`h-auto flex border-b md:items-center md:justify-between p-3 pr-6 shadow-lg`}>
-          <div className="flex flex-grow flex-row">
+          <motion.header className={`h-auto flex border-b md:items-center md:justify-between p-3 pr-6 shadow-lg`} style={{ y: headerYScroll }}>
+            <div className="flex flex-grow flex-row">
             <nav className="md:flex flex-start justify-between mt-1 md:mt-0 mb-0 md:w-auto w-full">
               <div className="sm:flex md:hidden ml-2 md:mb-auto">
                 <button className="align-middle" type="button" onClick={() => setMenuState(!menuState)}>
@@ -66,7 +72,7 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
                   </LinkStyled>
                 </li>
                 <li className="md:ml-1">
-                  <LinkStyled className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname === '/posts' ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/posts"}>
+                  <LinkStyled className={`min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary ${router.pathname.includes('/posts') ? 'md:bg-outstanding md:text-selected text-accent' : 'md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent'}`} pathname={"/posts"}>
                     <p suppressHydrationWarning={true} className="border-t-0 no-underline text-current py-2 md:border-none md:p-0">
                       {locale.dictionary.header.links.blog}
                     </p>
@@ -77,13 +83,6 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
                     <p suppressHydrationWarning={true} className="border-t-0 no-underline text-current py-2 md:border-none md:p-0">
                       {locale.dictionary.header.links.about}
                     </p>
-                  </LinkStyled>
-                </li>
-                <li className="md:ml-1">
-                  <LinkStyled className="min-h-min w-auto block p-2 md:mr-2 md:rounded md:bg-secondary md:hover:bg-outstanding text-default md:hover:text-selected hover:text-accent" href={`mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}`}>
-                    <div suppressHydrationWarning={true} className="border-t-0 no-underline text-current py-2 md:border-none md:p-0">
-                      {locale.dictionary.header.links.contact}
-                    </div>
                   </LinkStyled>
                 </li>
               </ul>
@@ -107,7 +106,7 @@ const Header: FunctionComponent<any> = (props: HeaderProps) => {
               <LanguageSelector />
             </div>
           </div>
-        </header>
+          </motion.header>
         </motion.div>
       </AnimatePresence>
   );

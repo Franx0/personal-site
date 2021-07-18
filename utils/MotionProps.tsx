@@ -1,7 +1,8 @@
 const easing = [0.175, 0.85, 0.42, 0.96];
 
 const easingTransition = (duration: number = 0.3) => { return { duration: duration, ease: easing } };
-const easingInOutTransition = (duration: number = 0.4, delay: number = 0.2) => { return { type: "spring", damping: 20, stiffness: 100 } };
+const easingInOutTransition = () => { return { type: "spring", damping: 20, stiffness: 100 } };
+const circulableTransition = (duration: number) => { return { duration: duration, ease: 'easeInOut', times: [0, 0.2, 0.5, 0.8, 1], repeat: 0, repeatDelay: 1 } };
 
 const pageVariants = {
   easing: {
@@ -18,6 +19,20 @@ const pageVariants = {
     initial: { y: -200 },
     exit: { y: -200 },
     enter: { y: 0 }
+  },
+  circulable: {
+    initial: {
+      scale: [0, 1, 2, 1, 1],
+      rotate: [0, 0, 270, 360, 0],
+      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+      transition: circulableTransition(1.5)
+    },
+    exit: {
+      scale: [1, 1, 1, 1, 0],
+      rotate: [0, 360, 360, 360, 0],
+      borderRadius: ["20%", "50%", "50%", "50%", "50%"],
+      transition: circulableTransition(1)
+    }
   }
 };
 

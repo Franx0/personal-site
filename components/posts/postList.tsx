@@ -18,7 +18,7 @@ type Props = {
 const PostList: FunctionComponent<Props> = ({ data }) => {
   const postElements = data.map((postData: any, i: number) => {
     return (
-      <motion.div key={`motion-${i}`} className="md:m-4" variants={motionProps.postVariants}>
+      <motion.div key={`motion-${i}`} className="md:m-2" variants={motionProps.postVariants}>
         <div key={postData._id} className="w-min p-3 m-2">
           <PostElement key={i} postData={postData} />
         </div>

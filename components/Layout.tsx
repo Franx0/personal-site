@@ -35,8 +35,8 @@ export const Layout = ({
       </main>
 
       <section className="m-auto md:m-0 md:pr-8 py-4 text-right text-primary text-xs italic font-extralight">
-        <div dangerouslySetInnerHTML={{__html: dictionary.thanks.favicon}}></div>
-        <div dangerouslySetInnerHTML={{__html: dictionary.thanks.media}}></div>
+        <div dangerouslySetInnerHTML={{__html: dictionary.thanks.favicon}} />
+        <div dangerouslySetInnerHTML={{__html: dictionary.thanks.media}} />
       </section>
 
       <Cookies className="cookies-container" />

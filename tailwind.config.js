@@ -29,7 +29,7 @@ module.exports = {
           white: {
             primary: 'rgba(247, 250, 252, 1)',
             secondary: 'rgba(226, 232, 240, 1)',
-            default: 'rgba(226, 232, 240, 1)'
+            default: 'rgba(226, 232, 240, 1)',
           },
           blue: {
             accent: 'rgba(129, 230, 217, 1)',
@@ -45,7 +45,8 @@ module.exports = {
           white: {
             primary: 'rgba(255, 255, 255, 1)',
             secondary: 'rgba(237, 242, 247, 1)',
-            selected: 'rgba(255, 255, 255, 1)'
+            selected: 'rgba(255, 255, 255, 1)',
+            extinct: 'rgba(255, 255, 255, 1)'
           },
           blue: {
             accent: 'rgba(30, 64, 175, 1)',

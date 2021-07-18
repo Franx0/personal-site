@@ -47,5 +47,6 @@ const getInitialLang = (): string => {
 }
 
 const useLanguage = () => React.useContext(LanguageContext);
+const initialLanguage = getInitialLang();
 
-export { LanguageProvider, useLanguage };
+export { LanguageProvider, useLanguage, initialLanguage };

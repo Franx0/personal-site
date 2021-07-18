@@ -17,11 +17,10 @@ import '@/styles/globals.css';
 import { CustomHead as Head } from '@/components/Head';
 const Header = loadable(() => import('@/components/shared/header'));
 import { motionProps } from '@/utils/MotionProps';
-
 // Contexts
 import { MetadataProvider, MetadataContext } from '@/contexts/MetadataContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
-import { LanguageProvider, LanguageContext, useLanguage } from '@/contexts/LanguageContext';
+import { LanguageProvider, LanguageContext } from '@/contexts/LanguageContext';
 import { TrackingProvider } from '@/contexts/TrackingContext';
 // Override functionality
 import '../utils';
