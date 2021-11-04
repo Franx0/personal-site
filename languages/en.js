@@ -76,35 +76,35 @@ export default {
         description: `I started as a Junior developer on People Who in 2015. We developed a health web application with Ruby on Rails, Jquery and MySQL and later evolved it with React and Redis to improve our UI and processes performance. I learnt a lot thanks to the team we were.`,
         bgColor: theme.extend.colors.peoplewho,
         textColor: theme.extend.colors.light.gray.secondary,
-        imageUrl: `https://media-exp1.licdn.com/dms/image/C4D0BAQEoyccqrZx0VQ/company-logo_100_100/0/1519919804321?e=1624492800&v=beta&t=OrDbH-dMb1MB6tUqnYTwH7OcgJBn62PRPItHSwoU15s`
+        imageUrl: `https://drive.google.com/file/d/1c3LycjoOWWZHaeVXHXDE-6J2OZUcy3ze/view?usp=sharing`
       },
       "Never Empty": {
         subtitle: `Nov. 2016 - Feb. 2017`,
         description: `It was a fleeting experience because of the company status but also a enrichment time to me. I worked again with Ruby on Rails and PostgreSQL, with the servers running on Heroku and migrating the current frontside inside the monolithic application to a new and fancy React environment.`,
         bgColor: theme.extend.colors.neverempty,
         textColor: theme.extend.colors.light.white.secondary,
-        imageUrl: `https://media-exp1.licdn.com/dms/image/C560BAQF2upItXUvRdA/company-logo_100_100/0/1519883525533?e=1624492800&v=beta&t=ARiad6HntQa1-zWQJU3pJr1zC0zUtRwfIfDpa9uSpSs`
+        imageUrl: `https://drive.google.com/file/d/1gk_cx9Gf2jN-QPA5ekPcYcl2PUBRtmWV/view?usp=sharing`
       },
       "Informa": {
         subtitle: `Feb. 2017 - Jun. 2017`,
         description: `After a couple of years of working experience  I decided to give a chance to the consultancy sector. I became part of Informa D&B as an external consultory. I started working in a small team focused on migrate an internal tool built on Ruby on Rails to a new React/Redux/Saga application, I also helped to migrate the current Ruby on Rails API to Clojure and optimize the frontend performance with Elastic Search.`,
         bgColor: theme.extend.colors.informa,
         textColor: theme.extend.colors.light.gray.secondary,
-        imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQH3gp0iUJvNsg/company-logo_100_100/0/1604592579477?e=1624492800&v=beta&t=oJfGjJHu9ZRu8NsZ95tJCizDEPISeqj9iLL9GBAFU84`
+        imageUrl: `https://drive.google.com/file/d/1dyOOHyVuHhmh7tGDRt-S8dG84LmtF0iC/view?usp=sharing`
       },
       "Glownet": {
         subtitle: `Jun. 2017 - Nov. 2019`,
         description: `In Glownet we developed a RFID system to run multiple events with no need of internet connection. Sònar, Coachella, MadCool and many others trusted on Glownet to run their festivals. The Android team developed the Mobile App to control onsite everything that happened inside the events and the 'Cloud' team developed the neccesary APIs, administration tool and the events analytics system. Ruby on Rails was the chosen technology to do that, with a powerfull database system based on PostgreSQL and the servers running in Amazon AWS.`,
         bgColor: theme.extend.colors.glownet,
         textColor: theme.extend.colors.light.white.secondary,
-        imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQHX6Esf0YxpbQ/company-logo_100_100/0/1544181711423?e=1624492800&v=beta&t=_efdQaHCD79ELzINHh34WKCpfKvXYqdAqwDIsfA7tpI`
+        imageUrl: `https://drive.google.com/file/d/1h8YbddSVzHYbKaheXA1mW92gO6lx1x82/view?usp=sharing`
       },
       "String Projects": {
         subtitle: `Feb. 2020 - Nov. 2020`,
         description: `After my last adventure I started working on String Projects, a tiny tech consultory but with heavy clients. We worked with many different technologies and languages, depending of what client needed. React Native was the ideal to develop mobile apps and Ruby on Rails the ideal to develop strong and powefull backends. But as I said, it changed depending on the client needs.`,
         bgColor: theme.extend.colors.string_,
         textColor: theme.extend.colors.light.white.secondary,
-        imageUrl: `https://media-exp1.licdn.com/dms/image/C4E0BAQFCzBwzOtOEIQ/company-logo_100_100/0/1542713726550?e=1624492800&v=beta&t=vty3gTBvqL0NDMblanPb3-pF_RGSq_3UAl4WwrwUq4w`
+        imageUrl: `https://drive.google.com/file/d/1VX8vLt6jeG6i8zaNGpOobewLLF7-PV6X/view?usp=sharing`
       }
     }
   },
