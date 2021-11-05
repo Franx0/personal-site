@@ -27,7 +27,8 @@ const Image: FunctionComponent<any> = (props: ImageProps) => {
       height={height}
       style={ currentSrc.blurred ? {...style, filter: 'blur(0.5rem)' } : style }
       className={className}
-      alt={alt} src={currentSrc.src}
+      alt={alt}
+      src={currentSrc.src}
       loading="lazy"/>
   )
 }
