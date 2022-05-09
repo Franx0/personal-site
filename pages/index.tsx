@@ -14,7 +14,6 @@ const Image = loadable(() => import('@/components/shared/image'));
 const Home: NextPage<NextPageContext> = (props: any) => {
   const { setHeader } = useTheme();
   const imageStyle = { width: "100%", height: "inherit" };
-  const gradientClasses = "text-shadow text-transparent bg-clip-text bg-gradient-to-br from-gray-400 to-white"
 
   useEffect(() => {
     setHeader(false);
