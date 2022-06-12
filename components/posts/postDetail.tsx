@@ -38,14 +38,17 @@ const PostDetail = function({post, className = "", forcePreview = false}: {post:
   const { _id, title, body, slug, imageUrl = '', label, createdAt }: Post = {...postData};
 
   useEffect(() => {
+    setPostData(post);
+  }, [post]);
+
+  useEffect(() => {
     updateMetadata({
       title: title,
       description: createdAt,
       imageUrl: imageUrl,
       keywords: label
     });
-    setPostData(post);
-  }, [post]);
+  }, [postData])
 
   const submitPost: Function = (data: Post) => {
     const date = new Date().toISOString();

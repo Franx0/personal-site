@@ -34,8 +34,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [router.pathname]);
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <LanguageProvider>
+    <LanguageProvider>
+      <SessionProvider session={pageProps.session} >
         <MetadataProvider>
           <LanguageContext.Consumer>
             { (locale: any) =>
@@ -56,8 +56,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             }
           </LanguageContext.Consumer>
         </MetadataProvider>
-      </LanguageProvider>
-    </SessionProvider>
+      </SessionProvider>
+    </LanguageProvider>
   )
 }
 

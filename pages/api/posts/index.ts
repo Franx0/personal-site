@@ -32,7 +32,7 @@ export const fetchPost: Function = async (session: any, ctx: any): Promise<Post>
     :
       dataPromise.findPostBySlugByPublishedAt
 
-    if(data === null || data?.errors?.length) {
+    if(data?.errors?.length) {
       redirectTo(`${process.env.NEXT_PUBLIC_SITE_URL}/404`, 302, data?.errors, ctx);
     }
   };

@@ -34,10 +34,10 @@ export default {
       title: `Blog | Fran Moya`,
       description: `Personal blog page.`
     },
-    auth: {
+    "auth/authentication": {
       image_url: ``,
-      title: `Authorization.`,
-      description: `Authorization.`
+      title: `Authentication`,
+      description: `Authentication.`
     }
   },
   thanks: {
@@ -110,6 +110,9 @@ export default {
         imageUrl: `https://drive.google.com/uc?export=view&id=1VX8vLt6jeG6i8zaNGpOobewLLF7-PV6X`
       }
     }
+  },
+  auth: {
+    title: `Authenticate with: `
   },
   footer: {
     follow: `Follow me on: `,

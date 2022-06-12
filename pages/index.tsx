@@ -12,7 +12,7 @@ const Image = loadable(() => import('@/components/shared/image'));
 import { useTheme } from '@/contexts/ThemeContext';
 
 const Home: NextPage<NextPageContext> = (props: any) => {
-  const { setHideHeader } = useTheme();
+  const { setHideHeader }: any = useTheme();
   const imageStyle = { width: "100%", height: "inherit" };
   const gradientClasses = "text-shadow text-transparent bg-clip-text bg-gradient-to-br from-gray-400 to-white"
 
@@ -21,7 +21,7 @@ const Home: NextPage<NextPageContext> = (props: any) => {
   }, []);
 
   return (
-    <motion.div className="relative bg-grey-400 opacity-90" style={{ height: "100vh" }} initial="initial" animate="enter" exit="exit">
+    <motion.div className="h-screen relative bg-grey-400 opacity-90" initial="initial" animate="enter" exit="exit">
       <motion.div style={imageStyle} variants={props.pageVariants.easing}>
         <Image style={imageStyle} className="bg-cover bg-center" src="/media.jpg" alt="Home" />
       </motion.div>
