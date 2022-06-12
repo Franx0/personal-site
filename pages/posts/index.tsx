@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 // Nextjs
 import { NextPage , NextPageContext} from 'next';
 // NextjsAuth
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 // Api
 import { allPosts, allPostsPublished } from '@/pages/api/posts';
 // Components
@@ -15,13 +15,13 @@ import { isAdmin } from '@/utils/index';
 const PostIndex: NextPage<NextPageContext> = (props: any) => {
   const [postResponse, setPostResponse] = useState(null);
   const [cursor, setCursor] = useState(null);
-  const [session] = useSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     isAdmin(session) ?
       allPosts(undefined, cursor).then((res: any) => setPostResponse(res.allPosts))
     :
-      allPostsPublished(undefined, cursor).then((res: any) => setPostResponse(res.allPostsPublished))
+      allPostsPublished(props.userLanguage, undefined, cursor).then((res: any) => setPostResponse(res.allPostsPublished))
   }, [cursor])
 
   return (

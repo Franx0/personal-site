@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 // NextjsAuth
-import { Provider } from 'next-auth/client';
+import { SessionProvider } from 'next-auth/react';
 // Frame Motion
 import { AnimatePresence } from 'framer-motion';
 // Toast
@@ -35,7 +35,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [router.pathname]);
 
   return (
-    <Provider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
       <LanguageProvider>
         <ThemeProvider>
           <Head />
@@ -50,7 +50,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <ToastContainer align={"right"} position={"bottom"} />
         </ThemeProvider>
       </LanguageProvider>
-    </Provider>
+    </SessionProvider>
   )
 }
 
