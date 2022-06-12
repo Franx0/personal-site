@@ -7,7 +7,7 @@ import Head  from 'next/head';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 // Version
-import { version } from '../package.json';
+import packageInfo from '../package.json';
 
 export const CustomHead = () => {
   const { theme } = useTheme();
@@ -29,7 +29,7 @@ export const CustomHead = () => {
       <meta name="author" content="Francisco Moya" />
       <meta name="description" content={meta.description} />
       <meta name="keywords" content={meta.keywords} />
-      <meta name="build version" content={version} />
+      <meta name="build version" content={packageInfo.version} />
       <meta name="robots" content="index,follow" />
 
       {/* Google */}
