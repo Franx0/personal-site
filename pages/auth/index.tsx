@@ -7,9 +7,9 @@ import { getSession } from 'next-auth/react';
 import React, { Component } from 'react'
 import { redirectTo, isAdmin } from '@/utils/index';
 
-export const AuthWrapper = (Child, adminCheck): (NextPage | Component) => {
+export const AuthWrapper = (Child: any, adminCheck: boolean): (NextPage | Component) => {
   return class Authenticated extends Component {
-    static async getInitialProps(ctx) {
+    static async getInitialProps(ctx: any) {
       const session = await getSession(ctx);
       const notAdmin = !isAdmin(session);
 
@@ -43,7 +43,7 @@ export const AuthWrapper = (Child, adminCheck): (NextPage | Component) => {
 export const encodeAuthUri: Function = (url?: string): (string | null) => {
   // Auth URI encode
   const currentUrl = url || Router.asPath;
-  const authUrl = '/auth/signin';
+  const authUrl = '/auth/authentication';
   const callbackUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${currentUrl}`;
   const URI = `${process.env.NEXT_PUBLIC_SITE_URL}${authUrl}?callbackUrl=${encodeURIComponent(callbackUrl)}`
 

@@ -181,7 +181,7 @@ export const TwitterLogo: FunctionComponent<any> = function(props: IconProps) {
   )
 }
 
-export const GitHubLogo: FunctionComponent<any> = function(props: IconProps) {
+export const GithubLogo: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} ${props.width || 'w-6'} ${(props.height || 'h-6')}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <title>{props.title || "Github"} logo</title>
@@ -190,7 +190,7 @@ export const GitHubLogo: FunctionComponent<any> = function(props: IconProps) {
   )
 }
 
-export const GitLabLogo: FunctionComponent<any> = function(props: IconProps) {
+export const GitlabLogo: FunctionComponent<any> = function(props: IconProps) {
   return (
     <svg className={`${props.className || ''} ${props.width || 'w-6'} ${(props.height || 'h-6')}`} fill={props.color || "currentColor"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <title>{props.title || "GitLab"} logo</title>

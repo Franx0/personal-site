@@ -1,10 +1,13 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 // NextjsAuth
 import { useSession } from 'next-auth/react'
 // Components
-import CommentBox from '@/components/comments/commentBox';
-import Form from '@/components/posts/form';
+const CommentBox = loadable(() => import('@/components/comments/commentBox'));
+const Form = loadable(() => import('@/components/posts/form'));
+const Image = loadable(() => import('@/components/shared/image'));
 // Api
 import { handlePost, UPDATE_POST, DELETE_POST } from '@/pages/api/posts';
 import { deleteComments } from '@/pages/api/comments';
@@ -12,6 +15,8 @@ import { deleteComments } from '@/pages/api/comments';
 import { redirectTo, isAdmin } from '@/utils/index';
 // Interfaces
 import { Post, Comment } from '@/interfaces/index';
+// Contexts
+import { useMetadata } from '@/contexts/MetadataContext';
 
 const editorOpts = {
   showPathLabel: false,
@@ -24,18 +29,32 @@ const editorOpts = {
   ]
 };
 
-const PostDetail: FunctionComponent<Post> = (post: Post) => {
+const PostDetail = function({post, className = "", forcePreview = false}: {post: Post, className: string, forcePreview: boolean}) {
   const { data: session } = useSession();
+  const [postData, setPostData] = useState(post);
   const [submitting, setSubmitting] = useState(false);
   const [comments, setComments] = useState(post?.comments?.data)
-  const { _id, title, body, createdAt }: Post = {...post};
+  const { updateMetadata } = useMetadata();
+  const { _id, title, body, slug, imageUrl = '', label, createdAt }: Post = {...postData};
 
-  const submitPost: Function = (data) => {
+  useEffect(() => {
+    setPostData(post);
+  }, [post]);
+
+  useEffect(() => {
+    updateMetadata({
+      title: title,
+      description: createdAt,
+      imageUrl: imageUrl,
+      keywords: label
+    });
+  }, [postData])
+
+  const submitPost: Function = (data: Post) => {
     const date = new Date().toISOString();
     const json = {...data,
       updatedAt: date
     }
-
     setSubmitting(true);
     handlePost(UPDATE_POST, json, _id).then(res => {
       setSubmitting(false);
@@ -54,19 +73,20 @@ const PostDetail: FunctionComponent<Post> = (post: Post) => {
 
   return(
     <>
-      {isAdmin(session) ? (
+      {(isAdmin(session) && !forcePreview) ? (
         <div>
-          <Form data={post} handleSubmit={(data) => submitPost(data)} handleDelete={() => deletePost(_id)}/>
+          <Form data={postData} handleSubmit={(data: any) => submitPost(data)} handleDelete={() => deletePost(_id)}/>
         </div>
       ) : (
-        <div>
-          <p>{title}</p>
-          <p>{body}</p>
-          <p>{createdAt}</p>
+        <div className={`post detail ${className}`}>
+          { imageUrl && <Image src={imageUrl} className="w-max h-auto m-auto object-cover content-center md:mb-10 mb-4" alt={slug} /> }
+          <h1>{title}</h1>
+          <h5>{createdAt?.toDate() || 'dd/mm/YYYY'}</h5>
+          <div dangerouslySetInnerHTML={{__html: body}}></div>
         </div>
       )}
 
-      <CommentBox parent={post} comments={comments} buttonText={'Add comment'} updateComments={(newComments) => setComments(newComments)}/>
+      {/* <CommentBox parent={post} comments={comments} buttonText={'Add comment'} updateComments={(newComments) => setComments(newComments)}/> */}
     </>
   )
 }

@@ -1,25 +1,28 @@
 // React
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // Nextjs
 import { useRouter } from 'next/router';
 import Head  from 'next/head';
 // Contexts
 import { useTheme } from '@/contexts/ThemeContext';
-import { useLanguage } from '@/contexts/LanguageContext';
 // Version
 import packageInfo from '../package.json';
 
-export const CustomHead = () => {
+export const CustomHead = ({metadata, locale}) => {
   const { theme } = useTheme();
-  const locale = useLanguage();
   const router = useRouter();
-  const meta = {
-    title: locale.dictionary.meta[router.pathname.replace("/", "")]?.title || '',
-    description: locale.dictionary.meta[router.pathname.replace("/", "")]?.description || '',
-    imageUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg` || '',
-    url: process.env.NEXT_PUBLIC_SITE_URL || '',
-    keywords: locale.dictionary.meta[router.pathname.replace("/", "")]?.keywords || ''
+  const defaultMetadata = {
+    title: metadata?.title || locale.dictionary.meta[router.pathname.replace("/", "")]?.title || '',
+    description: metadata?.description || locale.dictionary.meta[router.pathname.replace("/", "")]?.description || '',
+    imageUrl: metadata?.imageUrl || `${process.env.NEXT_PUBLIC_SITE_URL}/media.jpg` || '',
+    url: router?.pathname || process.env.NEXT_PUBLIC_SITE_URL || '',
+    keywords: metadata?.keywords || locale.dictionary.meta[router.pathname.replace("/", "")]?.keywords || ''
   };
+  const [meta, setMetadata] = useState(defaultMetadata);
+
+  useEffect(() => {
+    if(Object.keys(metadata).length != 0) setMetadata(metadata);
+  }, [metadata]);
 
   return (
     <Head>
@@ -51,7 +54,7 @@ export const CustomHead = () => {
       <meta name="twitter:image" content={meta.imageUrl} key="twimage" />
       <meta name="twitter:title" content={meta.title} key="twtitle" />
       <meta name="twitter:description" content={meta.description} key="twdesc" />
-
+      <link rel="canonical" href={meta.url} />
       <link rel="icon" href={`/favicon/favicon-${theme}.ico`} />
       <link rel="icon" type="image/png" sizes="32x32" href={`/favicon/favicon-32x32-${theme}.png`} />
       <link rel="icon" type="image/png" sizes="16x16" href={`/favicon/favicon-16x16-${theme}.png`} />

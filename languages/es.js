@@ -3,6 +3,8 @@ import { theme } from 'tailwind.config.js';
 export default {
   actions: {
     close: `Cerrar`,
+    next: `Siguiente`,
+    prev: `Anterior`
   },
   cookies: {
     main: `Esta página usa cookies para mejorar tu experiencia de usuario.`,
@@ -32,14 +34,14 @@ export default {
       title: `Blog | Fran Moya`,
       description: `Blog personal.`
     },
-    auth: {
+    "auth/authentication": {
       image_url: ``,
-      title: `Autorización`,
-      description: `Autorización.`
+      title: `Autenticación`,
+      description: `Autenticación.`
     }
   },
   thanks: {
-    media: `Imagen del sitio por <a href="https://unsplash.com/@vingtcent?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vincent Guth</a> en <a href="https://unsplash.com/s/photos/aurora?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>`,
+    media: `Imagen del sitio por <a href="https://unsplash.com/@vingtcent?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vincent Guth</a> de <a href="https://unsplash.com/s/photos/aurora?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>`,
     favicon: `Favicon por <a href="https://www.flaticon.es/autores/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> de <a href="https://www.flaticon.es/" title="Flaticon">Flaticon</a>`
   },
   loader: {
@@ -61,12 +63,13 @@ export default {
   landing: {
     title: `Rock developer and web guitarist`,
     description: `Fran Moya`,
-    profile: `Mi perfil`
+    profile: `Mi perfil`,
+    blog: `Blog`
   },
   cv: {
     download: `Descargar CV`,
     download_url: `https://drive.google.com/uc?export=view&id=1PcQpouiviaQjbv9c1J0_X6t-mcmVQPqr`,
-    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web y siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de 6 a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>&Eacute;cha un ojo m&aacute;s abajo a algunos de los lenguajes y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
+    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web y siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de ${new Date().getFullYear() - new Date('02/03/2015').getFullYear()} a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>Echa un ojo m&aacute;s abajo a algunos de los lenguajes y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
     favorites: `Mis favoritos`,
     myJobs: `Mis trabajos`,
     mySkills: `Mi stack`,
@@ -107,6 +110,9 @@ export default {
         imageUrl: `https://drive.google.com/uc?export=view&id=1VX8vLt6jeG6i8zaNGpOobewLLF7-PV6X`
       }
     }
+  },
+  auth: {
+    title: `Autenticate con: `
   },
   footer: {
     follow: `Sígueme en: `,

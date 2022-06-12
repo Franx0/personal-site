@@ -17,16 +17,15 @@ import '@/styles/globals.css';
 import { CustomHead as Head } from '@/components/Head';
 const Header = loadable(() => import('@/components/shared/header'));
 import { motionProps } from '@/utils/MotionProps';
-
 // Contexts
+import { MetadataProvider, MetadataContext } from '@/contexts/MetadataContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
-import { LanguageProvider, LanguageContext, useLanguage } from '@/contexts/LanguageContext';
+import { LanguageProvider, LanguageContext } from '@/contexts/LanguageContext';
 import { TrackingProvider } from '@/contexts/TrackingContext';
 // Override functionality
 import '../utils';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const locale = useLanguage();
   const router = useRouter();
   const [prevState, setPrevState] = useState({ history: [router.asPath] });
 
@@ -35,22 +34,30 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [router.pathname]);
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <LanguageProvider>
-        <ThemeProvider>
-          <Head />
-          <TrackingProvider >
-            <Header {...motionProps} history={prevState.history} />
-            <AnimatePresence exitBeforeEnter>
-              <LanguageContext.Consumer>
-                { locale => <Component {...pageProps} {...motionProps} {...locale} key={`${router.route}-component`} /> }
-              </LanguageContext.Consumer>
-            </AnimatePresence>
-          </TrackingProvider>
-          <ToastContainer align={"right"} position={"bottom"} />
-        </ThemeProvider>
-      </LanguageProvider>
-    </SessionProvider>
+    <LanguageProvider>
+      <SessionProvider session={pageProps.session} >
+        <MetadataProvider>
+          <LanguageContext.Consumer>
+            { (locale: any) =>
+              <MetadataContext.Consumer>
+                { ({metadata}) =>
+                  <ThemeProvider>
+                    <Head metadata={metadata} locale={locale} />
+                    <TrackingProvider >
+                      <Header {...motionProps} history={prevState.history} />
+                      <AnimatePresence exitBeforeEnter>
+                        <Component {...pageProps} {...motionProps} {...locale} key={`${router.route}-component`} />
+                      </AnimatePresence>
+                    </TrackingProvider>
+                    <ToastContainer align={"right"} position={"bottom"} />
+                  </ThemeProvider>
+                }
+              </MetadataContext.Consumer>
+            }
+          </LanguageContext.Consumer>
+        </MetadataProvider>
+      </SessionProvider>
+    </LanguageProvider>
   )
 }
 

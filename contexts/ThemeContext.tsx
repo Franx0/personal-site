@@ -4,13 +4,13 @@ import React, { useState, useEffect } from 'react';
 const ThemeContext = React.createContext({
   theme: "light",
   setTheme: null,
-  header: true,
-  setHeader: null
+  header: false,
+  setHideHeader: null
 });
 
 const ThemeProvider = ({ initialTheme, children }: any) => {
   const [theme, setTheme] = useState(getInitialTheme);
-  const [header, setHeader] = useState(true);
+  const [header, setHideHeader] = useState(true);
   const rawSetTheme = (theme: string) => {
     const root = window.document.documentElement
     const isDark = theme === "dark"
@@ -28,7 +28,7 @@ const ThemeProvider = ({ initialTheme, children }: any) => {
   },[theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, header, setHeader }}>
+    <ThemeContext.Provider value={{ theme, setTheme, header, setHideHeader }}>
       {children}
     </ThemeContext.Provider>
   )

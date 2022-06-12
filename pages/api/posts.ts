@@ -6,12 +6,22 @@ export const CREATE_POST = 'createPost';
 export const UPDATE_POST = 'updatePost';
 export const DELETE_POST = 'deletePost';
 
-const commentData: String = `data {
-                              _id
-                              body
-                              user
-                              createdAt
-                            }`;
+const postDataString: String = `_id
+                          title
+                          body
+                          slug
+                          language
+                          translate
+                          label
+                          imageUrl
+                          createdAt
+                          updatedAt
+                          publishedAt`;
+
+const commentDataString: String = `_id
+                            body
+                            user
+                            createdAt`;
 
 export const allPostsPublished = (language: string, size: number = 5, cursor?: string) => {
   return fetcher(
@@ -19,15 +29,12 @@ export const allPostsPublished = (language: string, size: number = 5, cursor?: s
       query AllPostsPublished($language: String!, $size: Int!, $cursor: String) {
         allPostsPublished(language: $language, _size: $size, _cursor: $cursor) {
           data {
-            _id
-            title
-            body
-            slug
-            label
-            createdAt
-            updatedAt
-            publishedAt
-            comments {${commentData}}
+            ${postDataString}
+            comments {
+              data {
+                ${commentDataString}
+              }
+            }
           }
           before
           after
@@ -38,28 +45,25 @@ export const allPostsPublished = (language: string, size: number = 5, cursor?: s
   )
 };
 
-export const allPosts = (size: number = 5, cursor?: string) => {
+export const allPosts = (language: string, size: number = undefined, cursor?: string) => {
   return fetcher(
     gql`
-      query AllPosts($size: Int!, $cursor: String) {
-        allPosts(_size: $size, _cursor: $cursor) {
+      query AllPosts($language: String!, $size: Int!, $cursor: String) {
+        allPosts(language: $language, _size: $size, _cursor: $cursor) {
           data {
-            _id
-            title
-            body
-            slug
-            label
-            createdAt
-            updatedAt
-            publishedAt
-            comments {${commentData}}
+            ${postDataString}
+            comments {
+              data {
+                ${commentDataString}
+              }
+            }
           }
           before
           after
         }
       }
     `,
-    { size: size, cursor: cursor }
+    { language: language, size: size, cursor: cursor }
   )
 };
 
@@ -68,15 +72,12 @@ export const findPostBySlug = (slug: String) => {
     gql`
       query FindPostBySlug($slug: String!) {
         findPostBySlug(slug: $slug) {
-          _id
-          title
-          body
-          slug
-          label
-          createdAt
-          updatedAt
-          publishedAt
-          comments {${commentData}}
+          ${postDataString}
+          comments {
+            data {
+              ${commentDataString}
+            }
+          }
         }
       }
     `,
@@ -89,15 +90,12 @@ export const findPostBySlugPublishedAt = (slug: String) => {
     gql`
       query FindPostBySlugByPublishedAt($slug: String!) {
         findPostBySlugByPublishedAt(slug: $slug) {
-          _id
-          title
-          body
-          slug
-          label
-          createdAt
-          updatedAt
-          publishedAt
-          comments {${commentData}}
+          ${postDataString}
+          comments {
+            data {
+              ${commentDataString}
+            }
+          }
         }
       }
     `,
@@ -110,13 +108,15 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
   let queryData: string = '';
 
   if(action === CREATE_POST) {
-    queryData = `$title: String!, $body: String!, $slug: String!, $label: String,
-                 $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
+    queryData = `$title: String!, $body: String!, $slug: String!, $language: String!, $translate: String, $label: String, $imageUrl: String, $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
     postData = `data: {
                   title: $title
                   body: $body
                   label: $label
+                  imageUrl: $imageUrl
                   slug: $slug
+                  language: $language
+                  translate: $translate
                   createdAt: $createdAt
                   updatedAt: $updatedAt
                   publishedAt: $publishedAt
@@ -124,14 +124,16 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
   };
 
   if(action === UPDATE_POST) {
-    queryData = `$id: ID!, $title: String!, $body: String!, $slug: String!, $label: String,
-                 $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
+    queryData = `$id: ID!, $title: String!, $body: String!, $slug: String!, $language: String!, $translate: String, $label: String, $imageUrl: String, $createdAt: String!, $updatedAt: String!, $publishedAt: String`;
     postData = `id: $id,
                 data: {
                   title: $title
                   body: $body
                   label: $label
+                  imageUrl: $imageUrl
                   slug: $slug
+                  language: $language
+                  translate: $translate
                   createdAt: $createdAt
                   updatedAt: $updatedAt
                   publishedAt: $publishedAt
@@ -152,7 +154,10 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
           title
           body
           slug
+          language
+          translate
           label
+          imageUrl
           createdAt
           updatedAt
           publishedAt
@@ -168,15 +173,24 @@ export const handlePost = (action: string, data: any = {}, id?: number) => {
 // published_posts
 // Query(
 //   Lambda(
-//     "data",
-//     Map(
-//       Paginate(
-//         Difference(
-//           Match(Index("allPosts")),
-//           Match(Index("allPostsByPublishedAt"), "undefined")
+//     ["size", "after", "before"],
+//     Let(
+//       {
+//         match: Difference(
+//           Reverse(Match(Index("allPosts"))),
+//           Reverse(Match(Index("allPostsByPublishedAt"), "undefined"))
+//         ),
+//         page: If(
+//           Equals(Var("before"), null),
+//           If(
+//             Equals(Var("after"), null),
+//               Paginate(Var("match"), { size: Var("size") }),
+//               Paginate(Var("match"), { size: Var("size"), after: Var("after") })
+//           ),
+//           Paginate(Var("match"), { size: Var("size"), before: Var("before") }),
 //         )
-//       ),
-//       Lambda("post", Get(Var("post")))
+//       },
+//       Map(Var("page"), Lambda("ref", Get(Var("ref"))))
 //     )
 //   )
 // )

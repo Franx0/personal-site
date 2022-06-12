@@ -1,10 +1,13 @@
+// Loadable
+import loadable from '@loadable/component';
 // React
 import { FunctionComponent } from 'react';
+// Framer Motion
+import { motion } from 'framer-motion';
 // Components
-import List from '@/components/shared/list';
-import PostElement from '@/components/posts/postElement';
+const PostElement = loadable(() => import('@/components/posts/postElement'));
 // Components
-import LinkStyled from '@/components/shared/link';
+import { motionProps } from '@/utils/MotionProps';
 // Interfaces
 import { Post } from '@/interfaces/index';
 
@@ -14,19 +17,19 @@ type Props = {
 
 const PostList: FunctionComponent<Props> = ({ data }) => {
   const postElements = data.map((postData: any, i: number) => {
-    return <PostElement key={i} postData={postData} />
+    return (
+      <motion.div key={`motion-${i}`} className="md:m-2" variants={motionProps.postVariants}>
+        <div key={postData._id} className="w-min p-3 m-2">
+          <PostElement key={i} postData={postData} />
+        </div>
+      </motion.div>
+    )
   });
 
   return(
-    <>
-      <LinkStyled pathname={"/posts/new"} >
-        <p>New post</p>
-      </LinkStyled>
-
-      <List>
-        {postElements}
-      </List>
-    </>
+    <div className="flex flex-wrap flex-column m-auto md:justify-start justify-center">
+      {postElements}
+    </div>
   );
 }
 

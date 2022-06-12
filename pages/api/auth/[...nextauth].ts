@@ -8,7 +8,7 @@ const options: any = {
   site: process.env.NEXTAUTH_URL,
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/auth/signin'
+    signIn: '/auth/authentication'
   },
   providers: [
     GoogleProvider({
@@ -30,7 +30,7 @@ const options: any = {
   ],
   callbacks: {
     signIn: async ({ user, account, profile, email, credentials }) => {
-      if (profile.verified_email === true) return Promise.resolve(true);
+      if (profile.email_verified) return Promise.resolve(true);
       return Promise.resolve(false)
     },
     redirect: async ({ url, baseUrl }) => {

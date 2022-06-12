@@ -2,11 +2,14 @@ type Post {
   id: ID
   title: String!
   body: String!
-  slug: String! @unique
+  imageUrl: String
   label: String
   createdAt: String!
   updatedAt: String!
   publishedAt: String
+  slug: String! @unique
+  language: String!
+  translate: String
   comments: [Comment] @relation
 }
 
@@ -20,8 +23,8 @@ type Comment {
 }
 
 type Query {
-  allPosts: [Post]
-  allPostsPublished: [Post] @resolver(name: "published_posts", paginated: true)
+  allPosts(language: String!): [Post]
+  allPostsPublished(language: String!): [Post] @resolver(name: "published_posts", paginated: true)
   findPostBySlug(slug: String!): Post
   findPostBySlugByPublishedAt(slug: String!): Post @resolver(name: "published_post")
   allCommentsByUser: [Post]

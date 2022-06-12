@@ -3,6 +3,8 @@ import { theme } from 'tailwind.config.js';
 export default {
   actions: {
     close: `Close`,
+    next: `Next`,
+    prev: `Previous`
   },
   cookies: {
     main: `This website uses cookies to enhance your user experience.`,
@@ -32,10 +34,10 @@ export default {
       title: `Blog | Fran Moya`,
       description: `Personal blog page.`
     },
-    auth: {
+    "auth/authentication": {
       image_url: ``,
-      title: `Authorization.`,
-      description: `Authorization.`
+      title: `Authentication`,
+      description: `Authentication.`
     }
   },
   thanks: {
@@ -61,12 +63,13 @@ export default {
   landing: {
     title: `Rock developer and web guitarist`,
     description: `Fran Moya`,
-    profile: `My profile`
+    profile: `My profile`,
+    blog: `Blog`
   },
   cv: {
     download: `Download CV`,
     download_url: `https://drive.google.com/uc?export=view&id=1TqmD0eo7ZVdR1xk2hbD-V2LE59oitCke`,
-    description: `<h1 class="text-accent">Hi, I'm Fran.</h1><br><p>I am a web developer who is always looking for new challenges and projects to be part of.</p><p>During the last 6 years, I have been working as a developer, learning and improving my knowledge and skills. I love to keep learning and sharing it with all people around me</p><p>Take a look to some of the languages and technologies I usually work to and <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contact me</strong></a>.</p>`,
+    description: `<h1 class="text-accent">Hi, I'm Fran.</h1><br><p>I am a web developer who is always looking for new challenges and projects to be part of.</p><p>During the last ${new Date().getFullYear() - new Date('02/03/2015').getFullYear()} years, I have been working as a developer, learning and improving my knowledge and skills. I love to keep learning and sharing it with all people around me.</p><p>Take a look to some of the languages and technologies I usually work to and <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contact me</strong></a>.</p>`,
     favorites: `My favorites`,
     myJobs: `My jobs`,
     mySkills: `My stack`,
@@ -107,6 +110,9 @@ export default {
         imageUrl: `https://drive.google.com/uc?export=view&id=1VX8vLt6jeG6i8zaNGpOobewLLF7-PV6X`
       }
     }
+  },
+  auth: {
+    title: `Authenticate with: `
   },
   footer: {
     follow: `Follow me on: `,

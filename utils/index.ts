@@ -15,26 +15,30 @@ export const isOwner = (session: any, owner: string): boolean => {
 export const isAdmin = (session: any): boolean => {
   return session && session.user && process.env.NEXT_PUBLIC_ADMINS
           .split(",")
-          .includes(session.user.email)
+          .includes(session.user.email) || false
 };
 
 export const redirectTo = async ( path: string = '/',
                                   code: number = 302,
                                   query: any = {},
-                                  ctx: NextPageContext = null): Promise<any> => {
+                                  ctx: NextPageContext = undefined): Promise<any> => {
   // Server side checks
   try {
-    if(typeof window === 'undefined') {
+    if(typeof window === 'undefined' || ctx !== undefined) {
       console.log('server redirect')
       ctx.res.writeHead(code, { Location: path });
       ctx.res.end();
     } else {
       console.log('client redirect')
-      Router.prefetch(path, path);
+      Router.push(path, path);
       return
     }
     return {}
   } catch(err) {
     console.log('REDIRECTION ERROR: ', err)
   };
+};
+
+export const parseDate = (date: string): Date => {
+  return new Date(date)
 };
