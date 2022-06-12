@@ -18,7 +18,7 @@ export const Layout = ({
   header = false
 }) => {
   const { dictionary } = useLanguage();
-  const { setHideHeader } = useTheme();
+  const { setHideHeader }: any = useTheme();
 
   useEffect(() => {
     setHideHeader(header);

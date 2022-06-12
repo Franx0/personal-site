@@ -79,7 +79,7 @@ const PostDetail = function({post, className = "", forcePreview = false}: {post:
         </div>
       ) : (
         <div className={`post detail ${className}`}>
-          <Image width="200" height="100" src={imageUrl} className="w-1/2 m-auto object-cover content-center md:mb-10 mb-4" alt={slug} />
+          { imageUrl && <Image src={imageUrl} className="w-max h-auto m-auto object-cover content-center md:mb-10 mb-4" alt={slug} /> }
           <h1>{title}</h1>
           <h5>{createdAt?.toDate() || 'dd/mm/YYYY'}</h5>
           <div dangerouslySetInnerHTML={{__html: body}}></div>

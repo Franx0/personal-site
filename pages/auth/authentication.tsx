@@ -31,7 +31,7 @@ const Authentication: NextPage<any> = ({ providers }) => {
       return (
         <button
           key={provider.name}
-          className="w-3/4 m-2 bg-secondary hover:bg-primary text-primary py-2 px-4 border border-gray-400 rounded shadow"
+          className="w-5/6 m-2 bg-secondary hover:bg-primary text-primary py-2 px-4 border border-gray-400 rounded shadow"
           onClick={() => signIn(provider.id)} >
           <div className="flex flex-grow">
             <span className="mr-2">{renderLogo(provider.id)}</span>
