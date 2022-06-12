@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from 'react';
 import { NextPage, GetServerSidePropsResult } from 'next';
 import dynamic from 'next/dynamic';
 // NextjsAuth
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 // Components
 const Layout = dynamic(() => import('@/components/Layout'), {
   ssr: true

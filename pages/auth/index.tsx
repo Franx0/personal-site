@@ -2,7 +2,7 @@
 import { NextPage } from 'next';
 import Router from 'next/router';
 // NextjsAuth
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 // React
 import React, { Component } from 'react'
 import { redirectTo, isAdmin } from '@/utils/index';

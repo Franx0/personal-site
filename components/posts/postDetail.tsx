@@ -3,7 +3,7 @@ import loadable from '@loadable/component';
 // React
 import { FunctionComponent, useEffect, useState } from 'react';
 // NextjsAuth
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 // Components
 const CommentBox = loadable(() => import('@/components/comments/commentBox'));
 const Form = loadable(() => import('@/components/posts/form'));
@@ -30,7 +30,7 @@ const editorOpts = {
 };
 
 const PostDetail = function({post, className = "", forcePreview = false}: {post: Post, className: string, forcePreview: boolean}) {
-  const [session] = useSession();
+  const { data: session } = useSession();
   const [postData, setPostData] = useState(post);
   const [submitting, setSubmitting] = useState(false);
   const [comments, setComments] = useState(post?.comments?.data)

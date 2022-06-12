@@ -4,7 +4,7 @@ import React from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 // NextAuth
-import { providers, signIn, getSession } from 'next-auth/client';
+import { getProviders, signIn, getSession } from 'next-auth/react';
 // Components
 const Layout = dynamic(() => import('@/components/Layout'), {
   ssr: false
@@ -54,7 +54,7 @@ SignIn.getInitialProps = async (ctx) => {
 
   return {
     session: undefined,
-    providers: await providers()
+    providers: await getProviders()
   }
 }
 

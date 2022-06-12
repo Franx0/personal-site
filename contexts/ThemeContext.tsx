@@ -43,7 +43,7 @@ const getInitialTheme = (): string => {
     if (userMedia.matches) return "dark"
   }
 
-  return "ligth"
+  return "light"
 }
 
 const useTheme = () => React.useContext(ThemeContext);

@@ -10,7 +10,7 @@ import { useLanguage, initialLanguage } from '@/contexts/LanguageContext';
 // Frame Motion
 import { motion } from 'framer-motion';
 // NextjsAuth
-import { useSession, getSession } from 'next-auth/client';
+import { useSession, getSession } from 'next-auth/react';
 // Api
 import { fetchPosts } from '@/pages/api/posts/index';
 // Components
@@ -28,7 +28,7 @@ import { isAdmin } from '@/utils/index';
 const PostIndex: NextPage<{ response: FetchPost }> = ({response}: {response: FetchPost}) => {
   const [postResponse, setPostResponse] = useState(response);
   const [cursor, setCursor] = useState(null);
-  const [session] = useSession();
+  const { data: session } = useSession();
   const { dictionary, userLanguage } = useLanguage();
   const { pageVariants } = motionProps;
 
