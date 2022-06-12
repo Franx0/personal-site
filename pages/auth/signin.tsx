@@ -3,7 +3,7 @@ import React from 'react';
 // Nextjs
 import { NextPage } from 'next';
 // NextAuth
-import { providers, signIn, getSession } from 'next-auth/client';
+import { getProviders, signIn, getSession } from 'next-auth/react';
 // Components
 import Layout from '@/components/Layout';
 // Utils
@@ -51,7 +51,7 @@ SignIn.getInitialProps = async (ctx) => {
 
   return {
     session: undefined,
-    providers: await providers()
+    providers: await getProviders()
   }
 }
 

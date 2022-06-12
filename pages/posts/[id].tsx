@@ -1,7 +1,7 @@
 // Nextjs
 import { NextPage } from 'next';
 // NextjsAuth
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 // Pages
 import { findPostBySlug, findPostBySlugPublishedAt } from '@/pages/api/posts';
 // Components

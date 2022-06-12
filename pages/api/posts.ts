@@ -13,11 +13,11 @@ const commentData: String = `data {
                               createdAt
                             }`;
 
-export const allPostsPublished = (size: number = 5, cursor?: string) => {
+export const allPostsPublished = (language: string, size: number = 5, cursor?: string) => {
   return fetcher(
     gql`
-      query AllPostsPublished($size: Int!, $cursor: String) {
-        allPostsPublished(_size: $size, _cursor: $cursor) {
+      query AllPostsPublished($language: String!, $size: Int!, $cursor: String) {
+        allPostsPublished(language: $language, _size: $size, _cursor: $cursor) {
           data {
             _id
             title
@@ -34,7 +34,7 @@ export const allPostsPublished = (size: number = 5, cursor?: string) => {
         }
       }
     `,
-    { size: size, cursor: cursor }
+    { language: language, size: size, cursor: cursor }
   )
 };
 

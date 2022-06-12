@@ -3,7 +3,7 @@ import { FunctionComponent, useState, useEffect } from 'react';
 // Nextjs
 import { useRouter } from 'next/router';
 // NextjsAuth
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 // Components
 import Form from '@/components/comments/form';
 // Api
@@ -23,7 +23,7 @@ const CommentBox: FunctionComponent<any> = (props: {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [resetForm, setResetForm] = useState(false);
-  const [session] = useSession();
+  const { data: session } = useSession();
   const [hideEditor, setHideEditor] = useState(true);
   const parentId: string = (props?.parent?._id);
   const comments: Array<Comment> = (props.comments);

@@ -1,7 +1,7 @@
 // React
 import { FunctionComponent, useState } from 'react';
 // NextjsAuth
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 // Components
 import CommentBox from '@/components/comments/commentBox';
 import Form from '@/components/posts/form';
@@ -25,7 +25,7 @@ const editorOpts = {
 };
 
 const PostDetail: FunctionComponent<Post> = (post: Post) => {
-  const [session] = useSession();
+  const { data: session } = useSession();
   const [submitting, setSubmitting] = useState(false);
   const [comments, setComments] = useState(post?.comments?.data)
   const { _id, title, body, createdAt }: Post = {...post};
