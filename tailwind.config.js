@@ -20,6 +20,7 @@ module.exports = {
         informa: 'rgba(255, 255, 255, 1)',
         glownet: 'rgba(228, 8, 126, 1)',
         string_: 'rgba(255, 99, 99, 1)',
+        devengo: 'rgba(7, 24, 61, 1)',
         dark: {
           gray: {
             primary: 'rgba(45, 55, 72, 1)',

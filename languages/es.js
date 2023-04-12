@@ -66,7 +66,7 @@ export default {
   cv: {
     download: `Descargar CV`,
     download_url: `https://drive.google.com/uc?export=view&id=1PcQpouiviaQjbv9c1J0_X6t-mcmVQPqr`,
-    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web y siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de 6 a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>&Eacute;cha un ojo m&aacute;s abajo a algunos de los lenguajes y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
+    description: `<h1 class="text-accent">Hola, soy Fran.</h1><br><p>Soy desarrollador web y siempre ando buscando nuevos retos y proyectos en los que participar.</p><p>Tengo m&aacute;s de ${ new Date().getFullYear() - 2015 } a&ntilde;os de experiencia trabajando en el sector y durante todo este tiempo he ido adquiriendo y perfeccionando conocimientos y habilidades. Me gusta estar en constante aprendizaje y lo intento transmitir a las personas que me rodean.</p><p>&Eacute;cha un ojo m&aacute;s abajo a algunos de los lenguajes y tecnologías con las que suelo trabajar y no dudes en <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contactar conmigo</strong></a>.</p>`,
     favorites: `Mis favoritos`,
     myJobs: `Mis trabajos`,
     mySkills: `Mi stack`,
@@ -105,6 +105,13 @@ export default {
         bgColor: theme.extend.colors.string_,
         textColor: theme.extend.colors.light.white.secondary,
         imageUrl: `https://drive.google.com/uc?export=view&id=1VX8vLt6jeG6i8zaNGpOobewLLF7-PV6X`
+      },
+      "Devengo": {
+        subtitle: `Desde Jul. 2021`,
+        description: `Inmerso en el sector 'Fintech', en Devengo hacemos las cosas muy bien, con mimo y sobre todo rápidas. No todos los días se puede decir que trabajas en un orquestador de pagos instantáneos. DDD, PubSub, arquitectura hexagonal y TDD en otros conceptos son lo que practicamos en el equipo técnico de Devengo.`,
+        bgColor: theme.extend.colors.devengo,
+        textColor: theme.extend.colors.light.white.secondary,
+        imageUrl: `https://drive.google.com/uc?export=view&id=1xFnD-xnPMy-VDTVVuazlxZzLrKh75b2A`
       }
     }
   },

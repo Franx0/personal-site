@@ -65,8 +65,8 @@ export default {
   },
   cv: {
     download: `Download CV`,
-    download_url: `https://drive.google.com/uc?export=view&id=1TqmD0eo7ZVdR1xk2hbD-V2LE59oitCke`,
-    description: `<h1 class="text-accent">Hi, I'm Fran.</h1><br><p>I am a web developer who is always looking for new challenges and projects to be part of.</p><p>During the last 6 years, I have been working as a developer, learning and improving my knowledge and skills. I love to keep learning and sharing it with all people around me</p><p>Take a look to some of the languages and technologies I usually work to and <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contact me</strong></a>.</p>`,
+    download_url: `https://drive.google.com/uc?export=view&id=1Gs-c8MC3u9vDtaqz1VVNc-IjxPq9XlA8`,
+    description: `<h1 class="text-accent">Hi, I'm Fran.</h1><br><p>I am a web developer who is always looking for new challenges and projects to be part of.</p><p>During the last ${ new Date().getFullYear() - 2015 } years, I have been working as a developer, learning and improving my knowledge and skills. I love to keep learning and sharing it with all people around me</p><p>Take a look to some of the languages and technologies I usually work to and <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contact me</strong></a>.</p>`,
     favorites: `My favorites`,
     myJobs: `My jobs`,
     mySkills: `My stack`,
@@ -105,6 +105,13 @@ export default {
         bgColor: theme.extend.colors.string_,
         textColor: theme.extend.colors.light.white.secondary,
         imageUrl: `https://drive.google.com/uc?export=view&id=1VX8vLt6jeG6i8zaNGpOobewLLF7-PV6X`
+      },
+      "Devengo": {
+        subtitle: `From Jul. 2021`,
+        description: `Trully immersed in the 'Fintech' sector, at Devengo we do things very well, it is all about finesse. Not every day can say that you work for an instant payment orchestrator.`,
+        bgColor: theme.extend.colors.devengo,
+        textColor: theme.extend.colors.light.white.secondary,
+        imageUrl: `https://drive.google.com/uc?export=view&id=1xFnD-xnPMy-VDTVVuazlxZzLrKh75b2A`
       }
     }
   },
