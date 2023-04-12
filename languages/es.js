@@ -117,7 +117,7 @@ export default {
   },
   footer: {
     follow: `Sígueme en: `,
-    handmade: `<span class="whitespace-pre">Diseñado y desarrollado por </span><span class="whitespace-pre"><a class="ml-1" title="Personal Site" href=https://${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>&nbsp;Fran Moya</a></span>`
+    handmade: `<span class="whitespace-pre">Diseñado y desarrollado por</span><span><a title="Personal Site" href=https://${process.env.NEXT_PUBLIC_GITHUB_ACCOUNT}/personal-site>&nbsp;Fran Moya</a></span>`
   },
   404: {
     text: `No se encontró la página`
