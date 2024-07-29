@@ -66,7 +66,7 @@ export default {
   cv: {
     download: `Download CV`,
     download_url: `https://drive.google.com/thumbnail?id=1Gs-c8MC3u9vDtaqz1VVNc-IjxPq9XlA8&sz=w700`,
-    description: `<h1 class="text-accent">Hi, I'm Fran.</h1><br><p>I am a web developer who is always looking for new challenges and projects to be part of.</p><p>During the last ${ new Date().getFullYear() - 2015 } years, I have been working as a developer, learning and improving my knowledge and skills. I love to keep learning and sharing it with all people around me</p><p>Take a look to some of the languages and technologies I usually work to and <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contact me</strong></a>.</p>`,
+    description: `<h1 class="text-accent">Hi, I'm Fran.</h1><br><p>I am a web developer who is always looking for new challenges and projects to be part of.</p><p>During the last ${ new Date().getFullYear() - 2015 } years, I have been working as a developer, learning and improving my knowledge and skills. I love to keep learning and sharing it with all people around me.</p><p>Take a look to some of the languages and technologies I usually work to and <a title="Mail" href=mailto:${process.env.NEXT_PUBLIC_GMAIL_ACCOUNT}?subject=${encodeURIComponent('Hi Fran!')}><strong>contact me</strong></a>.</p>`,
     favorites: `My favorites`,
     myJobs: `My jobs`,
     mySkills: `My stack`,
