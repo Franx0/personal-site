@@ -1,5 +1,5 @@
 // Icons
-import { Twitter, Linkedin, GitHub } from '@/icons/index';
+import { Twitter, Linkedin, GitHub } from '@/icons/index';
 
 export const Footer = (props: any) => {
   return (
