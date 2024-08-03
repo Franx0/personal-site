@@ -17,7 +17,7 @@ const LinkStyled: FunctionComponent<any> = (props: LinkProps) => {
         <a title={title} href={href} className={className}>{children}</a>
       )
     ) : (
-      <Link passHref href={{ pathname: pathname, query: query }} as={as}>
+      <Link legacyBehavior passHref href={{ pathname: pathname, query: query }} as={as}>
         <a title={title} className={className}>{children}</a>
       </Link>
     )

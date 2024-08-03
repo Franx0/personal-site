@@ -1,6 +1,10 @@
 {
   "name": "personal-site",
   "version": "0.1.0",
+  "engines": {
+    "npm": ">9.x",
+    "node": "18.x"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,15 +15,16 @@
   "dependencies": {
     "@loadable/component": "^5.14.1",
     "dompurify": "^2.2.6",
+    "eslint-config-next": "^14.2.5",
     "faunadb": "^4.0.0",
     "framer-motion": "^3.2.2-rc.1",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
-    "next": "^12.1.6",
+    "next": "^14.2.5",
     "next-auth": "^4.4.0",
-    "react": "17.0.1",
+    "react": "^18.3.1",
     "react-cookie-consent": "^6.2.3",
-    "react-dom": "17.0.1",
+    "react-dom": "^18.3.1",
     "react-ga": "^3.3.0",
     "react-nextjs-toast": "^1.2.5",
     "suneditor-react": "^2.15.1"
