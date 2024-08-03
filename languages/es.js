@@ -101,7 +101,7 @@ export default {
       },
       "String Projects": {
         subtitle: `Feb. 2020 - Nov. 2020`,
-        description: `Tras mi aventura en Glownet comencé a trabajar en String Projects, una pequeña consultora de software pero con clientes bastante potentes. Desarrollé en diferentes tecnologías y lenguajes, según las necesidades del cliente. React Native era la elegida para desarollar apps movile y Ruby on Rails el framework perfecto para construir robustos y rápidos 'backends'.`,
+        description: `Tras mi aventura en Glownet comencé a trabajar en String Projects, una pequeña consultora de software pero con clientes bastante potentes. Desarrollé en diferentes tecnologías y lenguajes, según las necesidades del cliente. React Native era la elegida para desarollar apps moviles y Ruby on Rails el framework perfecto para construir robustos y rápidos 'backends'.`,
         bgColor: theme.extend.colors.string_,
         textColor: theme.extend.colors.light.white.secondary,
         imageUrl: `https://drive.google.com/thumbnail?id=1VX8vLt6jeG6i8zaNGpOobewLLF7-PV6X`
