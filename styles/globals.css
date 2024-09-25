@@ -131,6 +131,11 @@ img[loading=lazy] {
 
 }
 
+@-webkit-keyframes smooth {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
 .withBlur:hover {
   display: block;
   -webkit-filter: blur(5px);
@@ -175,4 +180,19 @@ img[loading=lazy] {
   position: fixed;
   left: 0;
   bottom: 0;
+}
+
+.background-root-image {
+  width: 100%;
+  height: 100%;
+  background-color: #2a182d;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/media.jpg");
+  -webkit-animation: smooth 3s ease-in;
+  -moz-animation: smooth 3s ease-in;
+  -o-animation: smooth 3s ease-in;
+  -ms-animation: smooth 3s ease-in;
+  animation: smooth 3s ease-in;
 }
